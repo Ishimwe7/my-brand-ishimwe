@@ -1,0 +1,48 @@
+#create-article-form {
+    background-color:black;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #36454F;
+}
+
+#create-article-form header {
+    color: #A0E7E5;
+    text-align: center;
+    padding: 15px;
+    font-size: x-large;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #36454F;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #36454F;
+    color: #A0E7E5;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: xx-large;
+}
+
+button:hover {
+    background-color: #A0E7E5;
+    color: #36454F;
+}
