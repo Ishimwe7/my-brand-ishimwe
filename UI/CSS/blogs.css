@@ -1,0 +1,120 @@
+#blogs{
+    background-color: black;
+    padding:  30px;
+}
+
+#blogs-header h1{
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: xx-large;
+}
+
+.blog-section {
+    display: flex;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 20px;
+    flex-wrap: nowrap;
+    background-color: #000;
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+.blog-post {
+    flex: 1;
+    background-color: #A0E7E5;
+    /* max-width: calc(25% - 20px); */
+    max-width: 350px;
+    min-width: 350px;
+    max-height: 400px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 350px;
+    overflow: scroll;
+}
+
+.blog-post img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+ .blog-post .comment-btn{
+    background-color: #000;
+    color: #fff;
+    padding: 8px 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.like-btn, .share-btn, .comment-actions .reply-btn{
+    background:none;
+    width: 30px;
+    height: 25px;
+}
+
+.comments-section {
+    margin-top: 20px;
+}
+.comments-section h3{
+    font-size: x-large;
+}
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* .comment-actions {
+    position: absolute;
+    right: 0;
+} */
+
+/* .reply-btn, .like-btn {
+    color: #fff;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+} */
+
+.actions img{
+    width: 40px;
+    height: 40px;
+}
+.comment-actions{
+    display: flex;
+    gap: 30px;
+    margin-left: 70px;
+    align-items: center;
+}
+
+.comment-actions img{
+    width: 25px;
+    height: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+    .blog-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog-post {
+        width: 80%; /* Adjust the width for better responsiveness */
+        max-width: none;
+        min-width: none;
+        height: auto; /* Adjust the height for better responsiveness */
+    }
+}

@@ -1,0 +1,103 @@
+#skills-exp{
+    margin-top: 50px;
+    background-color: #36454F;
+    padding-top: 30px;
+    height: 600px;
+    width: 100%;
+}
+#skills-experience{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 30px;
+}
+
+#skills {
+    font-size: 40px;
+    color: #A0E7E5;
+}
+
+#skills h1{
+    font-size: 35px;
+    text-align: center;
+}
+
+.sect{
+    width: 500px;
+    text-align: center;
+    
+}
+
+.sect h1{
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.sect h2{
+    color: black;
+    font-weight:500;
+    text-align: left;
+}
+.sect p{
+    font-size: 32px;
+    color: #A0E7E5;
+    text-align: center;
+}
+span{
+    color: black;
+}
+#content{
+    margin: auto;
+    width: 500px;
+    height: 200px;
+    background-color: #A0E7E5;
+    border-radius: 10px;
+    font-size: x-large;
+}
+
+.category h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+.category h2{
+    text-align: left;
+    font-weight:300;
+    font-size: 40px;
+    color: white;
+    margin-left: 20px;
+}
+/* #category p{
+    text-align: center;
+    font-weight:lighter;
+    font-size: 22px;
+    color: white;
+    margin-left: 200px;
+} */
+.sect .special-skill{
+    color: black;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 1200px) {
+    #skills-experience {
+        gap: 30px;
+    }
+
+    .sect {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #skills-experience {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sect {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
