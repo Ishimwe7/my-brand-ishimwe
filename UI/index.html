@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="CSS/contact-me.css">
     <link rel="stylesheet" href="CSS/blogs.css">
     <link rel="stylesheet" href="CSS/portifolio.css">
+    <script type="module" src="JavaScript/displayArticles.js"> </script> 
 </head>
 <body>
     <header>
@@ -25,6 +26,9 @@
                     <li><a href="#blogs">Blogs</a></li>
                     <li><a href="#contact-me">Cantact me</a></li>
                 </ul>
+            </div>
+            <div class="nav-toggler" onclick="toggleNav()">
+                <img src="icons/iconmonstr-line-four-horizontal-lined.svg" alt="Menu">
             </div>
         </nav>
     </header>
@@ -78,7 +82,7 @@ enthusiasm. Constantly evolving to
 
         <div id="about">
             <div id="about-me">
-                <h1>__________About me__________</h1><br>
+                <h1>_______About me_______</h1><br>
                 <h2>Welcome to passionate fullstack developer's website.</h2><br><br>
                 <p>"A dream doesn't become reality through magic,
                     It takes sweat, hard work and determinatin." Albert Einstein.
@@ -95,14 +99,13 @@ enthusiasm. Constantly evolving to
                     <h2><span>Marital Status</span>: Single</h2>
                     <h2><span>Age</span> :23 years</h2>
                     <h2><span>Occupation</span>:Student</h2>
-                    <h2></h2>
                  </div>
             </div>
         </div>
 
         <div id="skills-exp">
             <div id="skills">
-                <h1>__________My Skills and Experience__________</h1><br>
+                <h1>____My Skills & Experience____</h1><br>
             </div>
             <div id="skills-experience">
                 <div class="sect">
@@ -129,7 +132,7 @@ enthusiasm. Constantly evolving to
 
 
         <div id="portifolio">
-            <h2>__________Recent Projects__________</h2>
+            <h2>______Recent Projects______</h2>
           <div id="projects">
             <div class="project">
                 <img src="pictures/2887244.jpg" alt="Project 1">
@@ -151,9 +154,9 @@ enthusiasm. Constantly evolving to
 
        <div id="blogs">
         <div id="blogs-header"">
-            <h1>__________My Blogs__________</h1><br>
+            <h1>________My Blogs________</h1><br>
         </div>
-        <div class="blog-section">
+        <div class="blog-section" id="blog-section">
             <article class="blog-post">
                 <img src="pictures/My profile.jpg" alt="Blog Image">
                 <h2>My first blog</h2>
@@ -214,8 +217,8 @@ enthusiasm. Constantly evolving to
             </article>
             <article class="blog-post">
                 <img src="pictures/logo.PNG" alt="Blog Image">
-                <h2>My first blog</h2>
-                <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                <h2 class="blog-title">My first blog</h2>
+                <p class="blog-content">This is a brief description of the blog post. It can include details about the content of the blog.</p>
                 
                 <div class="actions">
                     <img class="like-btn" src="icons/heart-svgrepo-com.svg" alt="like icon">
@@ -279,7 +282,7 @@ enthusiasm. Constantly evolving to
 
         <div id="contact-me">
             <div id="contact-header">
-                <h1>__________Contact me__________</h1>
+                <h1>________Contact me________</h1>
             </div>
            <div id="in-touch">
             <div id="contact-intro">
@@ -304,7 +307,7 @@ enthusiasm. Constantly evolving to
 
            <div id="query-form">
             <h1>Send me your query now !</h1>
-            <form action="#">
+            <form action="#" method="post">
                 <div class="field">
                     <label for="names">Full names: </label>
                     <input type="text" name="names" id="names">
@@ -370,5 +373,11 @@ enthusiasm. Constantly evolving to
         </div>
         <p id="copyrights">All rights reserved &copy;Ishimwe~2024</p>
     </footer>
+    <script>
+        function toggleNav() {
+          const navList = document.querySelector('#nav-bar ul');
+          navList.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
