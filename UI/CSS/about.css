@@ -70,7 +70,98 @@
     margin-left: 20px;
 }
 
+@media only screen and (max-width: 1024px){
+    #about{
+        height: 700px;
+    }
+    #nav-bar{
+        gap: 100px;
+    }
+    #profile-picture img{
+        height: 300px;
+    }
+
+}
+
+
+@media only screen and (max-width: 412px) {
+    #about{
+        height: fit-content;
+    }
+    #about-img{
+        display: block;
+        justify-content: center;
+        padding: 20px;
+    }
+    #about-me{
+        font-size: x-large;
+    }
+    #about img{
+        width: 250px;
+        height: 200px;
+    }
+    #desc p{
+        font-size: x-large;
+    }
+    #desc h1{
+        font-size: larger;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+    #about{
+        height: fit-content;
+    }
+    #about-img{
+        display: block;
+        justify-content: center;
+        padding: 20px;
+    }
+    #about-me{
+        font-size: x-large;
+    }
+    #about img{
+        width: 250px;
+        height: 200px;
+    }
+    #desc p{
+        font-size: x-large;
+    }
+    #desc h1{
+        font-size: larger;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    #about{
+        height: fit-content;
+    }
+    #about-img{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    #about-me{
+        font-size: x-large;
+    }
+    #about img{
+        width: 250px;
+        height: 200px;
+    }
+    #desc p{
+        font-size: xx-large;
+    }
+    #desc h1{
+        font-size: large;
+    }
+}
+
 @media only screen and (max-width: 768px) {
+   
+    #about{
+        height: fit-content;
+    }
     #about-img {
         gap: 5px;
     }

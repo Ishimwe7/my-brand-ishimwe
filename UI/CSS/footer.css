@@ -3,10 +3,9 @@ footer{
 }
 
 footer #copyrights{
-    font-size: large;
-    text-align: center;
+   font-size: large;
+   text-align: center;
    padding-bottom: 30px;
-   font-size: x-large;
 }
 
 #footer{
@@ -75,10 +74,147 @@ a{
 @media only screen and (max-width: 768px) {
     #footer {
         justify-content: center;
+        gap: 20px;
+    }
+    #footer .part {
+        width: 33.33%;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 412px) {
+    #footer{
+        width: 100%;
+        height: fit-content;
+        gap: 20px;
+        justify-content: space-evenly;
     }
 
-    #footer .part {
+    .part h1{
+        font-size: medium;
+    }
+
+    #footer h1{
+        font-size: large;
+    }
+    #quick-links li a{
+        font-size: medium;
+    }
+    footer #copyrights{
+       padding-bottom: 15px;
+       font-size: large;
+    }
+    
+    #footer .part{
+        width:33.33%;
+        padding: 8px;
+        font-size: small;
+    }
+    
+    #quick-links ul{
+        font-size: large;
+    }
+    .contact span {
+        font-size:medium;
+    }
+    
+    .contact img{
+        width: 18px;
+        height: 18px;
+    }
+    .contact{
+        gap: 5px;
+        margin: 2px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    #footer{
         width: 100%;
-        text-align: center;
+        height: fit-content;
+        gap: 20px;
+        justify-content: space-evenly;
+    }
+
+    .part h1{
+        font-size: medium;
+    }
+
+    #footer h1{
+        font-size: large;
+    }
+    #quick-links li a{
+        font-size: medium;
+    }
+    footer #copyrights{
+       padding-bottom: 10px;
+       font-size: large;
+    }
+    
+    #footer .part{
+        width:33.33%;
+        padding: 8px;
+        font-size: small;
+    }
+    
+    #quick-links ul{
+        font-size: large;
+    }
+    .contact span {
+        font-size:medium;
+    }
+    
+    .contact img{
+        width: 15px;
+        height: 15px;
+    }
+    .contact{
+        gap: 5px;
+        margin: 2px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    #footer{
+        width: 100%;
+        height: fit-content;
+        gap: 20px;
+        justify-content: space-evenly;
+    }
+
+    .part h1{
+        font-size: medium;
+    }
+
+    #footer h1{
+        font-size: large;
+    }
+    #quick-links li a{
+        font-size: medium;
+    }
+    footer #copyrights{
+       padding-bottom: 10px;
+       font-size: large;
+    }
+    
+    #footer .part{
+        width:33.33%;
+        padding: 8px;
+        font-size: small;
+    }
+    
+    #quick-links ul{
+        font-size: large;
+    }
+    .contact span {
+        font-size:medium;
+    }
+    
+    .contact img{
+        width: 15px;
+        height: 15px;
+    }
+    .contact{
+        gap: 5px;
+        margin: 2px;
     }
 }

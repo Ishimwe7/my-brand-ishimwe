@@ -75,19 +75,6 @@
     position: relative;
 }
 
-/* .comment-actions {
-    position: absolute;
-    right: 0;
-} */
-
-/* .reply-btn, .like-btn {
-    color: #fff;
-    padding: 6px 10px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-} */
 
 .actions img{
     width: 40px;
@@ -104,6 +91,143 @@
     width: 25px;
     height: 25px;
 }
+
+@media only screen and (max-width: 412px){
+    #blogs-header h1{
+        margin-top: 15px;
+        padding-top: 7px;
+        font-size: x-large;
+    }
+    
+    .blog-section {
+        padding: 15px;
+    }
+    
+    .blog-post {
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        padding: 15px;
+        margin: 8px;
+        width: 350px;
+    }
+    
+    .blog-post img {
+        width: 110px;
+    }
+    .blog-post h2{
+        font-size: larger;
+    }
+    .actions {
+        margin-top: 7px;
+        gap: 15px;
+    }
+    
+     .blog-post .comment-btn{
+        padding: 5px 8px;
+        margin-right: 7px;
+    }
+    
+    .like-btn, .share-btn, .comment-actions .reply-btn{
+        width: 20px;
+        height: 15px;
+    }
+    
+    .comments-section {
+        margin-top: 15px;
+    }
+    .comments-section h3{
+        font-size: larger;
+    }
+    .comment {
+        padding: 7px 0;
+    }
+    
+    
+    .actions img{
+        width: 30px;
+        height: 30px;
+    }
+    .comment-actions{
+        gap: 20px;
+        margin-left: 50px;
+        align-items: center;
+    }
+    
+    .comment-actions img{
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    #blogs-header h1{
+        margin-top: 15px;
+        padding-top: 7px;
+        font-size: x-large;
+    }
+    
+    .blog-section {
+        padding: 15px;
+    }
+    
+    .blog-post {
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        padding: 15px;
+        margin: 8px;
+        width: 350px;
+    }
+    
+    .blog-post img {
+        width: 110px;
+    }
+    .blog-post h2{
+        font-size: larger;
+    }
+    .actions {
+        margin-top: 7px;
+        gap: 15px;
+    }
+    
+     .blog-post .comment-btn{
+        padding: 5px 8px;
+        margin-right: 7px;
+    }
+    
+    .like-btn, .share-btn, .comment-actions .reply-btn{
+        width: 20px;
+        height: 15px;
+    }
+    
+    .comments-section {
+        margin-top: 15px;
+    }
+    .comments-section h3{
+        font-size: larger;
+    }
+    .comment {
+        padding: 7px 0;
+    }
+    
+    
+    .actions img{
+        width: 30px;
+        height: 30px;
+    }
+    .comment-actions{
+        gap: 20px;
+        margin-left: 50px;
+        align-items: center;
+    }
+    
+    .comment-actions img{
+        width: 20px;
+        height: 20px;
+    }
+}
+
 
 @media only screen and (max-width: 768px) {
     .blog-section {
