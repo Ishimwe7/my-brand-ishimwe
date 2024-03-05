@@ -1,8 +1,11 @@
-body {
-    font-family: 'Arial', sans-serif;
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
     background-color: black;
 }
 
@@ -43,7 +46,9 @@ body {
 
 #article{
     display: flex;
-    gap: 200px;
+    gap: 20%;
+    margin: auto;
+    justify-content: center;
     margin-top: 30px;
 }
 
@@ -59,17 +64,22 @@ body {
     cursor: pointer;
 }
 .nav-toggler img {
-    width: 30px; 
-    height: 30px; 
+    width: 50px; 
+    height: 50px; 
     background-color: #fff;
 }
 
 .admin-panel {
     background-color: #fff;
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: black;
+}
+
+#create-article-form h1{
+    color: white;
+    text-align: center;
+    font-size: xx-large;
 }
 
 header {
@@ -77,13 +87,20 @@ header {
     padding: 15px;
     color: white;
     display: flex;
-    gap: 30%;
+    gap: 27%;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: 222;
+    background-color: #000;
+    top: 0;
 }
 header img{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin-left: 0;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 
 nav {
@@ -143,6 +160,14 @@ a:hover {
 
 .query p {
     margin: 10px 0;
+}
+
+#admin-title h1{
+    font-size: xx-large;
+    color: #ffff;
+}
+.admin-panel h1{
+    color: white;
 }
 
 

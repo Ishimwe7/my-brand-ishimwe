@@ -1,8 +1,11 @@
 #contact-me{
     background-color: black;
     width: 100%;
-    height: 700px;
+    height: fit-content;
     padding: 30px;
+    margin: auto;
+    display: grid;
+    justify-content: center;
 }
 
 #contact-header h1{
@@ -56,7 +59,6 @@ form{
     padding: 10px;
     margin: auto;
     justify-content: center;
-    position: relative;
 }
 form label{
     font-size: x-large;
@@ -102,117 +104,20 @@ form button:hover{
 
 /* Media queries for responsiveness */
 
-@media only screen and (max-width: 992px){
-    #contact-me{
-        height: 800px;
-    }
-}
 
-@media only screen and (max-width: 412px) {
-
-    #contact-intro h1{
-        margin-top: 25px;
-    }
-    #contact-intro p{
-        font-size: x-large;
-        padding: 25px;
-    }
-    
-    #in-touch{
-        display: block;
-        margin: 8px;
-        padding: 8px;
-    }
-    
-    .my-contact span{
-        font-size: larger;
-    }
-    
-    .my-contact img{
-        width: 30px;
-        height: 30px;
-    }
-
-    #contact-header h1{
-        font-size: x-large;
-    }
+@media only screen and (max-width: 600px) {
 
     #contact-me{
-        height: fit-content;
-        margin: auto;
+        width: 100%;
+        padding: 20px;
     }
-    #query-form h1{
-        text-align: center;
-        margin: 10px;
-        font-size: x-large;
-    }
-    
-    form{
-        color: white;
-        width: 500px;
-        border: 1px solid #A0E7E5;
-        height: 240px;
-        border-radius: 20px;
-        padding: 8px;
-    }
-    form label{
-        font-size: larger;
-    }
-    form input{
-        width: 200px;
-        height: 25px;
-        padding: 6px;
-    }
-    form textarea{
-        width: 200px;
-        height: 70px;
-        padding: 8px;
-    }
-    .field{
-        margin: 3px;
-    }
-    
-    form button{
-        font-size: large;
-        font-weight: 700;
-        width: 80px;
-        margin-left: 100px;
-    }
-    
-}
-/* 
-@media only screen and (max-width: 390px) {
-
-    form{
-        width: 900px;
-        border: 1px solid #A0E7E5;
-        height: 240px;
-        border-radius: 20px;
-        padding: 6px;
-    }
-
-    form input{
-        width: 160px;
-        height: 23px;
-    }
-    form textarea{
-        width: 180px;
-        height: 70px;
-        padding: 8px;
-    }
-    
-} */
-
-
-@media only screen and (max-width: 430px) {
-
 
     #contact-intro h1{
         margin-top: 20px;
     }
     #contact-intro p{
         font-size: larger;
-        padding: 20px;
+        padding: 2%;
     }
     
     #in-touch{
@@ -222,136 +127,62 @@ form button:hover{
     }
     
     .my-contact span{
-        font-size: larger;
+        font-size: large;
     }
     
     .my-contact img{
-        width: 30px;
-        height: 30px;
+        width: 10px;
+        height: 20px;
     }
 
     #contact-header h1{
-        font-size: x-large;
-    }
-
-    #contact-me{
-        height: fit-content;
-        margin: auto;
+        font-size: large;
     }
     #query-form h1{
         text-align: center;
-        margin: 10px;
-        font-size: x-large;
+        margin: 3px;
+        font-size: large;
     }
     
     form{
         color: white;
-        width: 500px;
+        width: 80%;
         border: 1px solid #A0E7E5;
         height: 240px;
         border-radius: 20px;
         padding: 8px;
     }
     form label{
-        font-size: larger;
+        font-size: medium;
     }
     form input{
-        width: 200px;
+        width: 70%;
         height: 25px;
         padding: 6px;
     }
     form textarea{
-        width: 200px;
+        width: 70%;
         height: 70px;
         padding: 8px;
     }
     .field{
-        margin: 3px;
+        margin: 0.7%;
     }
     
     form button{
-        font-size: large;
+        font-size: medium;
         font-weight: 700;
-        width: 80px;
-        margin-left: 100px;
-    }
-    
-}
-
-
-@media only screen and (max-width: 540px) {
-
-
-    #contact-intro h1{
-        margin-top: 20px;
-    }
-    #contact-intro p{
-        font-size: larger;
-        padding: 20px;
-    }
-    
-    #in-touch{
-        display: block;
-        margin: 6px;
-        padding: 6px;
-    }
-    
-    .my-contact span{
-        font-size: larger;
-    }
-    
-    .my-contact img{
-        width: 30px;
-        height: 30px;
-    }
-
-    #contact-header h1{
-        font-size: x-large;
-    }
-
-    #contact-me{
-        height: fit-content;
+        width: 50%; 
+        display: grid;
+        justify-content: center;
         margin: auto;
-    }
-    #query-form h1{
-        text-align: center;
-        margin: 10px;
-        font-size: x-large;
-    }
-    
-    form{
-        color: white;
-        width: 500px;
-        border: 1px solid #A0E7E5;
-        height: 240px;
-        border-radius: 20px;
-        padding: 8px;
-    }
-    form label{
-        font-size: larger;
-    }
-    form input{
-        width: 300px;
-        height: 25px;
-        padding: 6px;
-    }
-    form textarea{
-        width: 300px;
-        height: 70px;
-        padding: 8px;
-    }
-    .field{
-        margin: 3px;
-    }
-    
-    form button{
-        font-size: large;
-        font-weight: 700;
-        width: 80px;
-        margin-left: 170px;
+        margin-top: 10px;
     }
     
 }
+
+
+
 
 @media only screen and (max-width: 768px) {
     #in-touch {
@@ -398,4 +229,4 @@ form button:hover{
     }
     
     
-}
+} 

@@ -68,10 +68,19 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     #projects {
         flex-direction: column;
         align-items: center;
+    }
+    .project img {
+        max-width: 60%;
+        height: 40%;
+        border-radius: 8px;
+    }
+    #portifolio h2{
+        font-size: larger;
+        padding: 3%;
     }
 }
 
