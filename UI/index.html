@@ -18,6 +18,9 @@
         <nav>
             <div id="nav-bar">
                 <div id="logo"><img src="pictures/logo.PNG" alt="Logo"></div>
+                <div class="nav-toggler" onclick="toggleNav()">
+                    <img src="icons/iconmonstr-line-four-horizontal-lined.svg" alt="Menu">
+                 </div>
                 <ul id="menu-list">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About me</a></li>
@@ -26,9 +29,8 @@
                     <li><a href="#blogs">Blogs</a></li>
                     <li><a href="#contact-me">Cantact me</a></li>
                 </ul>
-            </div>
-            <div class="nav-toggler" onclick="toggleNav()">
-                <img src="icons/iconmonstr-line-four-horizontal-lined.svg" alt="Menu">
+                <!-- <div class="nav-toggler">&#9776;</div> -->
+               
             </div>
         </nav>
     </header>
@@ -43,11 +45,11 @@
                     <br><br>
                    <div id="text-cv">
                     <p class="my-text">
-                        I am thrilled to share my portfolio with you. <br>
-     Explore the intersection of my passion and   <br>  
-    expertise in the world of technology.<br>
-     From coding to problem-solving, <br>
-    let's embark on a journey through my<br>
+                        I am thrilled to share my portfolio with you. 
+     Explore the intersection of my passion  and   
+    expertise in the world of technology.
+     From coding to problem-solving, 
+    let's embark on a journey through my
      projects and experiences. 
                     </p>
                     <div id="home-btns">
@@ -64,14 +66,14 @@
                 <div class="home2-text">
                     <p>
                         "Passionate Front-end Developer, blending 
-design finesse with code mastery. Crafting 
+design with code mastery. Crafting 
 seamless, user-centric interfaces that elevate digital experiences."
                     </p>
                 </div>
                 <div class="home2-text">
                     <p>
                         "Eager learner and passionate coder, em
-bracing the art of programming with 
+bracing the art of programming with courage and
 enthusiasm. Constantly evolving to
  master new codes and technologies."
                     </p>
@@ -373,10 +375,35 @@ enthusiasm. Constantly evolving to
         </div>
         <p id="copyrights">All rights reserved &copy;Ishimwe~2024</p>
     </footer>
-    <script>
+    <!-- <script>
         function toggleNav() {
           const navList = document.querySelector('#nav-bar ul');
           navList.classList.toggle('show');
+        }
+    </script> -->
+     <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Toggle navigation links on click of the toggler icon
+          document.querySelector('.nav-toggler').addEventListener('click', function () {
+            const navLinks = document.querySelectorAll('ul li');
+            navLinks.forEach(link => {
+              link.style.display = (link.style.display === 'none' || link.style.display === '') ? 'block' : 'none';
+            });
+          });
+        });
+      </script> -->
+      <script>
+        function toggleNav() {
+            var navBar = document.getElementById("nav-bar");
+            var menuList = document.getElementById("menu-list");
+            if (menuList.style.display === "block") {
+                menuList.style.display = "none";
+            } else {
+                menuList.style.display = "block";
+            }
+            if (window.innerWidth > 768) {
+              location.reload();
+        }
         }
     </script>
 </body>
