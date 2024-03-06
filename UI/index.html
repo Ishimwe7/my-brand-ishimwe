@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="CSS/blogs.css">
     <link rel="stylesheet" href="CSS/portifolio.css">
     <script type="module" src="JavaScript/displayArticles.js"> </script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -21,13 +24,16 @@
                 <div class="nav-toggler" onclick="toggleNav()">
                     <img src="icons/iconmonstr-line-four-horizontal-lined.svg" alt="Menu">
                  </div>
-                <ul id="menu-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About me</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#portifolio">Portifolio</a></li>
-                    <li><a href="#blogs">Blogs</a></li>
-                    <li><a href="#contact-me">Cantact me</a></li>
+                 <div>
+
+                     <ul id="menu-list">
+                         <li><a href="#home">Home</a></li>
+                         <li><a href="#about">About me</a></li>
+                         <li><a href="#skills">Skills</a></li>
+                         <li><a href="#portifolio">Portifolio</a></li>
+                         <li><a href="#blogs">Blogs</a></li>
+                         <li><a href="#contact-me">Contact me</a></li>
+                        </div>
                 </ul>
                 <!-- <div class="nav-toggler">&#9776;</div> -->
                
@@ -39,14 +45,13 @@
             <div id="home-part1">
                 <div id="intro">
                     <p id="my-intro">
-                        <h1>Hi, my name is Ishimwe,</h1>
-                        <h1>An ATLP student</h1>
+                        <h1>Hi, my name is Ishimwe,<br>An ATLP student</h1>
                     </p>
-                    <br><br>
+                    
                    <div id="text-cv">
                     <p class="my-text">
                         I am thrilled to share my portfolio with you. 
-     Explore the intersection of my passion  and   
+     Explore the intersection of my passion  and   l
     expertise in the world of technology.
      From coding to problem-solving, 
     let's embark on a journey through my
@@ -111,7 +116,7 @@ enthusiasm. Constantly evolving to
             </div>
             <div id="skills-experience">
                 <div class="sect">
-                    <p class="category"> Skills</p> <br><br>
+                    <p class="category"> <span>Skills</span></p> <br><br>
                     <h1>&#10004 Technical Skills</h1><br>
                     <h2 class="special-skill"> HTML, CSS & JavaScript</h2>
                     <h2>Object Oriented Programming</h2>
@@ -124,7 +129,7 @@ enthusiasm. Constantly evolving to
                     <h2>Time Management, etc</h2>
                 </div>
                 <div class="sect">
-                   <p class="category"> Experience</p> <br><br>
+                   <p class="category"> <span>Experience</span></p> <br><br>
                     <h2>&#10004 Served as an IT support at N@tcom Services Ltd from November 2022 to May 2023</h2>
                     <h2>&#10004 Served as a database Instructor at N@tcom Services Ltd from November 2022 to May 2023</h2>
                     <h2>&#10004 Currently persuing Front-end development program at Andela</h2>
@@ -286,52 +291,52 @@ enthusiasm. Constantly evolving to
             <div id="contact-header">
                 <h1>________Contact me________</h1>
             </div>
-           <div id="in-touch">
-            <div id="contact-intro">
-                <h1>Let's get in touch</h1>
-                <p>I'm always open for discussing different projects.</p>
+            <div class="main-contact">
+                <div id="in-touch">
+                    <div id="contact-intro">
+                        <h1>Let's get in touch</h1>
+                        <p>I'm always open for discussing different projects.</p>
+                    </div>
+                    <div id="my-contacts">
+                        <div class="my-contact">
+                            <img src="icons/pngwing.com.png" alt="call icon">
+                            <span> +250780146235</span>
+                        </div>
+                        <div class="my-contact">
+                            <img src="icons/4202011_email_gmail_mail_logo_social_icon.svg" alt="email icon">
+                            <span> ishimweinstein@gmail.com</span>
+                        </div>
+                        <div class="my-contact">
+                            <img src="icons/location-2955.svg" alt="">
+                           <span> KG 636 St Kigali, Rwanda</span>
+                        </div>
+                    </div>
+                   </div>
+        
+                   <div id="query-form">
+                    <h1>Send me your query now !</h1>
+                    <form action="#" method="post">
+                        <div class="field">
+                            <label for="names">Names: </label>
+                            <input type="text" name="names" id="names">
+                        </div>
+                        <div class="field">
+                            <label for="email">Email:</label>
+                            <input type="text" name="email" id="email">
+                        </div>
+                        <div class="field">
+                            <label for="subject">Subject:</label>
+                            <input type="text" name="subject" id="subject">
+                        </div>
+                        <div class="field">
+                          <label for="query">Query: </label>
+                          <textarea name="query" id="query" cols="30" rows="10"></textarea>
+                       </div>
+                       <button type="submit" name="send-query" id="send-query">Submit</button>
+                    </form>
+                   </div>
             </div>
-            <div id="my-contacts">
-                <div class="my-contact">
-                    <img src="icons/pngwing.com.png" alt="call icon">
-                    <span> +250780146235</span>
-                </div>
-                <div class="my-contact">
-                    <img src="icons/4202011_email_gmail_mail_logo_social_icon.svg" alt="email icon">
-                    <span> ishimweinstein@gmail.com</span>
-                </div>
-                <div class="my-contact">
-                    <img src="icons/location-2955.svg" alt="">
-                   <span> KG 636 St Kigali, Rwanda</span>
-                </div>
-            </div>
-           </div>
-
-           <div id="query-form">
-            <h1>Send me your query now !</h1>
-            <form action="#" method="post">
-                <div class="field">
-                    <label for="names">Full names: </label>
-                    <input type="text" name="names" id="names">
-                </div>
-                <div class="field">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email">
-                </div>
-                <div class="field">
-                    <label for="subject">Subject:</label>
-                    <input type="text" name="subject" id="subject">
-                </div>
-                <div class="field">
-                  <label for="query">Query: </label>
-                  <textarea name="query" id="query" cols="30" rows="10"></textarea>
-               </div>
-               <button type="submit" name="send-query" id="send-query">Submit</button>
-            </form>
-           </div>
-
         </div>
-
     </main>
 
     <footer>
@@ -396,14 +401,15 @@ enthusiasm. Constantly evolving to
         function toggleNav() {
             var navBar = document.getElementById("nav-bar");
             var menuList = document.getElementById("menu-list");
+           
             if (menuList.style.display === "block") {
                 menuList.style.display = "none";
             } else {
                 menuList.style.display = "block";
             }
-            if (window.innerWidth > 768) {
-              location.reload();
-        }
+        //     if (window.innerWidth > 768) {
+        //       location.reload();
+        // }
         }
     </script>
 </body>
