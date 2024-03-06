@@ -1,51 +1,50 @@
 #skills-exp{
+    margin: auto;
     margin-top: 50px;
-    /* background-color: #36454F; */
+    padding: 10px;
     padding-top: 30px;
-    height: 600px;
+    height: fit-content;
     width: 100%;
 }
 #skills-experience{
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
     margin-top: 30px;
 }
 
-#skills {
-    font-size: 40px;
+#skills h1{
+    font-size: xx-large;
+    text-align: center;
     color: #A0E7E5;
 }
 
-#skills h1{
-    font-size: 35px;
-    text-align: center;
-}
-
 .sect{
-    width: 500px;
-    text-align: center;
-    
+    width: 40%;
+    text-align: center; 
 }
 
 .sect h1{
-    color: white;
-    font-size: 25px;
+    color: #A0E7E5;
+    font-size: x-large;
     font-weight: 300;
 }
 
 .sect h2{
-    color: black;
-    font-weight:500;
-    text-align: left;
+    color: white;
+    font-weight:200;
+    font-size: larger;
+    
 }
+
 .sect p{
     font-size: 32px;
     color: #A0E7E5;
     text-align: center;
 }
-span{
-    color: black;
+.category span{
+    color: white;
+    font-size: 35px;
 }
 #content{
     margin: auto;
@@ -68,53 +67,63 @@ span{
     color: white;
     margin-left: 20px;
 }
-/* #category p{
-    text-align: center;
-    font-weight:lighter;
-    font-size: 22px;
-    color: white;
-    margin-left: 200px;
-} */
-.sect .special-skill{
+/* .sect .special-skill{
     color: black;
-}
+} */
 
 /* Media queries for responsiveness */
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 992px){
     #skills-exp{
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px;
         padding-top: 30px;
         height: fit-content;
         width: 100%;
-        display: grid;
-        justify-content: center;
     }
     #skills-experience{
-        display: grid;
+        display: flex;
         justify-content: center;
         gap: 100px;
-        margin-top: 20px auto;
-        padding: 20px;
+        margin-top: 30px;
+    }
+    
+    #skills {
+        font-size: 50px;
+        color: #A0E7E5;
     }
     
     #skills h1{
-        font-size: 35px;
+        font-size: xx-large;
         text-align: center;
     }
     
     .sect{
-        width: 100%;
-        display: grid;
-        justify-content: center;
+        width: 40%;
+        text-align: center; 
     }
     
+    .sect h1{
+        color: #A0E7E5;
+        font-size: 25px;
+        font-weight: 300;
+    }
+    
+    .sect h2{
+        color: white;
+        font-weight:200;
+        font-size: x-large;
+        text-align: left;
+    }
     .sect p{
-        font-size: 32px;
+        font-size: larger;
         color: #A0E7E5;
         text-align: center;
     }
-    span{
-        color: black;
+    .category span{
+        color: white;
+        font-size: xx-large;
     }
     #content{
         margin: auto;
@@ -122,121 +131,178 @@ span{
         height: 200px;
         background-color: #A0E7E5;
         border-radius: 10px;
-        font-size: x-large;
+        font-size: larger;
     }
     
     .category h1{
         text-align: center;
         font-weight: bold;
-        font-size: 30px;
+        font-size:larger;
     }
     .category h2{
         text-align: left;
         font-weight:300;
-        font-size: 40px;
+        font-size:larger;
         color: white;
         margin-left: 20px;
     }
 }
 
-/* @media only screen and (max-width: 1200px) {
-    #skills-experience {
-        gap: 30px;
-    }
-
+@media only screen and (max-width: 768px){
     #skills-exp{
-        padding: 30px;
-    }
-
-    .sect {
-        width: 100%;
-    }
-}
-
-@media only screen and (max-width: 412px) {
-   #skills-exp{
-    height: fit-content;
-   }
-   #skills h1{
-    font-size: x-large;
-    text-align: center;
-}
-}
-
-@media only screen and (max-width: 430px) {
-    #skills-exp{
-     height: fit-content;
-    }
-    #skills h1{
-     font-size: x-large;
-     text-align: center;
- }
- }
-
- @media only screen and (max-width: 540px) {
-    #skills-exp{
-     height: fit-content;
-    }
-    #skills h1{
-     font-size: x-large;
-     text-align: center;
- }
- } */
-
-@media only screen and (max-width: 768px) {
-    #skills-exp{
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px;
         padding-top: 30px;
         height: fit-content;
         width: 100%;
-        display: grid;
-        justify-content: center;
     }
     #skills-experience{
         display: grid;
         justify-content: center;
-        gap: 100px;
-        margin-top: 20px auto;
-        padding: 20px;
+        gap: 80px;
+        margin: auto;
+        margin-top: 30px;
+    }
+    .category span{
+        color: white;
+        font: x-large;
+    }
+    
+    #skills {
+        font-size: larger;
+        color: black;
     }
     
     #skills h1{
-        font-size: 50px;
+        font-size: x-large;
         text-align: center;
     }
     
     .sect{
         width: 100%;
-        display: grid;
-        justify-content: center;
+        text-align: center; 
+        margin-left: 10px;
     }
     
+    .sect h1{
+        color: #A0E7E5;
+        font-size: x-large;
+        font-weight: 300;
+    }
+    
+    .sect h2{
+        color: white;
+        font-weight:200;
+        font-size: large;
+        text-align: left;
+    }
     .sect p{
-        font-size: 50px;
+        font-size: medium;
         color: #A0E7E5;
         text-align: center;
     }
-    span{
-        color: black;
-    }
     #content{
         margin: auto;
-        width: 100%;
-        height: fit-content;
+        width: 500px;
+        height: 200px;
         background-color: #A0E7E5;
         border-radius: 10px;
-        font-size: xx-large;
+        font-size: larger;
+    }
+    .category span{
+        font-size: x-large;
+        color: white;
     }
     
     .category h1{
         text-align: center;
         font-weight: bold;
-        font-size: 70px;
+        font-size: larger;
     }
     .category h2{
-        text-align: left;
+        text-align: center;
         font-weight:300;
-        font-size: 80px;
+        font-size: larger;
         color: white;
         margin-left: 20px;
     }
-} 
+}
+
+@media only screen and (max-width: 484px){
+    #skills-exp{
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px;
+        padding-top: 30px;
+        height: fit-content;
+        width: 100%;
+    }
+    #skills-experience{
+        display: grid;
+        justify-content: center;
+        gap: 70px;
+        margin: auto;
+        margin-top: 30px;
+    }
+    
+    #skills {
+        font-size: x-large;
+        color: #A0E7E5;
+    }
+    
+    #skills h1{
+        font-size: larger;
+        text-align: center;
+    }
+    
+    .sect{
+        width: 100%;
+        text-align: center; 
+        margin-left: 10%;
+    }
+    
+    .sect h1{
+        color: #A0E7E5;
+        font-size: large;
+        font-weight: 300;
+    }
+    
+    .sect h2{
+        color: white;
+        font-weight:200;
+        font-size: large;
+        text-align: left;
+    }
+    .sect p{
+        font-size: 32px;
+        color: #A0E7E5;
+        text-align: center;
+    }
+   
+    #content{
+        margin: auto;
+        width: 500px;
+        height: 200px;
+        background-color: #A0E7E5;
+        border-radius: 10px;
+        font-size: larger;
+    }
+    .category span{
+        font-size: large;
+        color: white;
+    }
+    
+    .category h1{
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+    }
+    .category h2{
+        text-align: center;
+        font-weight:300;
+        font-size: large;
+        color: white;
+        margin-left: 20px;
+    }
+}

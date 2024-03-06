@@ -2,27 +2,46 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
+    box-sizing: border-box;
 }
 
 body{
-    background-color: #36454F;
-    margin: auto;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:black;
+    margin: 0;
+    /* margin: auto; */
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+#home{
+    margin: 0;
+    padding: 0 35px;
+    padding-top: 40px;
+    /* min-height: 100vh; */
+    /* display: grid; */
+    /* justify-content: center; */
+     display: grid;
+    justify-content: space-between; 
+    align-content: flex-start;
 }
 
 #nav-bar{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 40%;
+    justify-content: space-between;
+    /* gap: 40%; */
     width: 100%;
-    height: 100px;
-    margin: 0;
-    padding-left: 20px;
+    /* height: 100px; */
+    /* margin: 0; */
+    padding: 20px 20px ;
     background-color: #36454F;
+    /* box-shadow: 1px 1px 2px rgba(1, 10, 35, 0.365); */
     position: fixed;
     z-index: 222;
-    top: 0;
+    top: 0; 
 }
 
 #logo h1{
@@ -38,17 +57,19 @@ body{
 }
 
 #menu-list {
-    position: relative;
     display: flex;
+    flex-direction:row;
+    gap: 2rem;
+    /* flex-wrap: wrap; */
     list-style-type: none;
-    float: right;
+    /* float: right; */
+    /* margin: 8px; */
 }
 #nav-bar ul li a{
-    position: relative;
-    font-size: 28px;
+    /* position: relative; */
+    font-size: 1.5vw;
     color: white;
-    margin: 8px;
-    padding: 10px;
+    /* padding: 10px/; */
     text-decoration: none;
 }
 #nav-bar ul li a:hover{
@@ -60,21 +81,12 @@ body{
     color: #A0E7E5;
 }
 
-#home{
-    margin: auto 20px;
-    height: fit-content;
-    display: grid;
-    justify-content: center;
-    /* display: grid;
-    justify-content: center; */
-}
-
 
 #home-part1{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 3%;
-    margin-top: 120px;
+    margin-top: 80px;
 }
 
  #my-intro h1{
@@ -84,24 +96,27 @@ body{
 
 #text-cv{
     display: flex;
-    gap: 10px;
+    flex-direction:column;
+    gap: 25px;
 }
-#text-cv #home-btns{
+/* #text-cv #home-btns{
     margin-top: 75px;
     margin-right: 20px;
+} */
+#home-btns {
+    display:flex;
 }
-
 #text-cv #home-btns button{
     width: 200px;
     height: 50px;
-    font-size: x-large;
+    font-size: larger;
     padding: 0;
-    background-color: #A0E7E5;
+    background-color: rgba(6, 8, 115, 0.263);
     color: white;
     border: 1px solid #A0E7E5;
     border-radius: 10px;
     margin: 5px;
-    display: block;
+    /* display: block; */
 }
 #text-cv #home-btns button:hover{
     cursor: pointer;
@@ -119,40 +134,45 @@ body{
     text-decoration: none;
 }
 
- h1{
-    font-size: 30px;
+#intro h1{
+    font-size: 25px;
     color: #A0E7E5;
 }
 
 .my-text{
-    font-size: x-large;
+    font-size: larger;
     color: white;
     line-height: 25px;
+    width:800px;
+    padding: 1.85rem 0 0 0 ;
 }
 
 #profile-picture img{
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 250px;
     border-radius: 10px;
     margin-left: 30px;
+    object-fit:cover;
 }
 
 
 #home-part2{
     display: flex;
     justify-content: center;
-    gap: 25%;
-    margin: 40px auto;
+    gap: 20%;
+    margin: 45px auto;
     width: 75%;
-    height: fit-content;
+    /* height: 100px; */
 }
 #home-part2 .home2-text {
     width: 90%;
-    height: fit-content;
-    padding: 10px;
-    background-color: #A0E7E5;
-    font-size: x-large;
+    /* height: fit-content; */
+    padding: 15px;
+    background-color: rgba(6, 8, 115, 0.263);
+    font-size: larger;
+    color: #fff;
     border-radius: 10px;
+    box-shadow: 1px 2px 1px  rgb(83, 118, 231);
 }
 
 .nav-toggler{
@@ -162,420 +182,230 @@ body{
 #home{
     max-width: fit-content;
 }
-
-
-
-/* Media queries for responsiveness */
-
-
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 992px) {
     #home{
-        /* margin: 2%; */
-        padding: 5%;
-        height: fit-content;
-        display: grid;
-        justify-content: center;
+        margin: auto;
+        padding: 0 50px;
+        padding-top: 40px;
         width: 100%;
+         display: flex;
+         flex-direction: column;
+        justify-content: space-between; 
+        align-content: flex-start;
     }
-
-    #nav-bar{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 100px;
-    }
-    #menu-list{
-        display: none;
-    }
-    
-    
     #home-part1{
-        display: grid;
-        justify-content: center;
-        width: 100%;
-        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3%;
+        margin: auto;
         margin-top: 120px;
-        height: fit-content;
     }
-    
-     #my-intro h1{
-        font-size: 20px;
-        text-align: center;
-        padding: 10px;
-    }
-    
-    #text-cv{
-        display: grid;
-        justify-content: center;
-        width: 100%;
-        
-    }
-    #text-cv #home-btns{
-        margin-top: 50px;
-    }
-    
     #text-cv #home-btns button{
-        width: 50%;
-        height: 60px;
-        font-size: larger;
-        padding: 4%;
-        margin: 10px auto;
-        display: grid;
-        justify-content: center;
+        width: 180px;
+        height: 50px;
+        font-size: x-large;
+        padding: 0;
+        background-color: #A0E7E5;
+        color: white;
+        border: 1px solid #A0E7E5;
+        border-radius: 10px;
+        margin: 5px;
+        /* display: block; */
+    }
+    #profile-picture img{
+        width: 300px;
+        height: 400px;
+        border-radius: 10px;
+        margin-top: 80px;
+        object-fit:cover;
     }
     
     
+    #home-part2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+        margin: 45px auto;
+    }
+    .home2-text p{
+        font-size: 1.5rem;
+    }
     .my-text{
         font-size: larger;
-        line-height: 25px;
+        color: white;
+        line-height: 22px;
+        width:80%;
+        justify-content: center;
+        padding: 1.2rem 0 0 0 ;
+    }
+}
+@media only screen and (max-width: 768px) {
+
+    #home{
+        width: 100%;
+        margin: auto;
+    }
+ 
+    #nav-bar {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 40%;
+      
+    }
+    .nav-toggler {
+        display: flex;
+        justify-content: flex-end;
+        align-items:center;
+        width: 85px;
+        height: 85px;
         
+    }  
+     #menu-list {
+        display: none;
+    }
+    /* #menu-list {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        height:100px;
+        padding: 50px;
+        background: rebeccapurple;
+        z-index:1000
+    } */
+    #my-intro {
+        font-size:1.2rem;
+    }
+   
+    #home-part1{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2%;
+        margin-top: 120px;
+    }
+    .my-text{
+        font-size: large;
+        color: white;
+        line-height: 20px;
+        width:80%;
+        justify-content: center;
+        padding: 1rem 0 0 0 ;
+    }
+    #text-cv #home-btns button{
+        width: 150px;
+        height: 50px;
+        font-size: larger;
+        padding: 0;
+        margin: 3px;
+        /* display: block; */
+    }
+
+    #profile-picture img{
+        width: 220px;
+        height: 300px;
+        border-radius: 10px;
+        margin-top: 80px;
+        object-fit:cover;
     }
     
-    #profile-picture img{
-        width: 65%;
-        height: 300px;
-        display: grid;
+    
+    #home-part2{
+        display: flex;
+        flex-direction: column;
         justify-content: center;
+        gap: 25px;
+        margin: 45px auto;
+    }
+    .home2-text p{
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 484px) {
+    #home{
+        width: 100%;
         margin: auto;
     }
     
+    #nav-bar {
+        padding: 0;
+        margin: 10px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 50%;
+      
+    }
+    .nav-toggler {
+        display: flex;
+        justify-content: flex-end;
+        align-items:center;
+        width: 85px;
+        height: 85px;
+        
+    }  
+     #menu-list {
+        display: none;
+    }
+    /* #menu-list {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        height:100px;
+        padding: 50px;
+        background: rebeccapurple;
+        z-index:1000
+    } */
+    #my-intro {
+        font-size:1rem;
+    }
+   
+    #home-part1{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1%;
+        margin-top: 100px;
+    }
+    .my-text{
+        font-size: large;
+        color: white;
+        line-height: 16px;
+        width:80%;
+        justify-content: center;
+        padding: 1.2rem 0 0 0 ;
+    }
+    #text-cv #home-btns button{
+        width: 120px;
+        height: 40px;
+        font-size: large;
+        padding: 0;
+        margin: 2px;
+    }
+    #profile-picture img{
+        width: 200px;
+        height: 300px;
+        border-radius: 10px;
+        margin-top: 80px;
+        object-fit:cover;
+    }
+    
     
     #home-part2{
-        display: grid;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        width: 100%;
-       
+        gap: 20px;
+        margin: 35px auto;
     }
-    #home-part2 .home2-text {
-        width: 100%;
-        height: fit-content;
-        font-size: larger;
-        display: grid;
-        justify-content: center;
-    }
-    
-    .nav-toggler{
-        display:inline;
-        cursor: pointer;
-        width: 100px;
-        height: 150px;
+    .home2-text p{
+        font-size: 1rem;
     }
 }
-    
-@media only screen and (max-width: 768px) {
-
-
-   
-    #nav-bar{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2%;
-        width: 100%;
-        height: 100px;
-        margin: 0;
-        padding-left: 20px;
-        background-color: #36454F;
-        position: fixed;
-        z-index: 222;
-        top: 0;
-    }
-    
-    
-    #logo img{
-        width: 75px;
-        height: 50px;
-        border-radius: 10px;
-    }
-    
-    #menu-list {
-        position: relative;
-        display: flex;
-        list-style-type: none;
-        float: right;
-        gap: 0%;
-        font-size: larger;
-    }
-    #nav-bar ul li a{
-        position: relative;
-        font-size: 100%;
-        color: white;
-        margin: 5px;
-        padding: 6px;
-        text-decoration: none;
-    }
-    #nav-bar ul li a:hover{
-        text-decoration: underline;
-        opacity: 0.7;
-    }
-    
-    #nav-bar ul li a:active{
-        color: #A0E7E5;
-    }
-    
-    #home{
-        margin: auto 20px;
-        height: fit-content;
-        display: grid;
-        justify-content: center;
-        /* display: grid;
-        justify-content: center; */
-    }
-    
-    
-    #home-part1{
-        display: flex;
-        justify-content: space-evenly;
-        gap: 3%;
-        margin-top: 120px;
-    }
-    
-     #my-intro h1{
-        font-size: 70px;
-        color: #A0E7E5;
-    }
-    
-    #text-cv{
-        display: flex;
-        gap: 10px;
-    }
-    #text-cv #home-btns{
-        margin-top: 75px;
-        margin-right: 20px;
-    }
-    
-    #text-cv #home-btns button{
-        width: 200px;
-        height: 50px;
-        font-size: x-large;
-        padding: 0;
-        background-color: #A0E7E5;
-        color: white;
-        border: 1px solid #A0E7E5;
-        border-radius: 10px;
-        margin: 5px;
-        display: block;
-    }
-    #text-cv #home-btns button:hover{
-        cursor: pointer;
-        color: #36454F;
-        background-color: white;
-    }
-    #text-cv #home-btns button a:hover{
-        cursor: pointer;
-        color: #36454F;
-        background-color: white;
-    }
-    
-    #text-cv #home-btns a{
-        color: white;
-        text-decoration: none;
-    }
-    
-     h1{
-        font-size: 30px;
-        color: #A0E7E5;
-    }
-    
-    .my-text{
-        font-size: x-large;
-        color: white;
-        line-height: 25px;
-    }
-    
-    #profile-picture img{
-        width: 300px;
-        height: 300px;
-        border-radius: 10px;
-        margin-left: 30px;
-    }
-    
-    
-    #home-part2{
-        display: flex;
-        justify-content: center;
-        gap: 25%;
-        margin: 40px auto;
-        width: 75%;
-        height: fit-content;
-    }
-    #home-part2 .home2-text {
-        width: 90%;
-        height: fit-content;
-        padding: 10px;
-        background-color: #A0E7E5;
-        font-size: larger;
-        border-radius: 10px;
-    }
-    
-    .nav-toggler{
-        display: none;
-    }
-    
-    #home{
-        max-width: fit-content;
-    }
-} 
-
-
-   
-@media only screen and (max-width: 992px) {
-
-    #nav-bar{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5%;
-        width: 100%;
-        height: 100px;
-        margin: 0;
-        padding-left: 20px;
-        background-color: #36454F;
-        position: fixed;
-        z-index: 222;
-        top: 0;
-    }
-    
-    
-    #logo img{
-        width: 80px;
-        height: 60px;
-        border-radius: 10px;
-    }
-    
-    #menu-list {
-        position: relative;
-        display: flex;
-        list-style-type: none;
-        float: right;
-        gap: 2%;
-        font-size: larger;
-    }
-    #nav-bar ul li a{
-        position: relative;
-        font-size: 100%;
-        color: white;
-        margin: 5px;
-        padding: 6px;
-        text-decoration: none;
-    }
-    #nav-bar ul li a:hover{
-        text-decoration: underline;
-        opacity: 0.7;
-    }
-    
-    #nav-bar ul li a:active{
-        color: #A0E7E5;
-    }
-    
-    #home{
-        margin: auto 20px;
-        height: fit-content;
-        display: grid;
-        justify-content: center;
-        /* display: grid;
-        justify-content: center; */
-    }
-    
-    
-    #home-part1{
-        display: flex;
-        justify-content: space-evenly;
-        gap: 3%;
-        margin-top: 120px;
-    }
-    
-     #my-intro h1{
-        font-size: 70px;
-        color: #A0E7E5;
-    }
-    
-    #text-cv{
-        display: flex;
-        gap: 10px;
-    }
-    #text-cv #home-btns{
-        margin-top: 75px;
-        margin-right: 20px;
-    }
-    
-    #text-cv #home-btns button{
-        width: 200px;
-        height: 50px;
-        font-size: x-large;
-        padding: 0;
-        background-color: #A0E7E5;
-        color: white;
-        border: 1px solid #A0E7E5;
-        border-radius: 10px;
-        margin: 5px;
-        display: block;
-    }
-    #text-cv #home-btns button:hover{
-        cursor: pointer;
-        color: #36454F;
-        background-color: white;
-    }
-    #text-cv #home-btns button a:hover{
-        cursor: pointer;
-        color: #36454F;
-        background-color: white;
-    }
-    
-    #text-cv #home-btns a{
-        color: white;
-        text-decoration: none;
-    }
-    
-     h1{
-        font-size: 30px;
-        color: #A0E7E5;
-    }
-    
-    .my-text{
-        font-size: x-large;
-        color: white;
-        line-height: 25px;
-    }
-    
-    #profile-picture img{
-        width: 300px;
-        height: 300px;
-        border-radius: 10px;
-        margin-left: 30px;
-    }
-    
-    
-    #home-part2{
-        display: flex;
-        justify-content: center;
-        gap: 25%;
-        margin: 40px auto;
-        width: 75%;
-        height: fit-content;
-    }
-    #home-part2 .home2-text {
-        width: 90%;
-        height: fit-content;
-        padding: 10px;
-        background-color: #A0E7E5;
-        font-size: larger;
-        border-radius: 10px;
-    }
-    
-    .nav-toggler{
-        display: none;
-    }
-    
-    #home{
-        max-width: fit-content;
-    }
-} 
-
-
-
-/* ============================================ */
-
 
