@@ -1,53 +1,49 @@
 footer{
-    background-color: #A0E7E5;
+    background-color: #36454F;
     height: fit-content;
+    color: white;
 }
 
 footer #copyrights{
-   font-size: large;
+   font-size: x-large;
    text-align: center;
    padding-bottom: 30px;
 }
 
 #footer{
-    background-color: #A0E7E5;
+    background-color: #36454F;
     width: 100%;
     height: fit-content;
     display: flex;
     justify-content: space-evenly;
-    gap: 150px;
+    gap: 120px;
 }
 #footer h1{
     color: black;
     text-align: center;
+    font-size: larger;
 }
 
 #footer .part{
-    width: 200px;
+    /* width: 200px; */
     padding: 10px;
 }
 
-#contacts{
-    color: black;
-}
-#address{
-    width: 200px;
-}
 #address {
-    font-size: x-large;
+    font-size: larger;
 }
 #quick-links ul{
     list-style-type: none;
-    font-size: x-large;
+    font-size: larger;
     text-align: center;
 }
 #quick-links a{
     text-decoration: none;
-    color: black;
     font-weight: lighter;
+    font-size: large;
 }
-#quick-links a:hover{
-    color: white;
+ a:hover{
+    color: #A0E7E5;
 }
 .contact{
     display: flex;
@@ -57,7 +53,7 @@ footer #copyrights{
     padding: 0;
 }
 .contact span{
-    font-size: x-large;
+    font-size: large;
 }
 
 .contact img{
@@ -67,155 +63,129 @@ footer #copyrights{
     margin: 0;
 }
 a{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
-/* Media queries for responsiveness */
-/* @media only screen and (max-width: 768px) {
-    #footer {
-        justify-content: center;
-        gap: 20px;
+@media only screen and (max-width: 992px){
+    
+    footer #copyrights{
+       font-size: x-large;
+       text-align: center;
+       padding-bottom: 27px;
     }
-    #footer .part {
-        width: 33.33%;
+    
+    #footer{
+        background-color: #36454F;
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 120px;
+    }
+    #footer h1{
+        color: black;
         text-align: center;
-    }
-}
-@media only screen and (max-width: 412px) {
-    #footer{
-        width: 100%;
-        height: fit-content;
-        gap: 20px;
-        justify-content: space-evenly;
-    }
-
-    .part h1{
-        font-size: medium;
-    }
-
-    #footer h1{
-        font-size: large;
-    }
-    #quick-links li a{
-        font-size: medium;
-    }
-    footer #copyrights{
-       padding-bottom: 15px;
-       font-size: large;
+        font-size: larger;
     }
     
-    #footer .part{
-        width:33.33%;
-        padding: 8px;
-        font-size: small;
+    #address {
+        font-size: larger;
     }
-    
     #quick-links ul{
-        font-size: large;
+        font-size: larger;
     }
-    .contact span {
-        font-size:medium;
+   
+    .contact{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 5px;
+        padding: 0;
     }
     
     .contact img{
-        width: 18px;
-        height: 18px;
-    }
-    .contact{
-        gap: 5px;
-        margin: 2px;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        margin: 0;
     }
 }
 
-@media only screen and (max-width: 430px) {
-    #footer{
-        width: 100%;
-        height: fit-content;
-        gap: 20px;
-        justify-content: space-evenly;
-    }
-
-    .part h1{
-        font-size: medium;
-    }
-
-    #footer h1{
-        font-size: large;
-    }
-    #quick-links li a{
-        font-size: medium;
-    }
+@media only screen and (max-width: 768px){
     footer #copyrights{
-       padding-bottom: 10px;
-       font-size: large;
-    }
-    
-    #footer .part{
-        width:33.33%;
-        padding: 8px;
+        font-size: larger;
+        text-align: center;
+        padding-bottom: 27px;
+     }
+     
+     #footer{
+         background-color: #36454F;
+         width: 100%;
+         height: fit-content;
+         display: flex;
+         justify-content: space-evenly;
+         gap: 18px;
+     }
+     #footer h1{
+         color: black;
+         text-align: center;
+         font-size: large;
+     }
+     
+     #address {
+         font-size: large;
+     }
+     #quick-links ul{
+         font-size: large;
+     }
+     
+     .contact img{
+         width: 20px;
+         height: 20px;
+         padding: 0;
+         margin: 0;
+     }
+}
+@media only screen and (max-width: 484px){
+    footer #copyrights{
+        font-size: medium;
+        text-align: center;
+        padding-bottom: 10px;
+     }
+     
+     #footer{
+         background-color: #36454F;
+         width: 100%;
+         height: fit-content;
+         display: flex;
+         justify-content: space-evenly;
+         gap: 0;
+     }
+     #footer h1{
+         color: black;
+         text-align: center;
+         font-size: small;
+     }
+     
+     #address {
+         font-size: smaller;
+     }
+     #quick-links a{
+         font-size: smaller;
+     }
+     
+     #address p{
+        font-size: smaller;
+     }
+     
+     .contact img{
+         width: 10px;
+         height: 10px;
+         padding: 0;
+         margin: 0;
+     }
+     .contact span{
         font-size: small;
-    }
-    
-    #quick-links ul{
-        font-size: large;
-    }
-    .contact span {
-        font-size:medium;
-    }
-    
-    .contact img{
-        width: 15px;
-        height: 15px;
-    }
-    .contact{
-        gap: 5px;
-        margin: 2px;
     }
 }
-
-@media only screen and (max-width: 540px) {
-    #footer{
-        width: 100%;
-        height: fit-content;
-        gap: 20px;
-        justify-content: space-evenly;
-    }
-
-    .part h1{
-        font-size: medium;
-    }
-
-    #footer h1{
-        font-size: large;
-    }
-    #quick-links li a{
-        font-size: medium;
-    }
-    footer #copyrights{
-       padding-bottom: 10px;
-       font-size: large;
-    }
-    
-    #footer .part{
-        width:33.33%;
-        padding: 8px;
-        font-size: small;
-    }
-    
-    #quick-links ul{
-        font-size: large;
-    }
-    .contact span {
-        font-size:medium;
-    }
-    
-    .contact img{
-        width: 15px;
-        height: 15px;
-    }
-    .contact{
-        gap: 5px;
-        margin: 2px;
-    }
-} */
