@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/dashboardStyles.css">
+    <script src="JavaScript/adminControl.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="pictures/logo.PNG" alt="my logo">
+                    <h1>Ny@nja</h1>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>    
+                <div class="sidebar">
+                    <a href="#" class="active">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Profile</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Users</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Create Article</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Blogs</h3> 
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Messages</h3>
+                        <span class="message-count">13</span>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">logout</span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+        </aside>
+        <main>
+            <h1>Admin's Dashboard</h1>
+             <div class="content-container">
+                <div id="create-article-form">
+                    <h1>Create Article</h1> 
+                <form id="new-article" method="post">
+                    <div class="row">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+    
+                    <div class="row">
+                        <label for="art-image">Image:</label>
+                        <input id="art-image" type="file" accept="image/*">
+                    </div>
+        
+                    <div class="row">
+                        <label for="content">Content:</label>
+                        <textarea id="content" name="content" rows="6" required></textarea>
+                    </div>
+        
+                    <button type="submit">Create Article</button>
+                </form>
+            </div>
+            <div id="queries">
+                <h1>User Queries</h1>
+                <div class="query">
+                    <h2>User Query</h2>
+                    <p><strong>Name:</strong> Ishimwe Pacifique</p>
+                    <p><strong>Email:</strong> ishimweinstein@gmail.com</p>
+                    <p><strong>Query:</strong> How can I contact you?</p>
+                    <p><strong>Date:</strong> February 29, 2024</p>
+                </div>
+                <div class="query">
+                    <h2>User Query</h2>
+                    <p><strong>Name:</strong> Nyanja Cyane</p>
+                    <p><strong>Email:</strong> nyanja.cyane@gmail.com</p>
+                    <p><strong>Query:</strong> How can I contact you?</p>
+                    <p><strong>Date:</strong> February 29, 2024</p>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+</body>
+</html>
