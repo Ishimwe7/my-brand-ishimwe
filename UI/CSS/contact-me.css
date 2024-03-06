@@ -2,34 +2,45 @@
     background-color: black;
     width: 100%;
     height: fit-content;
-    padding: 30px;
-    margin: auto;
+    padding: 25px;
+    margin: 10px auto;
     display: grid;
     justify-content: center;
 }
 
+.main-contact{
+    display: flex;
+    gap: 30px;
+}
+
 #contact-header h1{
     text-align: center;
+    font-size: xx-large;
+    color: #A0E7E5;
 }
 
 #contact-intro h1{
     margin-top: 30px;
+    font-size: x-large;
+    color: #A0E7E5;
 }
 #contact-intro p{
     color: white;
-    font-size: xx-large;
+    font-size: x-large;
     padding: 30px;
 }
 
 #in-touch{
-    display: flex;
-    margin: 10px;
-    padding: 10px;
-    gap: 100px;
+    display: grid;
+    margin: 5px;
+    padding: 8px;
+    gap: 0px;
+    justify-content: center;
 }
 
 #my-contacts span{
     color: white;
+    font-size: x-large;
 }
 
 .my-contact{
@@ -48,42 +59,44 @@
 #query-form h1{
     text-align: center;
     margin: 15px;
+    font-size: x-large;
+    color: #A0E7E5
 }
 
 form{
     color: white;
-    width: 500px;
+    width: 100%;
     border: 1px solid #A0E7E5;
-    height: 320px;
+    height: 85%;
     border-radius: 20px;
-    padding: 10px;
-    margin: auto;
+    padding: 8px;
+    margin: 20px auto;
     justify-content: center;
 }
 form label{
-    font-size: x-large;
+    font-size: larger;
 }
 form input{
-    font-size: larger;
+    font-size: x-large;
     color: black;
     font-weight: 400;
-    width: 300px;
-    height: 30px;
+    width: 70%;
+    height: 35px;
     padding: 10px;
 }
 form textarea{
-    font-size: larger;
+    font-size: x-large;
     color: black;
     font-weight: 400;
-    width: 300px;
-    height: 100px;
+    width: 70%;
+    height: 80px;
     padding: 10px;
 }
 .field{
     display:flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5px;
+    margin: 8px;
 }
 
 form button{
@@ -91,10 +104,11 @@ form button{
     background-color: white;
     color: black;
     font-weight: 700;
-    width: 120px;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 10px 10px 0px 180px;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 10px;
+    margin-left:38%;
+    font-size: 25px;
 }
 
 form button:hover{
@@ -102,131 +116,327 @@ form button:hover{
     opacity: 0.7;
 }
 
-/* Media queries for responsiveness */
-
-
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 992px){
     #contact-me{
+        background-color: black;
         width: 100%;
-        padding: 20px;
+        height: fit-content;
+        padding: 30px;
+        margin: 20px auto;
+        display: grid;
+        justify-content: center;
     }
-
+    
+    #contact-header h1{
+        text-align: center;
+        font-size: xx-large;
+    }
+    
     #contact-intro h1{
-        margin-top: 20px;
+        margin-top: 30px;
+        font-size: x-large;
     }
     #contact-intro p{
-        font-size: larger;
-        padding: 2%;
+        color: white;
+        font-size: large;
+        padding: 30px;
     }
     
     #in-touch{
-        display: block;
-        margin: 6px;
-        padding: 6px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        padding: 10px;
+        gap: 60px;
+    }
+
+    .main-contact{
+        display: grid;
+        justify-content: center;
+        gap: 30px;
     }
     
+    #my-contacts span{
+        color: white;
+        font-size: large;
+    }
+    
+    .my-contact{
+        display: flex;
+    }
     .my-contact span{
         font-size: large;
     }
     
     .my-contact img{
-        width: 10px;
-        height: 20px;
-    }
-
-    #contact-header h1{
-        font-size: large;
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        margin: 0;
     }
     #query-form h1{
         text-align: center;
+        margin: 15px;
+        font-size: x-large;
+    }
+    
+    form{
+        color: white;
+        width: 70%;
+        border: 1px solid #A0E7E5;
+        height: 85%;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 20px auto;
+        justify-content: center;
+    }
+    form label{
+        font-size: 35px;
+    }
+    form input{
+        font-size: larger;
+        color: black;
+        font-weight: 400;
+        width: 70%;
+        height: 30%;
+        padding: 10px;
+    }
+    form textarea{
+        font-size: larger;
+        color: black;
+        font-weight: 400;
+        width: 70%;
+        height: 150px;
+        padding: 10px;
+    }
+    .field{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
         margin: 3px;
+    }
+    
+    form button{
+        font-size: x-large;
+        background-color: white;
+        color: black;
+        font-weight: 700;
+        width: fit-content;
+        padding: 12px;
+        border-radius: 10px;
+        margin-left:38%;
         font-size: large;
     }
     
-    form{
-        color: white;
-        width: 80%;
-        border: 1px solid #A0E7E5;
-        height: 240px;
-        border-radius: 20px;
-        padding: 8px;
-    }
-    form label{
-        font-size: medium;
-    }
-    form input{
-        width: 70%;
-        height: 25px;
-        padding: 6px;
-    }
-    form textarea{
-        width: 70%;
-        height: 70px;
-        padding: 8px;
-    }
-    .field{
-        margin: 0.7%;
+}
+@media only screen and (max-width: 768px){
+    #contact-me{
+        background-color: black;
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        margin: 15px auto;
+        display: grid;
+        justify-content: center;
     }
     
-    form button{
-        font-size: medium;
-        font-weight: 700;
-        width: 50%; 
+    #contact-header h1{
+        text-align: center;
+        font-size: x-large;
+    }
+    
+    #contact-intro h1{
+        margin-top: 25px;
+        font-size: larger;
+    }
+    #contact-intro p{
+        color: white;
+        font-size: larger;
+        padding: 25px;
+    }
+    
+    #in-touch{
         display: grid;
         justify-content: center;
         margin: auto;
-        margin-top: 10px;
+        padding: 8px;
+        gap: 50px;
     }
     
-}
-
-
-
-
-@media only screen and (max-width: 768px) {
-    #in-touch {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+    #my-contacts span{
+        color: white;
+        font-size: large;
     }
-
-    #contact-me{
-        height: fit-content;
-        margin: auto;
+    
+    .my-contact{
+        display: flex;
     }
-
-    form {
-        width: 90%;
+    .my-contact span{
+        font-size: large;
     }
-
+    
+    .my-contact img{
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+    }
+    #query-form h1{
+        text-align: center;
+        margin: 12px;
+        font-size: x-large;
+    }
+    
     form{
         color: white;
-        width: 500px;
+        width: 100%;
         border: 1px solid #A0E7E5;
-        height: 300px;
+        height: 85%;
         border-radius: 20px;
         padding: 8px;
+        margin: 15px auto;
+        justify-content: center;
     }
     form label{
-        font-size: larger;
+        font-size: x-large;
     }
     form input{
-        width: 350px;
+        font-size: large;
+        color: black;
+        font-weight: 400;
+        width: 75%;
         height: 40px;
-        padding: 6px;
+        padding: 8px;
     }
     form textarea{
-        width: 350px;
-        height: 70px;
+        font-size: large;
+        color: black;
+        font-weight: 400;
+        width: 75%;
+        height: 120px;
+        padding: 8px;
     }
     .field{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
         margin: 3px;
     }
     
     form button{
-        margin-left: 180px;
+        font-size: larger;
+        background-color: white;
+        color: black;
+        font-weight: 700;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 10px;
+        margin-left:38%;
+        font-size: larger;
+    }
+}
+@media only screen and (max-width: 484px){
+    #contact-me{
+        background-color: black;
+        width: 100%;
+        height: fit-content;
+        padding: 30px;
+        margin: 20px auto;
+        display: grid;
+        justify-content: center;
     }
     
+    #contact-header h1{
+        text-align: center;
+        font-size: larger;
+    }
     
-} 
+    #contact-intro h1{
+        margin-top: 30px;
+        font-size: larger;
+    }
+    #contact-intro p{
+        color: white;
+        font-size: larger;
+        padding: 28px;
+    }
+    
+    #in-touch{
+        display: grid;
+        justify-content: center;
+        margin: auto;
+        padding: 8px;
+        gap: 50px;
+    }
+    
+    #my-contacts span{
+        color: white;
+        font-size: larger;
+    }
+    
+    .my-contact{
+        display: flex;
+    }
+    .my-contact span{
+        font-size: larger;
+    }
+    
+    .my-contact img{
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+    }
+    #query-form h1{
+        text-align: center;
+        margin: 12px;
+        font-size: larger;
+    }
+    
+    form{
+        color: white;
+        width: 100%;
+        border: 1px solid #A0E7E5;
+        height: 95%;
+        border-radius: 20px;
+        padding: 8px;
+        margin: 8px auto;
+    }
+    form label{
+        font-size: large;
+    }
+    form input{
+        font-size: larger;
+        color: black;
+        font-weight: 400;
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+    }
+    form textarea{
+        font-size: larger;
+        color: black;
+        font-weight: 400;
+        width: 95%;
+        height: 120px;
+        padding: 8px;
+    }
+    .field{
+        display:grid;
+        align-items: center;
+        margin: 3px;
+    }
+    
+    form button{
+        font-size: larger;
+        background-color: white;
+        color: black;
+        font-weight: 700;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 10px;
+        margin-left:30%;
+        font-size: larger;
+    }
+}
+
