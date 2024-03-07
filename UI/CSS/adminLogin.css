@@ -3,7 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    background-color: black;
+    background-color: white;
     color: black;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@ body {
 }
 
 .login-container {
-    background-color: #A0E7E5;
+    background-color: rgb(246, 243, 243);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -45,8 +45,8 @@ input {
 }
 
 button {
-    background-color: #36454F;
-    color: #A0E7E5;
+    background-color: #29292c;
+    color: white;
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -68,4 +68,8 @@ button:hover {
 
 button:active {
     transform: translateY(2px);
+}
+p#invalidLogin{
+    color: rgb(241, 109, 109);
+    display: none;
 }

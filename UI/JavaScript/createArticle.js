@@ -74,8 +74,8 @@ const initApp = () => {
 }
 
 const processSubmission = () => {
-    const title = document.getElementById("title");
-    const content = document.getElementById("content");
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
     const article = createNewArticle(getLastId(), title, content);
     myArticlesList.addArticle(article);
     // buildArticle(article);
