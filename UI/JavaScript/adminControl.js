@@ -19,7 +19,7 @@ function showContent(contentId) {
     // Hide all content sections
     var contentSections = document.querySelectorAll('.content');
     contentSections.forEach(function (section) {
-        section.style.display = 'block';
+        section.style.display = 'none';
     });
 
     // Show the selected content section
@@ -28,3 +28,5 @@ function showContent(contentId) {
         selectedContent.style.display = 'block';
     }
 }
+
+
