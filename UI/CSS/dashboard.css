@@ -184,6 +184,9 @@ aside .sidebar .message-count{
 
 /* Main styles  */
 /* ******************************** */
+main{
+    margin-top: 10px;
+}
 main h1{
     text-align: center;
     font-size: 3rem;
@@ -203,6 +206,7 @@ main h1{
 }
 #create-article-form{
     margin:0 auto;
+    display: none;
 }
 
 #create-article-form h1{
@@ -249,7 +253,7 @@ form button{
     width: 10vw;
     border-radius: 10px;
     margin: auto;
-    height: 7vh;
+    height: 10vh;
     transition: all 200ms ease;
     font-size: 2rem;
     padding: 1rem;

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/dashboardStyles.css">
-    <script src="JavaScript/adminControl.js"></script>
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <script defer src="JavaScript/adminControl.js"></script>
+    <script type="module" src="JavaScript/createArticle.js"></script>
 </head>
 <body>
     <div class="container">
@@ -31,7 +32,7 @@
                         <span class="material-icons-sharp">add</span>
                         <h3>Users</h3>
                     </a>
-                    <a href="#">
+                    <a href="#" id="add-article" onclick="showContent('create-article-form')">
                         <span class="material-icons-sharp">add</span>
                         <h3>Create Article</h3>
                     </a>
@@ -53,9 +54,9 @@
         <main>
             <h1>Admin's Dashboard</h1>
              <div class="content-container">
-                <div id="create-article-form">
+                <div id="create-article-form" class="content">
                     <h1>Create Article</h1> 
-                <form id="new-article" method="post">
+                <form id="new-article">
                     <div class="row">
                         <label for="title">Title:</label>
                         <input type="text" id="title" name="title" required>
@@ -74,7 +75,7 @@
                     <button type="submit">Create Article</button>
                 </form>
             </div>
-            <div id="queries">
+            <div id="queries" class="content">
                 <h1>User Queries</h1>
                 <div class="query">
                     <h2>User Query</h2>
@@ -94,5 +95,13 @@
         </div>
         </main>
     </div>
+    <script>
+        // Check for the presence of the session token
+        var sessionToken = localStorage.getItem('sessionToken');
+        if (!sessionToken) {
+          // If the session token is not present, redirect to the login page
+          window.location.href = 'login.html';
+        }
+      </script>
 </body>
 </html>

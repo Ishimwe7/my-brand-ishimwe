@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/adminLogin.css">
+    <script defer src="JavaScript/login.js"></script>
     <title>Admin Login</title>
 </head>
 <body>
@@ -18,7 +19,8 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <p id="invalidLogin">HGHJ</p>
+            <button type="submit" onclick="authenticateUser()">Login</button>
         </form>
     </div>
 </body>
