@@ -24,7 +24,7 @@
 
 .blog-post {
     flex: 1;
-    background-color: #A0E7E5;
+    background-color: white;
     /* max-width: calc(25% - 20px); */
     max-width: 250px;
     min-width: 250px;
@@ -94,6 +94,32 @@
 .comment-actions img{
     width: 15px;
     height: 15px;
+}
+
+.add-comment form{
+    width: auto;
+    border: none;
+}
+.add-comment form button{
+    font-size: small;
+    padding: 2px;
+    margin: auto;
+    margin-top: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.add-comment form input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: medium;
+    background-color: whitesmoke;
+    margin: auto;
+    width: 100%;
+}
+.create-comment{
+
 }
 
 @media only screen and (max-width: 992px){

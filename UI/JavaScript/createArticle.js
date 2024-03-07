@@ -53,10 +53,11 @@ const updatePersistentData = (articlesArray) => {
 //     allArticles.appendChild(article);
 // }
 
-const createNewArticle = (id, title, content) => {
+const createNewArticle = (id, title, image, content) => {
     const article = new Article();
     article.setId(id);
     article.setTitle(title);
+    article.setImage(image);
     article.setContent(content);
     return article;
 }
@@ -66,23 +67,60 @@ const initApp = () => {
     const articleForm = document.getElementById("new-article");
     articleForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        processSubmission();
+        processSubmission()
+        alert("Article Created Successfully !!");
+        clearForm();
     })
     //procedural
     loadListObject();
     // refreshThePage();
 }
 
+const clearForm = () => {
+    const title = document.getElementById("title");
+    const content = document.getElementById("content");
+    const image = document.getElementById("art-image");
+    title.value = '';
+    content.value = '';
+    image.value = '';
+}
+
 const processSubmission = () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
-    const article = createNewArticle(getLastId(), title, content);
-    myArticlesList.addArticle(article);
-    // buildArticle(article);
-    //Update persistant dta
-    updatePersistentData(myArticlesList.getArticlesList());
-    // refreshThePage();
+    const image = document.getElementById("art-image");
+    let imageUrl = null;
+    const imageReader = new FileReader();
+
+    imageReader.addEventListener('load', () => {
+        imageUrl = imageReader.result;
+
+        // Create and add the article after the image is loaded
+        const article = createNewArticle(getLastId(), title, imageUrl, content);
+        myArticlesList.addArticle(article);
+        updatePersistentData(myArticlesList.getArticlesList());
+    });
+
+    // Read the image file
+    imageReader.readAsDataURL(image.files[0]);
 }
+
+// const processSubmission = () => {
+//     const title = document.getElementById("title").value;
+//     const content = document.getElementById("content").value;
+//     const image = document.getElementById("art-image");
+//     let imageUrl = null;
+//     const imageReader = new FileReader();
+//     imageReader.addEventListener('load', () => {
+//          imageUrl = imageReader.result;
+//     })
+//     //const imageUrl = imageReader.result;
+//     imageReader.readAsDataURL(image.files[0]);
+
+//     const article = createNewArticle(getLastId(), title, imageUrl, content);
+//     myArticlesList.addArticle(article);
+//     updatePersistentData(myArticlesList.getArticlesList());
+// }
 
 
 
@@ -106,7 +144,7 @@ const loadListObject = () => {
     if (typeof storedArticles !== "string") return;
     const parsedArticles = JSON.parse(storedArticles);
     parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._content);
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
         myArticlesList.addArticle(newArticle);
     });
 }

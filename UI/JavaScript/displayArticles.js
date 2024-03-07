@@ -4,13 +4,22 @@ import ArticlesList from "./articlesList.js";
 const myArticlesList = new ArticlesList();
 const myArticle = new Article();
 
+const createNewArticle = (id, title, image, content) => {
+    const article = new Article();
+    article.setId(id);
+    article.setTitle(title);
+    article.setImage(image);
+    article.setContent(content);
+    return article;
+}
+
 const buildArticle = (myArticle) => {
     const article = document.createElement("article");
     article.className = "blog-post";
     article.id = myArticle.getId();
     const image = document.createElement("img");
     image.alt = "blog image";
-    image.src = "icons/iconmonstr-line-four-horizontal-lined.svg";
+    image.src = myArticle.getImage();
     const title = document.createElement("h2");
     title.innerText = myArticle.getTitle();
     title.className = "blog-title";
@@ -44,23 +53,27 @@ const buildArticle = (myArticle) => {
     allArticles.appendChild(article);
 }
 
-// const createNewArticle = (id, title, content) => {
-//     const article = new Article();
-//     article.setId(id);
-//     article.setTitle(title);
-//     article.setContent(content);
-//     return article;
-// }
+
+const loadListObject = () => {
+    const storedArticles = localStorage.getItem("myArticlesList");
+    if (typeof storedArticles !== "string") return;
+    const parsedArticles = JSON.parse(storedArticles);
+    parsedArticles.forEach((article) => {
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+        myArticlesList.addArticle(newArticle);
+    });
+    renderList(myArticlesList);
+}
 
 
-const renderList = () => {
+const renderList = (myArticlesList) => {
     const articles = myArticlesList.getArticlesList();
     articles.forEach((article) => {
         buildArticle(article);
     });
 }
 
-window.onload = renderList();
+window.onload = loadListObject();
 
 // document.addEventListener("readystatechange", (event) => {
 //     if (event.target.readyState === "complete") {
