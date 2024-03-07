@@ -15,17 +15,28 @@
 // }
 
 
-function showContent(contentId) {
+function removeContent() {
     // Hide all content sections
     var contentSections = document.querySelectorAll('.content');
     contentSections.forEach(function (section) {
         section.style.display = 'none';
     });
 
-    // Show the selected content section
+}
+
+// Show the selected content section
+const showCreateArticle = (contentId) => {
+    removeContent();
     var selectedContent = document.getElementById(contentId);
     if (selectedContent) {
         selectedContent.style.display = 'block';
+    }
+}
+const showBlogs = (contentId) => {
+    removeContent();
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'grid';
     }
 }
 
