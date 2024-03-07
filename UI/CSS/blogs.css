@@ -148,7 +148,6 @@
     
     .blog-post {
         flex: 1;
-        background-color: #A0E7E5;
         /* max-width: calc(25% - 20px); */
         max-width: 400px;
         min-width: 300px;
@@ -243,7 +242,6 @@
     
     .blog-post {
         flex: 1;
-        background-color: #A0E7E5;
         /* max-width: calc(25% - 20px); */
         max-width: 350px;
         min-width: 250px;
@@ -339,7 +337,6 @@
     
     .blog-post {
         flex: 1;
-        background-color: #A0E7E5;
         /* max-width: calc(25% - 20px); */
         max-width: 350px;
         min-width: 300px;
