@@ -37,10 +37,10 @@ body{
     overflow-x: hidden;
 }
 .container{
-    display: grid;
+    display: flex;
     width: 100%;
     margin: 0 auto;
-    gap: 3rem;
+    justify-content: space-between;
     grid-template-columns: 14rem auto 23rem;
 }
 
@@ -100,6 +100,7 @@ aside{
     background: white;
     width: 20rem;
     margin-left: 0;
+    position: fixed;
 }
 
 aside .top{
@@ -185,27 +186,26 @@ aside .sidebar .message-count{
 /* Main styles  */
 /* ******************************** */
 main{
+    margin: 20px auto;
     margin-top: 10px;
+    display: grid;
+    justify-content: center;
 }
 main h1{
     text-align: center;
     font-size: 3rem;
     margin: 2rem;
-    margin: 3rem;
     padding: 1rem;
 }
 
 .content-container{
-    width: 80vw;
-    margin: 10px auto;
-    width: 90vw;
-    margin: auto;
+    width: 70vw;
 }
 #queries{
     display: none;
 }
 #create-article-form{
-    margin:0 auto;
+    margin:0 auto; 
     display: none;
 }
 
@@ -213,13 +213,13 @@ main h1{
     color: black;
     text-align: center;
     font-size: xx-large;
-    margin: 0;
+    margin-top: 0;
 }
 form#new-article{
     width: 80vw;
     height: 60vh;
     margin: 2rem;
-    padding: 3rem;
+    padding: 2rem;
     display: grid;
     justify-content: center;
 }
@@ -242,7 +242,7 @@ form input{
 
 form textarea{
     width: 35vw;
-    height: 20vh;
+    height: 18vh;
     border-radius: 5px;
     padding: 10px;
 }
@@ -252,7 +252,7 @@ form button{
     height: 10vh;
     width: 10vw;
     border-radius: 10px;
-    margin: auto;
+    margin:20px auto;
     height: 10vh;
     transition: all 200ms ease;
     font-size: 2rem;
