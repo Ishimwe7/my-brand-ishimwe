@@ -40,14 +40,29 @@ const buildArticle = (myArticle) => {
     shareBtn.className = "share-btn";
     shareBtn.src = "icons/curved-arrow-right-icon.svg";
     shareBtn.alt = "share icon";
-    const commentBtn = document.createElement("button");
-    commentBtn.className = "comment-btn";
-    commentBtn.textContent = "Comment";
+
     actions.appendChild(likeBtn);
     actions.appendChild(shareBtn);
-    actions.appendChild(commentBtn);
+
+    const commentDiv = document.createElement("div");
+    commentDiv.className = "add-comment"
+    const commentForm = document.createElement("form");
+    commentForm.name = "comment-form";
+    commentForm.id = "comment-form";
+    const commentInput = document.createElement("input");
+    commentInput.className = "create-comment";
+    commentInput.type = "text";
+    commentInput.maxLength = "100";
+    const addCommentBtn = document.createElement("button");
+    addCommentBtn.className = "add-comment-btn"
+    addCommentBtn.className = "add-comment-btn";
+    addCommentBtn.textContent = "Comment";
+    commentForm.appendChild(commentInput);
+    commentForm.appendChild(addCommentBtn);
+    commentDiv.appendChild(commentForm)
 
     article.appendChild(actions);
+    article.appendChild(commentDiv);
 
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
