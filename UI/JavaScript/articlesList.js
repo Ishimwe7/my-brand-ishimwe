@@ -8,9 +8,9 @@ export default class ArticlesList {
     addArticle(article) {
         this._articlesList.push(article);
     }
-    deleteArticle(article) {
-        this._articlesList.pop(article);
-    }
+    // deleteArticle(article) {
+    //     this._articlesList.pop(article);
+    // }
     deleteArticleFromList(articleId) {
         const articlesList = this._articlesList;
         for (let i = 0; i < articlesList.length; i++) {

@@ -29,5 +29,4 @@ export default class Article {
     setImage(image) {
         this._image = image;
     }
-
 }
