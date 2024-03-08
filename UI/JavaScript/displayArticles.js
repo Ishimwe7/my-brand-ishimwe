@@ -1,19 +1,26 @@
 import Article from "./article.js";
 import ArticlesList from "./articlesList.js";
+import Comment from "./comment.js";
+import CommentsList from "./commentsList.js";
 
 const myArticlesList = new ArticlesList();
 const myArticle = new Article();
+const comment = new Comment();
+const commentsList = new CommentsList();
 
-const createNewArticle = (id, title, image, content) => {
+const createNewArticle = (id, title, image, content, comments, likes) => {
     const article = new Article();
     article.setId(id);
     article.setTitle(title);
     article.setImage(image);
     article.setContent(content);
+    article.setComments(comments);
+    article.setLikes(likes);
     return article;
 }
 
 const buildArticle = (myArticle) => {
+    let i;
     const article = document.createElement("article");
     article.className = "blog-post";
     article.id = myArticle.getId();
@@ -61,6 +68,13 @@ const buildArticle = (myArticle) => {
     commentForm.appendChild(addCommentBtn);
     commentDiv.appendChild(commentForm)
 
+    const comments_section = document.createElement("div");
+    comments_section.className = "comments-section";
+    const comments_header = document.createElement("h2");
+    const one_comment = document.createElement("div");
+    const com_auth = document.createElement("p");
+    const comment = myArticle.comments[i];
+    com_auth.textContent = "<strong>" + myArticle.comment[i].author + "</strong> : " + myArticle.comment[i].content;
     article.appendChild(actions);
     article.appendChild(commentDiv);
 
@@ -69,15 +83,30 @@ const buildArticle = (myArticle) => {
 }
 
 
+// const loadListObject = () => {
+//     const storedArticles = localStorage.getItem("myArticlesList");
+//     if (typeof storedArticles !== "string") return;
+//     const parsedArticles = JSON.parse(storedArticles);
+//     parsedArticles.forEach((article) => {
+//         const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+//         myArticlesList.addArticle(newArticle);
+//     });
+//     renderList(myArticlesList);
+// }
+
 const loadListObject = () => {
     const storedArticles = localStorage.getItem("myArticlesList");
     if (typeof storedArticles !== "string") return;
     const parsedArticles = JSON.parse(storedArticles);
     parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content, article.comments.forEach((comment) => {
+            const newComment = createNewComment(comment.author, comment.content, comment.articleId, comment.likes, comment.replies);
+            commentsList.addComment(newComment);
+        }));
+        newArticle.setComments(commentsList);
         myArticlesList.addArticle(newArticle);
     });
-    renderList(myArticlesList);
+    renderList();
 }
 
 
