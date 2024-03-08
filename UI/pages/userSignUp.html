@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/adminLogin.css">
-    <script defer src="JavaScript/login.js"></script>
-    <title>Admin Login</title>
+    <link rel="stylesheet" href="../CSS/adminLogin.css">
+    <script defer src="../JavaScript/login.js"></script>
+    <title>User sign up</title>
 </head>
 <body>
     <div class="login-container">
         <form class="login-form">
-            <h1>Admin Login</h1>
+            <h1>User Registration</h1>
+            <div class="row">
+                <label for="email">Names:</label>
+                <input type="text" id="names" name="names" required>
+            </div>
             <div class="row">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
@@ -19,9 +23,10 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <p id="invalidLogin"></p>
-            <button type="submit" onclick="authenticateUser()">Login</button>
+            <p id="signup-failed"></p>
+            <button type="submit" onclick="registerUser()">Register</button>
         </form>
+        <p>Already have an account? <a href="userLogin.html">Login</a></p>
     </div>
 </body>
 </html>
