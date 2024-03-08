@@ -70,3 +70,124 @@
 .delete-btn{
     background-color: rgb(191, 95, 95);
 }
+
+@media only screen and (max-width:992px){
+    .blog-section h2{
+        font-size: x-large;
+    }
+    
+    #blogs{
+        padding: 18px;
+    }
+    
+    .blog-post {
+        flex: 1;
+        background-color: white;
+        /* max-width: calc(25% - 20px); */
+        max-width: 230px;
+        min-width: 230px;
+        max-height: 280px;
+        padding: 18px;
+        margin: 8px;
+        width: 230px;
+    }
+    .blog-post h2{
+        padding: 12px;
+    }
+    
+    .blog-post img {
+        width: 70px;
+    }
+    
+    .actions {
+        gap: 18px;
+    }
+    
+     .blog-post button{
+        padding: 5px 7px;
+        margin-right: 8px;
+    }
+    
+}
+
+@media only screen and (max-width:768px){
+    .blog-section h2{
+        font-size: x-large;
+    }
+    
+    #blogs{
+        padding: 20px;
+        display: block;
+    }
+    
+    .blog-post {
+        flex: 1;
+        background-color: white;
+        /* max-width: calc(25% - 20px); */
+        max-width: 210px;
+        min-width: 210px;
+        max-height: 250px;
+        padding: 15px;
+        margin: 20px;
+        width: 210px;
+    }
+    .blog-post h2{
+        padding: 10px;
+        font-size: x-large;
+    }
+    
+    .blog-post img {
+        width: 60px;
+    }
+    
+    .actions {
+        gap: 15px;
+    }
+    
+     .blog-post button{
+        padding: 4px 6px;
+        margin-right: 7px;
+    }
+    
+}
+
+@media only screen and (max-width:484px){
+    .blog-section h2{
+        font-size: larger;
+    }
+    
+    #blogs{
+        padding: 15px;
+        display: block;
+    }
+    
+    .blog-post {
+        flex: 1;
+        background-color: white;
+        /* max-width: calc(25% - 20px); */
+        max-width: 180px;
+        min-width: 1800px;
+        max-height: 200px;
+        padding: 10px;
+        margin: 15px;
+        width: 180px;
+    }
+    .blog-post h2{
+        padding: 7px;
+        font-size: larger;
+    }
+    
+    .blog-post img {
+        width: 50px;
+    }
+    
+    .actions {
+        gap: 10px;
+    }
+    
+     .blog-post button{
+        padding: 3px 5px;
+        margin-right: 5px;
+    }
+    
+}
