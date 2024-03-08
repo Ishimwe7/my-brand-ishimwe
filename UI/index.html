@@ -33,6 +33,10 @@
                          <li><a href="#portifolio">Portifolio</a></li>
                          <li><a href="#blogs">Blogs</a></li>
                          <li><a href="#contact-me">Contact me</a></li>
+                         <div id="user-control">
+                            <li><a href="userSignUp.html" target="_blank" id="sign-up">Sign Up</a></li>
+                            <li><a href="userLogin.html" target="_blank" id="login">Login</a></li>
+                         </div>
                         </div>
                 </ul>
                 <!-- <div class="nav-toggler">&#9776;</div> -->
@@ -421,10 +425,13 @@ enthusiasm. Constantly evolving to
         function toggleNav() {
             var navBar = document.getElementById("nav-bar");
             var menuList = document.getElementById("menu-list");
+            // var nav_toggler=document.getElementById("nav-toggler");
            
             if (menuList.style.display === "block") {
                 menuList.style.display = "none";
             } else {
+                // nav_toggler.style.display="none";
+                navBar.style.gap="20%";
                 menuList.style.display = "block";
             }
         //     if (window.innerWidth > 768) {
