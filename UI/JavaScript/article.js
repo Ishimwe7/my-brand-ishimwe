@@ -4,6 +4,8 @@ export default class Article {
         this._title = null;
         this._content = null;
         this._image = null;
+        this._comments = [];
+        this._likes = 0;
     }
     getId() {
         return this._id
@@ -29,4 +31,26 @@ export default class Article {
     setImage(image) {
         this._image = image;
     }
+    getComments() {
+        return this._comments;
+    }
+    setComments(comments) {
+        this._comments = comments;
+    }
+    getLikes() {
+        return this._likes;
+    }
+    setLikes(likes) {
+        this._likes = likes;
+    }
+
+    like() {
+        this._likes++;
+    }
+
+    addComment(author, commentContent) {
+        const comment = new Comment(author, commentContent, this.id);
+        this._comments.push(comment);
+    }
+
 }
