@@ -275,6 +275,30 @@ form button:hover{
     opacity: 0.7;
 }
 
+#users{
+    display: none;
+}
+#users h1{
+    font-size: 2.5rem;
+}
+#users table{
+    color: white;
+    margin: auto;
+    border-collapse: collapse;
+}
+#users table thead td{
+    font-size: x-large;
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+tr,td{
+    border: 1px solid white;
+    border-collapse: collapse;
+    color: white;
+    font-size: larger;
+}
+
 @media only screen and (max-width: 992px){
     html{
         font-size: 12px;
@@ -393,6 +417,17 @@ form button:hover{
         height: 10vh;
         font-size: 1.8rem;
         padding: 1rem;
+    }
+
+    #users table thead td{
+        font-size: large;
+        padding: 7px;
+    }
+    tr,td{
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: white;
+        font-size: medium;
     }
     
 }
@@ -514,6 +549,17 @@ form button:hover{
         height: 6vh;
         font-size: 1.8rem;
         padding: .8rem;
+    }
+
+    #users table thead td{
+        font-size: medium;
+        padding: 5px;
+    }
+    tr,td{
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: white;
+        font-size: small;
     }
     
 }

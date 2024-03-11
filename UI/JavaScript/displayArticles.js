@@ -106,7 +106,8 @@ const loadListObject = () => {
         newArticle.setComments(commentsList);
         myArticlesList.addArticle(newArticle);
     });
-    renderList();
+    //location.reload();
+    renderList(myArticlesList);
 }
 
 

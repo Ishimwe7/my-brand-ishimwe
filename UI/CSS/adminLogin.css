@@ -86,3 +86,8 @@ p#invalidLogin{
     color: rgb(241, 109, 109);
     display: none;
 }
+
+#password-mismatches{
+    color: rgb(212, 55, 55);
+    font-size: larger;
+}

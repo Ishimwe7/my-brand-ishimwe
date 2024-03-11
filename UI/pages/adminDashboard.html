@@ -10,6 +10,7 @@
     <script defer src="../JavaScript/adminControl.js"></script>
     <script type="module" src="../JavaScript/createArticle.js"></script>
     <script type="module" src="../JavaScript/DashboardArticles.js"></script>
+    <script type="module" src="../JavaScript/displayAllUsers.js"></script>
 
 </head>
 <body>
@@ -31,7 +32,7 @@
                         <span class="material-icons-sharp">person</span>
                         <h3>Profile</h3>
                     </a>
-                    <a href="#">
+                    <a href="#" id="all-users" onclick="showUsers('users')">
                         <span class="material-icons-sharp">group</span>
                         <h3>Users</h3>
                     </a>
@@ -77,6 +78,9 @@
         
                     <button type="submit">Create Article</button>
                 </form>
+            </div>
+            <div class="users content" id="users">
+                <h1>All Site Users List</h1>
             </div>
             <div id="queries" class="content">
                 <h1>User Queries</h1>

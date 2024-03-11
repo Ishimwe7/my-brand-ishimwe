@@ -40,4 +40,12 @@ const showBlogs = (contentId) => {
     }
 }
 
+const showUsers = (contentId) => {
+    removeContent();
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'block';
+    }
+}
+
 
