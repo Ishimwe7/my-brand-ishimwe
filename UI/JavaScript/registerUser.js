@@ -60,6 +60,7 @@ const processSubmission = () => {
     }
     else {
         document.getElementById("password-mismatches").textContent = "Password Mismatches !";
+        document.getElementById("password-mismatches").style.display = "block";
         return;
     }
 }

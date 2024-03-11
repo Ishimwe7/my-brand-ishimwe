@@ -13,14 +13,21 @@ body {
 
 .login-container {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: fit-content;
+    width: 40%;
+    height: fit-content;
 }
 
-.login-form{
+/* .login-form{
     text-align: center;
+    margin: auto;
+} */
+form{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    padding: auto;
 }
 p{
     font-size: x-large;
@@ -37,20 +44,21 @@ p a:hover{
 h1 {
     font-size: 34px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 label {
-    font-size: 16px;
     margin-bottom: 8px;
     font-size: x-large;
     font-weight: 400;
-    width: fit-content;
+    width: 100%;
+    text-align: left;
 }
 
 input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     border: 1px solid #36454F;
     border-radius: 5px;
     box-sizing: border-box;
@@ -64,18 +72,19 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: x-large;
+    width: 50%;
+    margin: auto;
 }
-
+/* 
 .row{
-    display: flex;
-    gap: 20px;
+    display: grid;
     align-items: center;
-}
+} */
 
 button:hover {
     background-color: gray;
     color: black;
-    opacity: 0.8;
+    opacity: 0.9;
 
 }
 
@@ -90,4 +99,153 @@ p#invalidLogin{
 #password-mismatches{
     color: rgb(212, 55, 55);
     font-size: larger;
+    display:none;
 }
+
+@media only screen and (max-width:992px)  {
+    
+.login-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    height: fit-content;
+}
+
+/* .login-form{
+    text-align: center;
+    margin: auto;
+} */
+form{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+}
+p{
+    font-size: larger;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+label {
+    margin-bottom: 6px;
+    font-size: larger;
+    font-weight: 400;
+    width: 100%;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 7px;
+}
+
+button {
+    background-color: rgb(6, 1, 28);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: x-large;
+    width: 50%;
+    margin: auto;
+}
+
+    
+}
+
+@media only screen and (max-width:768px)  {
+    
+    .login-container {
+        padding: 0 10px;
+        width: 38%;
+    }
+    
+    p{
+        font-size: larger;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    
+    label {
+        font-size: 16px;
+        margin-bottom: 0px;
+        font-size: larger;
+        font-weight: 400;
+        width: 100%;
+    }
+    
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: larger;
+    }
+    
+    .row{
+        display: grid;
+        gap: 8px;
+        align-items: center;
+    }
+        
+    }
+
+    
+@media only screen and (max-width:484px)  {
+    
+    .login-container {
+        padding: 15px;
+        width: 38%;
+    }
+    
+    p{
+        font-size: large;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    label {
+        font-size: 13px;
+        margin-bottom: 0px;
+        font-size: large;
+        font-weight: 400;
+        width: 25%;
+    }
+    
+    input {
+        width: 73%;
+        padding: 6px;
+        margin-bottom: 8px;
+    }
+    
+    button {
+        padding: 10px;
+        font-size: large;
+    }
+    
+    .row{
+        display: grid;
+        gap: 8px;
+        align-items: center;
+    }
+        
+    }
