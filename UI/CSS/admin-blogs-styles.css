@@ -4,7 +4,7 @@
 }
 .blog-section h2{
     color: white;
-    text-align: center;
+    text-align: center; 
     font-size: xx-large;
 }
 
@@ -32,6 +32,7 @@
     font-size: large;
     color: black;
     padding: 15px;
+    text-align: left;
 }
 .blog-post p{
     font-size: medium;

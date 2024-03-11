@@ -1,8 +1,17 @@
 export default class User {
     constructor() {
+        this._id = null;
         this._names = null;
         this._email = null;
         this._password = null;
+    }
+
+
+    getId() {
+        return this._id;
+    }
+    setId(id) {
+        this._id = id;
     }
 
     getNames() {

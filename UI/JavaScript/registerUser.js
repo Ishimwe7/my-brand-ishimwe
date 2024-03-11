@@ -5,15 +5,22 @@ const user = new User();
 const allUsers = new AllUsers();
 
 
-const registerUser = (names, email, password) => {
+const registerUser = (id, names, email, password) => {
 
-    user.setNames(names);
-    user.setEmail(email);
-    user.setPassword(password);
-    return user;
+    const newUser = new User();
+    newUser.setId(id);
+    newUser.setNames(names);
+    newUser.setEmail(email);
+    newUser.setPassword(password);
+    return newUser;
 }
 
 
+document.addEventListener("readystatechange", (event) => {
+    if (event.target.readyState === "complete") {
+        initApp();
+    }
+});
 
 const initApp = () => {
     //Add listeners
@@ -21,8 +28,6 @@ const initApp = () => {
     registrationForm.addEventListener("submit", (event) => {
         event.preventDefault();
         processSubmission()
-        alert("Registration Successfully Done !!");
-        clearForm();
     })
     //procedural
     loadListObject();
@@ -43,12 +48,15 @@ const clearForm = () => {
 const processSubmission = () => {
     const names = document.getElementById("names").value;
     const email = document.getElementById("email").value;
-    const password = document.getElementById("password");
-    const confirm_password = document.getElementById("confirm-password");
+    const password = document.getElementById("password").value;
+    const confirm_password = document.getElementById("confirm-password").value;
     if (password === confirm_password) {
-        const user = registerUser(names, email, password);
+        const user = registerUser(getLastUserId(), names, email, password);
         allUsers.addUser(user);
         updatePersistentData(allUsers.getAllUSersList());
+        alert("Registration Successfully Done !!");
+        //   clearForm();
+        location.reload();
     }
     else {
         document.getElementById("password-mismatches").textContent = "Password Mismatches !";
@@ -62,8 +70,20 @@ const loadListObject = () => {
     if (typeof storedUsers !== "string") return;
     const parsedUsers = JSON.parse(storedUsers);
     parsedUsers.forEach((user) => {
-        const newUser = registerUser(user._names, user._email, user._password);
+        const newUser = registerUser(user._id, user._names, user._email, user._password);
         allUsers.addUser(newUser);
     });
     //renderList(myArticlesList);
 }
+
+const getLastUserId = () => {
+    let nextUserId = 1;
+    const list = allUsers.getAllUSersList();
+    if (list.length > 0) {
+        nextUserId = list[list.length - 1].getId() + 1;
+    }
+    return nextUserId;
+}
+const updatePersistentData = (usersArray) => {
+    localStorage.setItem("usersList", JSON.stringify(usersArray));
+};
