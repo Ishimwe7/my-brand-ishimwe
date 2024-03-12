@@ -48,8 +48,8 @@ export default class Article {
         this._likes++;
     }
 
-    addComment(author, commentContent) {
-        const comment = new Comment(author, commentContent, this.id);
+    addComment(author, commentContent, likes, replies) {
+        const comment = new Comment(author, commentContent, likes, replies);
         this._comments.push(comment);
     }
 

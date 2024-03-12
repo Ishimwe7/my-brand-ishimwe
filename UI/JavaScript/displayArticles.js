@@ -18,9 +18,17 @@ const createNewArticle = (id, title, image, content, comments, likes) => {
     article.setLikes(likes);
     return article;
 }
+const createNewComment = (author, content, articleId, likes, replies) => {
+    const article = new Article();
+    comment.setAuthor(author);
+    comment.setContent(content);
+    comment.setArticleId(articleId);
+    comment.setLikes(likes);
+    comment.setReplies(replies);
+    return comment;
+}
 
-const buildArticle = (myArticle) => {
-    let i;
+const buildArticle = (myArticle, id) => {
     const article = document.createElement("article");
     article.className = "blog-post";
     article.id = myArticle.getId();
@@ -41,11 +49,11 @@ const buildArticle = (myArticle) => {
     actions.className = "actions";
     const likeBtn = document.createElement("img");
     likeBtn.className = "like-btn";
-    likeBtn.src = "icons/heart-svgrepo-com.svg";
+    likeBtn.src = "UI/icons/heart-svgrepo-com.svg";
     likeBtn.alt = "like icon";
     const shareBtn = document.createElement("img");
     shareBtn.className = "share-btn";
-    shareBtn.src = "icons/curved-arrow-right-icon.svg";
+    shareBtn.src = "UI/icons/curved-arrow-right-icon.svg";
     shareBtn.alt = "share icon";
 
     actions.appendChild(likeBtn);
@@ -55,29 +63,58 @@ const buildArticle = (myArticle) => {
     commentDiv.className = "add-comment"
     const commentForm = document.createElement("form");
     commentForm.name = "comment-form";
-    commentForm.id = "comment-form";
+    commentForm.id = "comment-form" + id;
     const commentInput = document.createElement("input");
     commentInput.className = "create-comment";
+    commentInput.id = "new-comment";
     commentInput.type = "text";
     commentInput.maxLength = "100";
     const addCommentBtn = document.createElement("button");
     addCommentBtn.className = "add-comment-btn"
-    addCommentBtn.className = "add-comment-btn";
+    addCommentBtn.id = "add-comment-btn" + id;
+    //addCommentBtn.className = "add-comment-btn";
     addCommentBtn.textContent = "Comment";
     commentForm.appendChild(commentInput);
     commentForm.appendChild(addCommentBtn);
     commentDiv.appendChild(commentForm)
-
     const comments_section = document.createElement("div");
     comments_section.className = "comments-section";
-    const comments_header = document.createElement("h2");
-    const one_comment = document.createElement("div");
-    const com_auth = document.createElement("p");
-    const comment = myArticle.comments[i];
-    com_auth.textContent = "<strong>" + myArticle.comment[i].author + "</strong> : " + myArticle.comment[i].content;
+    const comments_header = document.createElement("h3");
+    comments_header.textContent = "Comments";
+    comments_section.appendChild(comments_header);
+    const comments = myArticle.getComments();
+    if (comments != null) {
+        comments.forEach((comment) => {
+            const one_comment = document.createElement("div");
+            one_comment.className = "comment";
+            const comment_actions = document.createElement("div");
+            comment_actions.className = "comment-actions";
+            const com_like = document.createElement("img");
+            com_like.className = "like-btn";
+            com_like.id = "com-like" + id;
+            com_like.src = "UI/icons/heart-svgrepo-com.svg";
+            const com_reply = document.createElement("img");
+            com_reply.className = "reply-btn";
+            com_reply.id = "com-reply" + id;
+            com_reply.src = "UI/icons/curved-arrow-left-icon.svg";
+            comment_actions.appendChild(com_like);
+            comment_actions.appendChild(com_reply);
+            const com_auth = document.createElement("p");
+            com_auth.textContent = "<strong>" + comments[id].author + "</strong> : " + comments[id].content;
+            one_comment.appendChild(comment_actions);
+            one_comment.appendChild(com_auth);
+            comments_section.appendChild(one_comment);
+        })
+    }
+    else {
+        const no_comments = document.createElement("p");
+        no_comments.className = "no-comments";
+        no_comments.textContent = "No comments yet !";
+        comments_section.appendChild(no_comments);
+    }
     article.appendChild(actions);
     article.appendChild(commentDiv);
-
+    article.appendChild(comments_section);
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
 }
@@ -99,11 +136,12 @@ const loadListObject = () => {
     if (typeof storedArticles !== "string") return;
     const parsedArticles = JSON.parse(storedArticles);
     parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._image, article._content, article.comments.forEach((comment) => {
-            const newComment = createNewComment(comment.author, comment.content, comment.articleId, comment.likes, comment.replies);
-            commentsList.addComment(newComment);
-        }));
-        newArticle.setComments(commentsList);
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+        article._comments.forEach((comment) => {
+            const newComment = createNewComment(comment._author, comment._content, comment._articleId, comment._likes, comment._replies);
+            newArticle.addComment(newComment);
+        });
+        // newArticle.setComments(commentsList);
         myArticlesList.addArticle(newArticle);
     });
     //location.reload();
@@ -113,8 +151,10 @@ const loadListObject = () => {
 
 const renderList = (myArticlesList) => {
     const articles = myArticlesList.getArticlesList();
+    let id = 1;
     articles.forEach((article) => {
-        buildArticle(article);
+        buildArticle(article, id);
+        id++;
     });
 }
 

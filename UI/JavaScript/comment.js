@@ -1,10 +1,17 @@
 export default class Comment {
-    constructor(author, content, articleId) {
+    constructor(id, author, content) {
+        this._id = id;
         this._author = author;
         this._content = content;
-        this._articleId = articleId;
         this._likes = 0;
         this._replies = [];
+    }
+
+    getId() {
+        return this._id;
+    }
+    setId(id) {
+        this._id = id;
     }
 
     getAuthor() {
@@ -18,12 +25,6 @@ export default class Comment {
     }
     setContent(content) {
         this._content = content;
-    }
-    getArticleId() {
-        return this._articleId;
-    }
-    setArticleId(articleId) {
-        this._articleId = articleId;
     }
     getLikes() {
         return this._likes;
