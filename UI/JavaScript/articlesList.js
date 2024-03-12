@@ -8,6 +8,9 @@ export default class ArticlesList {
     addArticle(article) {
         this._articlesList.push(article);
     }
+    getArticleById(id) {
+        return this._articlesList.find((article) => article.id === id);
+    }
     // deleteArticle(article) {
     //     this._articlesList.pop(article);
     // }

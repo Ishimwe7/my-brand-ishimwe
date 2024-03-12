@@ -29,11 +29,11 @@ const createNewArticle = (id, title, image, content, comments, likes) => {
     return article;
 }
 
-const createNewComment = (author, content, articleId, likes, replies) => {
+const createNewComment = (commentId, author, content, likes, replies) => {
     const comment = new Comment();
+    comment.setId(commentId);
     comment.setAuthor(author);
     comment.setContent(content);
-    comment.setArticleId(articleId);
     comment.setLikes(likes);
     comment.setReplies(replies);
     return comment;
@@ -43,13 +43,22 @@ const createNewComment = (author, content, articleId, likes, replies) => {
 
 const initApp = () => {
     //Add listeners
+    console.log("Hello world");
     const articleForm = document.getElementById("new-article");
     articleForm.addEventListener("submit", (event) => {
         event.preventDefault();
         processSubmission()
         alert("Article Created Successfully !!");
         clearForm();
+        location.reload();
     })
+    // const commentForm = document.getElementById("comment-form");
+    // commentForm.addEventListener("submit", (event) => {
+    //     const articleId = event.target.closest("article").id;
+    //     console.log(articleId + "Hello Nyanja");
+    //     event.preventDefault();
+    //     processCommentSubmission(articleId);
+    // })
     //procedural
     loadListObject();
     // refreshThePage();
@@ -64,6 +73,24 @@ const clearForm = () => {
     image.value = '';
 }
 
+// const processCommentSubmission = (articleId) => {
+//     console.log("It is not working");
+//     const comment = document.getElementById("new-comment").value;
+//     const author = "Nyanja";
+//     const replies = [];
+//     const newComment = createNewComment(getLastCommentId(), author, comment, 0, replies);
+//     //myArticlesList.addArticle(article);
+//     const article = myArticlesList.getArticlesList.find((article) => article.id === articleId);
+//     if (article) {
+//         article.addComment(newComment);
+//     }
+//     else {
+//         console.log("It is not working");
+//     }
+//     updatePersistentData(myArticlesList.getArticlesList());
+// };
+
+
 const processSubmission = () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
@@ -75,7 +102,7 @@ const processSubmission = () => {
         imageUrl = imageReader.result;
 
         // Create and add the article after the image is loaded
-        const article = createNewArticle(getLastId(), title, imageUrl, content);
+        const article = createNewArticle(getLastId(), title, imageUrl, content, commentsList.getCommentsList(), 0);
         myArticlesList.addArticle(article);
         updatePersistentData(myArticlesList.getArticlesList());
     });
@@ -84,6 +111,13 @@ const processSubmission = () => {
     imageReader.readAsDataURL(image.files[0]);
 }
 
+
+// function addCommentToArticle(articleId, newComment) {
+//     const article = myArticlesList.articles.find((article) => article.id === articleId);
+//     if (article) {
+//         article.addComment(newComment);
+//     }
+// }
 
 const loadListObject = () => {
     const storedArticles = localStorage.getItem("myArticlesList");
@@ -105,12 +139,12 @@ const getLastId = () => {
     }
     return nextArticleId;
 }
-const getLastCommentId = () => {
-    let nextCommentId = 1;
-    const commentsList = commentsList.getCommentsList();
-    if (commentsList.length > 0) {
-        nextCommentId = commentsList[commentsList.length - 1].getId() + 1;
-    }
-    return nextCommentId;
-}
+// const getLastCommentId = () => {
+//     let nextCommentId = 1;
+//     const commentsList = commentsList.getCommentsList();
+//     if (commentsList.length > 0) {
+//         nextCommentId = commentsList[commentsList.length - 1].getId() + 1;
+//     }
+//     return nextCommentId;
+// }
 
