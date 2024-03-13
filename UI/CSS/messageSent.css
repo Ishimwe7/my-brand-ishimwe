@@ -12,6 +12,7 @@
    justify-content: center;
    border-radius: 20px;
    padding: 10px;
+   background-color: white;
 }
 #message-sent h2{
     text-align: center;
@@ -25,12 +26,16 @@
 }
 button{
     width: 200px;
-    height: 40px;
-    margin: auto;
+    height: 50px;
+    margin: 20px auto;
+    padding: 10px ;
     border-radius: 10px;
     background-color: rgb(171, 171, 243);
 }
 button a{
     text-decoration: none;
     font-size: x-large;
+}
+button:hover{
+    opacity: 0.8;
 }

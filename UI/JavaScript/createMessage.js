@@ -59,6 +59,8 @@ const processMessage = () => {
     const message = createNewMessage(getLastId(), names, email, subject, query, date);
     messagesList.addMessage(message);
     updatePersistentData(messagesList.getMessagesList());
+    window.location = "../pages/messageSent.html";
+    //console.log(window.location);
 };
 
 const loadListObject = () => {
