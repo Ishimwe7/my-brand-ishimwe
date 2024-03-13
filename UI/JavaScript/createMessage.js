@@ -15,13 +15,14 @@ const updatePersistentData = (messagesArray) => {
 };
 
 
-const createNewMessage = (id, sender, email, subject, message) => {
+const createNewMessage = (id, sender, email, subject, message, date) => {
     const newMessage = new Message();
     newMessage.setId(id);
     newMessage.setSender(sender);
     newMessage.setEmail(email);
     newMessage.setSubject(subject);
     newMessage.setMessage(message);
+    newMessage.setDate(date);
     return newMessage;
 }
 
@@ -54,7 +55,8 @@ const processMessage = () => {
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
     const query = document.getElementById("query").value;
-    const message = createNewMessage(getLastId(), names, email, subject, query);
+    const date = new Date();
+    const message = createNewMessage(getLastId(), names, email, subject, query, date);
     messagesList.addMessage(message);
     updatePersistentData(messagesList.getMessagesList());
 };
@@ -64,7 +66,7 @@ const loadListObject = () => {
     if (typeof storedMessages !== "string") return;
     const parsedMessages = JSON.parse(storedMessages);
     parsedMessages.forEach((message) => {
-        const newMessage = createNewMessage(message._id, message._sender, message._email, message._subject, message._query);
+        const newMessage = createNewMessage(message._id, message._sender, message._email, message._subject, message._query, message._date);
         messagesList.addMessage(newMessage);
     });
     //renderList(myArticlesList);

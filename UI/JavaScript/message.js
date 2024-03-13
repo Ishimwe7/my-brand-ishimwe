@@ -5,6 +5,7 @@ export default class Message {
         this._email = null;
         this._subject = null;
         this._message = null;
+        this._date = null;
     }
     getId() {
         return this._id
@@ -35,5 +36,11 @@ export default class Message {
     }
     setMessage(message) {
         this._message = message;
+    }
+    getDate() {
+        return this._date;
+    }
+    setDate(date) {
+        this._date = date;
     }
 }

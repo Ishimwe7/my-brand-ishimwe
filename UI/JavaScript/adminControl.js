@@ -48,4 +48,12 @@ const showUsers = (contentId) => {
     }
 }
 
+const showMessages = (contentId) => {
+    removeContent();
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'grid';
+    }
+}
+
 
