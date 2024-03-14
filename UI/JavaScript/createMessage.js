@@ -33,7 +33,7 @@ const initApp = () => {
         event.preventDefault();
         processMessage();
         clearForm();
-        location.reload();
+        window.location = "../UI/pages/messageSent.html";
     })
     loadListObject();
 }
@@ -59,7 +59,6 @@ const processMessage = () => {
     const message = createNewMessage(getLastId(), names, email, subject, query, date);
     messagesList.addMessage(message);
     updatePersistentData(messagesList.getMessagesList());
-    window.location = "../pages/messageSent.html";
     //console.log(window.location);
 };
 
