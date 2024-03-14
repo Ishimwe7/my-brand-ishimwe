@@ -8,9 +8,10 @@ export default class AllUsers {
     addUser(user) {
         this._allUsers.push(user);
     }
-    // deleteArticle(article) {
-    //     this._articlesList.pop(article);
-    // }
+
+    getUserByEmailAndPassword(email, password) {
+        return this._allUsers.find((user) => user.email === email && user.password === password);
+    }
     deleteUser(email) {
         const usersList = this._allUsers;
         for (let i = 0; i < usersList.length; i++) {
