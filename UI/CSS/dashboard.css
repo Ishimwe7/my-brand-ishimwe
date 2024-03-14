@@ -209,16 +209,63 @@ main h1{
 }
 #queries{
     display: none;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    justify-content: center;
+}
+#queries h1{
+    font-size:2.5rem;
+    color: #41f1b6;
+}
+.query{
+    background-color: white;
+    width: 70%;
+    max-width: 90%;
+    height: fit-content;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 20px;
+    color: black;
+    position: relative;
+}
+.query p{
+    color: black;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.query .names{
+    font-weight: 900;
+    margin-right: 20px;
+    display: block;
+}
+.query .email{
+    opacity: 0.7;
+    font-size: large;
+}
+.query .message{
+    margin: 10px 100px;
+    position: relative;
+    white-space: normal;
+    word-wrap: break-word; 
+}
+.date{
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
 }
 #create-article-form{
     margin:0 auto; 
     display: none;
+    justify-content: center;
 }
 
 #create-article-form h1{
-    color: white;
+    color: #41f1b6;
     text-align: center;
-    font-size: xx-large;
+    font-size: 2.5rem;
     margin-top: 0;
 }
 form#new-article{
@@ -243,6 +290,11 @@ form input{
     padding: 10px;
     color: black;
     font-weight: 500;
+    font-size: x-large;
+}
+form input#art-image{
+    color: white;
+    font-size: x-large;
 }
 .row label{
     font-size: 2rem;
@@ -254,6 +306,7 @@ form textarea{
     height: 18vh;
     border-radius: 5px;
     padding: 10px;
+    font-size: x-large;
 }
 form button{
     border-radius: 10px;
@@ -280,6 +333,7 @@ form button:hover{
 }
 #users h1{
     font-size: 2.5rem;
+    color: #41f1b6;
 }
 #users table{
     color: white;

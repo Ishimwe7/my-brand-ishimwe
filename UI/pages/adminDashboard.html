@@ -11,6 +11,7 @@
     <script type="module" src="../JavaScript/createArticle.js"></script>
     <script type="module" src="../JavaScript/DashboardArticles.js"></script>
     <script type="module" src="../JavaScript/displayAllUsers.js"></script>
+    <script type="module" src="../JavaScript/displayMessages.js"></script>
 
 </head>
 <body>
@@ -44,10 +45,10 @@
                         <span class="material-icons-sharp">toc</span>
                         <h3>Blogs</h3> 
                     </a>
-                    <a href="#">
+                    <a href="#" id="messages" onclick="showMessages('queries')">
                         <span class="material-icons-sharp">move_to_inbox</span>
                         <h3>Messages</h3>
-                        <span class="message-count">13</span>
+                        <span class="message-count" id="message-count">2</span>
                     </a>
                     <a href="#">
                         <span class="material-icons-sharp">logout</span>
@@ -85,19 +86,16 @@
             <div id="queries" class="content">
                 <h1>User Queries</h1>
                 <div class="query">
-                    <h2>User Query</h2>
-                    <p><strong>Name:</strong> Ishimwe Pacifique</p>
-                    <p><strong>Email:</strong> ishimweinstein@gmail.com</p>
-                    <p><strong>Query:</strong> How can I contact you?</p>
-                    <p><strong>Date:</strong> February 29, 2024</p>
+                    <p class="user"> <span class="names">Ishimwe Pacifique</span>  <span class="email">ishimweinstein@gmail.com</span> </p>
+                    <p class="message"> How can I contact you? jhhhhhhhhhjhgggggggggggggggggggggggggggggggggghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhgfds</p>
+                    <p class="date"> February 29, 2024</p>
                 </div>
                 <div class="query">
-                    <h2>User Query</h2>
-                    <p><strong>Name:</strong> Nyanja Cyane</p>
-                    <p><strong>Email:</strong> nyanja.cyane@gmail.com</p>
-                    <p><strong>Query:</strong> How can I contact you?</p>
-                    <p><strong>Date:</strong> February 29, 2024</p>
+                    <p> <span class="names">Ishimwe Pacifique</span> <span class="email">ishimweinstein@gmail.com</span> </p>
+                    <p class="message"> How can I contact you?</p>
+                    <p class="date"> February 29, 2024</p>
                 </div>
+                
             </div>
             <div class="blog-section content" id="blog-section">
                 <h2>All Recent Blogs/Articles</h2>
