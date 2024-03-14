@@ -12,6 +12,7 @@
     <script type="module" src="../JavaScript/DashboardArticles.js"></script>
     <script type="module" src="../JavaScript/displayAllUsers.js"></script>
     <script type="module" src="../JavaScript/displayMessages.js"></script>
+    <script type="module" src="../JavaScript/adminLogout.js"></script>
 
 </head>
 <body>
@@ -50,7 +51,7 @@
                         <h3>Messages</h3>
                         <span class="message-count" id="message-count">2</span>
                     </a>
-                    <a href="#">
+                    <a href="#" onclick="logout()" id="admin-logout">
                         <span class="material-icons-sharp">logout</span>
                         <h3>Logout</h3>
                     </a>
@@ -125,11 +126,11 @@
         </div>
         </main>
     </div>
-     <script>
-        // Check for the presence of the session token
+      <script>
         const sessionToken = sessionStorage.getItem('sessionToken');
         if (!sessionToken) {
           window.location.href = 'adminLogin.html';
+          console.log("Under testing")
         }
       </script> 
 </body>
