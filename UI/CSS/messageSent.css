@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#message-sent{
+    width: 40vw;
+    height: fit-content;
+    border: 1px solid blue;
+   margin: 150px auto;
+   display: grid;
+   justify-content: center;
+   border-radius: 20px;
+   padding: 10px;
+   background-color: white;
+}
+#message-sent h2{
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    font-size: xx-large;
+}
+#message-sent p{
+    font-size: x-large;
+    text-align: center;
+}
+button{
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    padding: 10px ;
+    border-radius: 10px;
+    background-color: rgb(171, 171, 243);
+}
+button a{
+    text-decoration: none;
+    font-size: x-large;
+}
+button:hover{
+    opacity: 0.8;
+}
