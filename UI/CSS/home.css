@@ -292,7 +292,8 @@ body{
         display: flex;
         width: 100%;
         justify-content: center;
-        gap: 32%;
+        gap: 85%;
+        height: 70px;
       
     }
     .nav-toggler {
@@ -301,6 +302,9 @@ body{
         align-items:center;
         width: 85px;
         height: 85px;
+        position: absolute;
+        top: 1px;
+        right: 2px;
         
     } 
     .nav-toggler:hover{
@@ -311,7 +315,6 @@ body{
         width: 90px;
         height:fit-content;
         padding: 10px;
-        /* background: rebeccapurple; */
         z-index:1000;
         margin: 0;
         font-size: large;
@@ -423,8 +426,8 @@ body{
         position: relative;
         width: 200px;
         height:100px;
-        padding: 50px;
-        background: rebeccapurple;
+        padding: 10px;
+        background: none;
         z-index:1000;
     } 
     #my-intro {
