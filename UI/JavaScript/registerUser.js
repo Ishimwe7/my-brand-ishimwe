@@ -38,16 +38,16 @@ const validateInputs = () => {
         req_names.style.display = "block";
         flag = false;
     }
-    // if (!validateEmail(email)) {
-    //     req_email.textContent = "Please enter valid email ";
-    //     req_email.style.display = "block";
-    //     flag = false;
-    // }
-    // if (!validatePassword(password)) {
-    //     req_pass.textContent = "Please enter strong password "
-    //     req_pass.style.display = "block";
-    //     flag = false;
-    // }
+    if (!validateEmail(email)) {
+        req_email.textContent = "Please enter valid email ";
+        req_email.style.display = "block";
+        flag = false;
+    }
+    if (!validatePassword(password)) {
+        req_pass.textContent = "Please enter strong password "
+        req_pass.style.display = "block";
+        flag = false;
+    }
     return flag;
 }
 

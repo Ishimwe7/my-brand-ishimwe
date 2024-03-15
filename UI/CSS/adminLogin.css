@@ -108,14 +108,14 @@ p#invalidLogin{
     color: rgb(212, 55, 55);
     font-size: larger;
     display:none;
-    text-align: center;
+    text-align: left;
 }
 .required{
     display: none;
     color: red;
-    font-size: large;
+    font-size: larger;
     margin: 0;
-    text-align: center;
+    text-align: left;
 }
 
 @media only screen and (max-width:992px)  {
