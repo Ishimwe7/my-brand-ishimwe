@@ -44,7 +44,6 @@ const buildArticle = (myArticle) => {
     actions.appendChild(updateBtn);
     actions.appendChild(deleteBtn);
 
-
     article.appendChild(actions);
 
     const allArticles = document.getElementById("blogs");

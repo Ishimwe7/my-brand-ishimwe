@@ -21,7 +21,7 @@
 
 .sect{
     width: 40%;
-    text-align: center; 
+    text-align: left; 
 }
 
 .sect h1{
@@ -33,8 +33,7 @@
 .sect h2{
     color: white;
     font-weight:200;
-    font-size: larger;
-    
+    font-size: x-large;
 }
 
 .sect p{
@@ -45,6 +44,7 @@
 .category span{
     color: white;
     font-size: 35px;
+    text-align: center;
 }
 #content{
     margin: auto;
@@ -155,14 +155,14 @@
         padding: 10px;
         padding-top: 30px;
         height: fit-content;
-        width: 100%;
+        width: 85%;
     }
     #skills-experience{
         display: grid;
         justify-content: center;
-        gap: 80px;
         margin: auto;
         margin-top: 30px;
+        width: 85%;
     }
     .category span{
         color: white;
@@ -195,7 +195,8 @@
         color: white;
         font-weight:200;
         font-size: large;
-        text-align: left;
+        text-align: center;
+        word-wrap: break-word;
     }
     .sect p{
         font-size: medium;
