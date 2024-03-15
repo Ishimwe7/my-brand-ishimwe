@@ -124,7 +124,7 @@ const loadListObject = () => {
     if (typeof storedArticles !== "string") return;
     const parsedArticles = JSON.parse(storedArticles);
     parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content, article._comments, article._likes);
         myArticlesList.addArticle(newArticle);
     });
     //renderList(myArticlesList);

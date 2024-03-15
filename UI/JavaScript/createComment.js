@@ -29,28 +29,38 @@ const createNewComment = (commentId, author, content, likes, replies) => {
 
 const initApp = () => {
     //Add listeners
-    const commentForm = document.getElementById("comment-form1");
-    commentForm.addEventListener("submit", (event) => {
+    //const commentForm = document.getElementById("comment-form1");
+    const commentButton = document.querySelector('.add-comment-btn');
+    commentButton.addEventListener("click", (event) => {
         const articleId = event.target.closest("article").id;
         event.preventDefault();
-        processCommentSubmission(articleId);
+        // console.log(articleId);
+        loadListObject(articleId);
+        //processCommentSubmission(articleId);
     })
     //procedural
     //loadListObject();
     // refreshThePage();
 }
 
-const processCommentSubmission = (articleId) => {
+const processCommentSubmission = (articleId, myArticlesList) => {
     const comment = document.getElementById("new-comment").value;
     const author = "Nyanja";
     const replies = [];
     const newComment = createNewComment(getLastCommentId(), author, comment, 0, replies);
-    const storedArticlesList = loadListObject();
-    const article = storedArticlesList.getArticleById(articleId);
-    if (article) {
-        article.addComment(newComment);
-    }
-    updatePersistentData(storedArticlesList.getArticlesList());
+    const articles = myArticlesList.getArticlesList();
+    articles.forEach((article) => {
+        // console.log(article.getId() + "=" + articleId);
+        if (article.getId() == articleId) {
+            article.addComment(newComment);
+            console.log(article + "noooo");
+            //storedArticlesList.addArticle(article);
+            // console.log(storedArticlesList);
+            updatePersistentData(articles);
+            return;
+        }
+        else { console.log("Byanze kbx") }
+    });
 };
 
 const getLastCommentId = () => {
@@ -62,16 +72,16 @@ const getLastCommentId = () => {
     return nextCommentId;
 }
 
-const loadListObject = () => {
+const loadListObject = (articleId) => {
+    // let loadedArticles = new ArticlesList();
     const storedArticles = localStorage.getItem("myArticlesList");
     if (typeof storedArticles !== "string") return;
     const parsedArticles = JSON.parse(storedArticles);
     parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article.id, article.title, article.image, article.content, article.comments, article.likes);
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content, article._comments, article._likes);
         myArticlesList.addArticle(newArticle);
     });
-    return myArticlesList;
-    //renderList(myArticlesList);
+    processCommentSubmission(articleId, myArticlesList);
 }
 
 const createNewArticle = (id, title, image, content, comments, likes) => {

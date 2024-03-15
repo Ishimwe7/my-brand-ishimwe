@@ -335,6 +335,10 @@ form button:hover{
     font-size: 2.5rem;
     color: #41f1b6;
 }
+.content h1{
+    color: #41f1b6;
+    font-size: 2.5rem;
+}
 #users table{
     color: white;
     margin: auto;
@@ -352,6 +356,74 @@ tr,td{
     color: white;
     font-size: larger;
 }
+#welcome{
+    position: relative;
+}
+#profile-picture img{
+    width: 130px;
+    height: 150px;
+    border-radius:50%;
+    object-fit:cover;
+    position: absolute;
+    top: 2%;
+    right: 3%;
+}
+#profile-picture{
+    width: 20%;
+}
+.analytics {
+    display: flex;
+    gap: 10%;
+    margin: auto;
+    margin-top: 100px;
+    width: 80%;
+  }
+  
+  .box {
+    flex: 1; /* Each box takes up equal space */
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    height: 30vh;
+    width: 30%;
+    border-radius: 20px;
+    font-size: xx-large;
+    color: black;
+  }
+  .box span{
+    display: block;
+    margin-top: 50px;
+    color:black;
+    font-weight: 700;
+    font-size: 50px;
+  }
+
+  #change-profile{
+    margin: auto;
+    display: none; 
+    justify-content: center;
+  }
+  #change-profile-form .row{
+    display: flex;
+    gap: 20px;
+    margin: 30px;
+  }
+  .row label{
+    font-size: 35px;
+  }
+  .row input{
+    color: white;
+    background-color: black;
+  }
+  #change-profile-form button{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  img{
+    color:white;
+  }
 
 @media only screen and (max-width: 992px){
     html{

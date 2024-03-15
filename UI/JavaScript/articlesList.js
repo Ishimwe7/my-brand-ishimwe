@@ -22,5 +22,12 @@ export default class ArticlesList {
             }
         }
     }
-
+    updateArticle(articleId, updatedArticle) {
+        this._articlesList = this._articlesList.map((article) => {
+            if (article.id === articleId) {
+                return { ...article, ...updatedArticle };
+            }
+            return article;
+        });
+    }
 }

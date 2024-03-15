@@ -1,18 +1,28 @@
+
+window.addEventListener("load", (event) => {
+    // if (event.target.readyState === "complete") {
+    initApp();
+    // }
+});
+
+const initApp = () => {
+    //Add listeners
+    const adminLoginForm = document.getElementById("login-form");
+    adminLoginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        authenticateUser();
+    })
+}
+
 function authenticateUser() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-    // Check if the stored password matches the entered password
-    // if (localStorage.getItem(email) === password) {
-    if (localStorage.getItem(email) === password) {
-        // Store a session token (for simplicity, using the username)
-        localStorage.setItem('sessionToken', email);
-
-        // Redirect to the dashboard or perform other actions
-        window.location.href = 'adminDashboard.html';
+    if (email === "ishimweinstein@gmail.com" && password === "Admin") {
+        sessionStorage.setItem('sessionToken', email);
+        window.location = "../pages/adminDashboard.html";
     } else {
-        // alert('Invalid username or password');
-        var invalid = document.getElementById("invalidLogin");
+        const invalid = document.getElementById("invalidLogin");
         invalid.textContent = "Invalid Credentials !!"
         invalid.style.display = "block"
     }

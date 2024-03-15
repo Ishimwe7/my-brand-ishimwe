@@ -55,5 +55,12 @@ const showMessages = (contentId) => {
         selectedContent.style.display = 'grid';
     }
 }
+const showChangeProfile = (contentId) => {
+    removeContent();
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'grid';
+    }
+}
 
 

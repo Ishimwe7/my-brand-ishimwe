@@ -23,13 +23,13 @@
 }
 
 #name {
-    font-size: x-large;
+    font-size: xx-large;
     color: #A0E7E5;
 }
 
 #desc h1{
     color: white;
-    font-size: larger;
+    font-size: x-large;
     font-weight: bolder;
     text-align: center;
 }
@@ -37,7 +37,7 @@
 #desc h2{
     color: white;
     font-weight: lighter;
-    font-size: larger;
+    font-size: x-large;
 }
 #desc span{
     color: #36454F;
@@ -63,12 +63,11 @@
     font-weight:300;
     font-size: x-large;
     color: white;
-    margin-left: 20px;
 }
 #about-me p{
     text-align: center;
     font-weight:lighter; 
-    font-size: larger;
+    font-size: 1.9rem;
     color: white;
     margin: 0 90px;
 }
@@ -119,31 +118,22 @@
         color: #36454F;
         font-weight: bold;
     }
-    /* #content{
-        margin: auto;
-        width: 90%;
-        height: 200px;
-        background-color: #A0E7E5;
-        border-radius: 10px;
-        font-size: larger;
-    } */
-    
+  
     #about-me h1{
         text-align: center;
         font-weight: bolder;
         font-size: 40px;
     }
     #about-me h2{
-        text-align: left;
         font-weight:300;
-        font-size: 38px;
+        font-size: x-large;
         color: white;
-        margin-left: 18px;
+        
     }
     #about-me p{
         /* text-align: center;
         font-weight:lighter; */
-        font-size: 20px;
+        font-size: x-large;
         color: white;
 }
 }
@@ -233,17 +223,16 @@
     
     
     #about img{
-        width: 40%;
-        height: 60%;
+        width: 60%;
+        height: 80%;
         border-radius: 10px;
-        margin: 3%;
+        margin: auto;
     }
     
     #about-img{
         display: grid;
         justify-content: center;
         align-items: center;
-        gap: 5%;
         margin-top: 30px;
     }
     
@@ -251,10 +240,12 @@
         font-size: 26px;
         color: #A0E7E5;
     }
-    
+    #desc{
+        margin: auto;
+    }
     #desc h1{
         color: white;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: bolder;
         text-align: center;
     }
@@ -267,24 +258,24 @@
         color: #36454F;
         font-weight: bold;
     }
-
     
     #about-me h1{
         text-align: center;
         font-weight: bolder;
-        font-size: 30px;
+        font-size: 25px;
     }
     #about-me h2{
         text-align: center;
         font-weight:300;
-        font-size: 25px;
+        font-size: 20px;
         color: white;
-        margin-left: 15px;
+        width: 80%;
+        word-wrap: break-word;
     }
     #about-me p{
          text-align: center;
         font-weight:lighter; 
-        font-size: 18px;
+        font-size: 16px;
         color: white;
 }
 }

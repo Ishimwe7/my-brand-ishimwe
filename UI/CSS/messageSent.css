@@ -39,3 +39,86 @@ button a{
 button:hover{
     opacity: 0.8;
 }
+
+
+
+@media only screen and (max-width: 992px) {
+ 
+    #message-sent{
+        width: 50vw;
+       margin: 140px auto;
+       padding: 20px;
+    }
+    #message-sent h2{
+        margin: 20px;
+        padding: 20px;
+        font-size: xx-large;
+    }
+    #message-sent p{
+        font-size: x-large;
+    }
+    button{
+        width: 180px;
+        height: 40px;
+        margin: 20px auto;
+        padding: 10px ;
+    }
+    button a{
+        text-decoration: none;
+        font-size: x-large;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+ 
+    #message-sent{
+        width: 50vw;
+       margin: 120px auto;
+       padding: 15px;
+    }
+    #message-sent h2{
+        margin: 18px;
+        padding: 18px;
+        font-size: x-large;
+    }
+    #message-sent p{
+        font-size: larger;
+    }
+    button{
+        width: 150px;
+        height: 35px;
+        margin: 18px auto;
+        padding: 8px ;
+    }
+    button a{
+        text-decoration: none;
+        font-size: larger;
+    }
+}
+
+@media only screen and (max-width: 484px) {
+ 
+    #message-sent{
+        width: 60vw;
+       margin: 100px auto;
+       padding: 10px;
+    }
+    #message-sent h2{
+        margin: 15px;
+        padding: 15px;
+        font-size: larger;
+    }
+    #message-sent p{
+        font-size: large;
+    }
+    button{
+        width: 120px;
+        height: 30px;
+        margin: 15px auto;
+        padding: 6px ;
+    }
+    button a{
+        text-decoration: none;
+        font-size: large;
+    }
+}
