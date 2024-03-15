@@ -13,6 +13,8 @@
     <script type="module" src="../JavaScript/displayAllUsers.js"></script>
     <script type="module" src="../JavaScript/displayMessages.js"></script>
     <script type="module" src="../JavaScript/adminLogout.js"></script>
+    <script type="module" src="../JavaScript/analytics.js"></script>
+    <script type="module" src="../JavaScript/changeProfile.js"></script>
 
 </head>
 <body>
@@ -30,7 +32,7 @@
                 </div>
             </div>    
                 <div class="sidebar">
-                    <a href="#" class="active">
+                    <a href="#" class="active" onclick="showChangeProfile('change-profile')">
                         <span class="material-icons-sharp">person</span>
                         <h3>Profile</h3>
                     </a>
@@ -59,7 +61,43 @@
         </aside>
         <main>
             <h1>Admin's Dashboard</h1>
+            <div id="profile-picture">
+                <img id="prof-pic" src="../pictures/Myj profile.jpg" alt="my profile picture">
+            </div>
              <div class="content-container">
+                <div class="welcome content" id="welcome">
+                    <h1>Welcome Back to your Dashboard</h1>
+                    <div>
+                        <div class="analytics">
+                            <div class="box">
+                                <p>Users</p>
+                                <p><span id="total-users"></span></p>
+                            </div>
+                            <div class="box">
+                                <p>Messages</p>
+                                <p><span id="total-messages"></span></p>
+                            </div>
+                            <div class="box">
+                                <p>Blogs</p>
+                                <p><span id="total-blogs"></span></p>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="change-profile content" id="change-profile">
+                    <h1>Change Profile</h1>
+                    <form action="" id="change-profile-form">
+                        <div class="row">
+                            <label for="intro">Welcome Text</label>
+                            <input type="text" name="intro" id="intro">
+                        </div>
+                        <div class="row">
+                            <label for="picture">Profile Picture</label>
+                            <input type="file" id="picture" accept="image/*">
+                        </div>
+                        <button>Update</button>
+                    </form>
+                </div>
                 <div id="create-article-form" class="content">
                     <h1>Create Article</h1> 
                 <form id="new-article">
