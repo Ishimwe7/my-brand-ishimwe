@@ -18,11 +18,11 @@ const createNewArticle = (id, title, image, content, comments, likes) => {
     article.setLikes(likes);
     return article;
 }
-const createNewComment = (author, content, articleId, likes, replies) => {
-    const article = new Article();
+const createNewComment = (id, author, content, likes, replies) => {
+    const comment = new Comment();
+    comment.setId(id);
     comment.setAuthor(author);
     comment.setContent(content);
-    comment.setArticleId(articleId);
     comment.setLikes(likes);
     comment.setReplies(replies);
     return comment;
@@ -67,6 +67,7 @@ const buildArticle = (myArticle, id) => {
     const commentInput = document.createElement("input");
     commentInput.className = "create-comment";
     commentInput.id = "new-comment";
+    comment.className = "new-comment";
     commentInput.type = "text";
     commentInput.maxLength = "100";
     const addCommentBtn = document.createElement("button");
@@ -138,7 +139,7 @@ const loadListObject = () => {
     parsedArticles.forEach((article) => {
         const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
         article._comments.forEach((comment) => {
-            const newComment = createNewComment(comment._author, comment._content, comment._articleId, comment._likes, comment._replies);
+            const newComment = createNewComment(comment._id, comment._author, comment._content, comment._likes, comment._replies);
             newArticle.addComment(newComment);
         });
         // newArticle.setComments(commentsList);
