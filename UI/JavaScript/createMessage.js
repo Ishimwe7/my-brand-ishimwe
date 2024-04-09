@@ -58,7 +58,7 @@ const processMessage = async () => {
     //const message = createNewMessage(getLastId(), names, email, subject, query, date);
     // messagesList.addMessage(message);
     // updatePersistentData(messagesList.getMessagesList());
-    await fetch('http://localhost:8000/messages/newMessage', {
+    await fetch('https://my-brand-nyanja-cyane.onrender.com/messages/newMessage', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
