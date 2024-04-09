@@ -29,20 +29,49 @@ const initApp = () => {
 }
 
 
-const processSubmission = () => {
+const processSubmission = async () => {
+    document.getElementById('responses').innerHTML = '';
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const userFound = loadListObject(email, password);
-    if (userFound != null) {
-        sessionStorage.setItem("loggeInUser", JSON.stringify(userFound));
-        window.location = "../../index.html";
-    }
-    else {
-        const invalidLogin = document.getElementById("invalidLogin");
-        invalidLogin.textContent = "Invalid Login Credentials";
-        invalidLogin.style.display = "block";
-        console.log(userFound);
-    }
+    await fetch('https://my-brand-nyanja-cyane.onrender.com/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    }).then(response => {
+        // if (response) {
+        //     const res = document.createElement("p");
+        //     res.innerHTML = response.body;
+        //     document.getElementById('responses').appendChild(res);
+        // }
+        if (response.status == 400 || response.status == 404) {
+            const p = document.createElement("p");
+            p.innerHTML = "Invalid Login ! "
+            p.className = "error";
+            document.getElementById('responses').appendChild(p);
+        }
+        if (response.ok) {
+            window.location.href = '../../index.html'; // Redirect to login page after successful registration
+        } else {
+            throw new Error('Login failed');
+        }
+    })
+        .catch(error => {
+            console.error('Login error:', error);
+            // alert('Registration failed');
+        });
+    // const userFound = loadListObject(email, password);
+    // if (userFound != null) {
+    //     sessionStorage.setItem("loggeInUser", JSON.stringify(userFound));
+    //     window.location = "../../index.html";
+    // }
+    // else {
+    //     const invalidLogin = document.getElementById("invalidLogin");
+    //     invalidLogin.textContent = "Invalid Login Credentials";
+    //     invalidLogin.style.display = "block";
+    //     console.log(userFound);
+    // }
 }
 
 
