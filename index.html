@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyanja's Portifolio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="UI/CSS/home.css">
+    <link rel="stylesheet" href="UI/CSS/menulist.css">
     <link rel="stylesheet" href="UI/CSS/about.css">
     <link rel="stylesheet" href="UI/CSS/skills.css">
     <link rel="stylesheet" href="UI/CSS/footer.css">
@@ -14,6 +16,7 @@
     <script type="module" src="UI/JavaScript/displayArticles.js"> </script> 
     <script type="module" src="UI/JavaScript/createComment.js"></script>
     <script type="module" src="UI/JavaScript/createMessage.js"></script>
+    <script type="module" src="UI/JavaScript/setProfile.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -23,7 +26,7 @@
         <nav>
             <div id="nav-bar">
                 <div id="logo"><img src="UI/pictures/logo.PNG" alt="Logo"></div>
-                <div class="nav-toggler" onclick="toggleNav()">
+                <div id="nav-toggler" class="nav-toggler">
                     <img src="UI/icons/iconmonstr-line-four-horizontal-lined.svg" alt="Menu">
                  </div>
                  <div>
@@ -41,11 +44,22 @@
                          </div>
                         </div>
                 </ul>
-                <!-- <div class="nav-toggler">&#9776;</div> -->
-               
-            </div>
+                   </div>
         </nav>
     </header>
+    <ul id="menu-list-on-toggle">
+        <span id="close-menu" class="material-icons-sharp">close</span>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portifolio">Portifolio</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact-me">Contact me</a></li>
+        <div id="nav-control">
+           <li><a href="UI/pages/userSignUp.html" target="_blank" id="signup">Sign Up</a></li>
+           <li><a href="UI/pages/userLogin.html" target="_blank" id="signin">Login</a></li>
+        </div>
+        </ul>
     <main>
         <div id="home">
             <div id="home-part1">
@@ -62,6 +76,8 @@
      From coding to problem-solving, 
     let's embark on a journey through my
      projects and experiences. 
+     I am a dedicated and results-oriented IT professional with 
+     a passion for leveraging technology to solve complex problems and drive business success.
                     </p>
                     <div id="home-btns">
                         <button>Download CV</button>
@@ -70,7 +86,7 @@
                    </div>
                 </div>
                 <div id="profile-picture">
-                    <img src="UI/pictures/My profile.jpg" alt="my profile picture">
+                    <img src="UI/pictures/My profile.jpg" id="prof-pic" alt="my profile picture">
                 </div>
             </div>
             <div id="home-part2">
@@ -105,8 +121,8 @@ enthusiasm. Constantly evolving to
                 <img src="UI/pictures/My profile.jpg" alt="my picture">
                 <div id="desc">
                    <p id="name">Hi there! This is Ishimwe,<br>
-                    Also known as Einstein.</p> <br><br>
-                    <h1>Personal Information:</h1><br><br>
+                    Also known as Einstein.</p> <br>
+                    <h1>Personal Information:</h1><br>
                     <h2><span>Full names</span>: Ishimwe Pacifique</h2>
                     <h2><span>Nationality</span>: Rwandan</h2>
                     <h2><span>Marital Status</span>: Single</h2>
@@ -204,74 +220,8 @@ enthusiasm. Constantly evolving to
                     
                 </div>
             </article>
-            <article class="blog-post">
-                <img src="UI/pictures/logo.PNG" alt="Blog Image">
-                <h2>My first blog</h2>
-                <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
-                
-                <div class="actions">
-                    <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg" alt="like icon">
-                    <img class="share-btn" src="UI/icons/curved-arrow-right-icon.svg" alt="share icon">
-                </div>
-                <div class="add-comment">
-                    <form action="" name="comment-form" id="comment-form">
-                        <input type="text" class="create-comment" maxlength="100">
-                        <button class="add-comment-btn">Comment</button>
-                    </form>
-                </div>
-                <div class="comments-section">
-                    <h3>Comments</h3>
-                    <div class="comment">
-                        <p><strong>Ishimwe:</strong> This is a great blog post!</p>
-                       <div class="comment-actions">
-                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
-                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
-                       </div>
-                    </div>
-                    <div class="comment">
-                        <p><strong>Einstein:</strong> Wow this is an awesome blog!</p>
-                       <div class="comment-actions">
-                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
-                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
-                       </div>
-                    </div>
-                    
-                </div>
-            </article>
-            <article class="blog-post">
-                <img src="UI/pictures/logo.PNG" alt="Blog Image">
-                <h2 class="blog-title">My first blog</h2>
-                <p class="blog-content">This is a brief description of the blog post. It can include details about the content of the blog.</p>
-                
-                <div class="actions">
-                    <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg" alt="like icon">
-                    <img class="share-btn" src="UI/icons/curved-arrow-right-icon.svg" alt="share icon">
-                </div>
-                <div class="add-comment">
-                    <form action="" name="comment-form" id="comment-form">
-                        <input type="text" class="create-comment" maxlength="100">
-                        <button class="add-comment-btn">Comment</button>
-                    </form>
-                </div>
-                <div class="comments-section">
-                    <h3>Comments</h3>
-                    <div class="comment">
-                        <p><strong>Ishimwe:</strong> This is a great blog post!</p>
-                       <div class="comment-actions">
-                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
-                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
-                       </div>
-                    </div>
-                    <div class="comment">
-                        <p><strong>Einstein:</strong> Wow this is an awesome blog!</p>
-                       <div class="comment-actions">
-                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
-                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
-                       </div>
-                    </div>
-                    
-                </div>
-            </article>
+           
+           
             <article class="blog-post">
                 <img src="UI/pictures/My profile.jpg" alt="Blog Image">
                 <h2>My first blog</h2>
@@ -424,22 +374,33 @@ enthusiasm. Constantly evolving to
         });
       </script> -->
       <script>
-        function toggleNav() {
-            var navBar = document.getElementById("nav-bar");
-            var menuList = document.getElementById("menu-list");
-            // var nav_toggler=document.getElementById("nav-toggler");
-           
-            if (menuList.style.display === "block") {
-                menuList.style.display = "none";
-            } else {
-                // nav_toggler.style.display="none";
-                navBar.style.gap="20%";
-                menuList.style.display = "block";
-            }
-        //     if (window.innerWidth > 768) {
-        //       location.reload();
+        // const menu = document.getElementById("menu-list");
+        // const tog= document.getElementById("menu-list-on-toggle");
+        // if(menu.style.display!=="none"){
+        //     tog.style.display="none";
         // }
-        }
+        document.getElementById("nav-toggler").addEventListener('click',()=>{
+            const navBar = document.getElementById("menu-list-on-toggle");
+            document.getElementById("nav-toggler").style.display="none";
+            navBar.style.display="block"
+        });
+        document.getElementById("close-menu").addEventListener('click',()=>{
+            document.getElementById("menu-list-on-toggle").style.display="none";
+            document.getElementById("nav-toggler").style.display="block";
+        })
+            // var navBar = document.getElementById("nav-bar");
+            // var menuList = document.getElementById("menu-list");
+            // // var nav_toggler=document.getElementById("nav-toggler");
+           
+            // if (menuList.style.display === "block") {
+            //     menuList.style.display = "none";
+            // } else {
+            //     // nav_toggler.style.display="none";
+            //     navBar.style.gap="20%";
+            //     menuList.style.display = "block";
+            // }
+        
+        //}
     </script>
 </body>
 </html>

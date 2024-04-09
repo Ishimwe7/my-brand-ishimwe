@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/adminLogin.css">
-    <script defer src="../JavaScript/login.js"></script>
+    <script type="module" src="../JavaScript/userLogin.js"></script>
     <title>User Login</title>
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form" id="login-form">
+        <form class="login-form logins" id="login-form">
             <h1>User Login</h1>
             <div class="row">
                 <label for="email">Email:</label>
@@ -20,7 +20,8 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <p id="invalidLogin"></p>
-            <button type="submit" onclick="authenticateUser()">Login</button>
+            <div id="responses"></div>
+            <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="userSignUp.html">Sign Up</a></p>
     </div>

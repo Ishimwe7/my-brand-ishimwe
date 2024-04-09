@@ -2,6 +2,7 @@ import Article from "./article.js";
 import ArticlesList from "./articlesList.js";
 import Comment from "./comment.js";
 import CommentsList from "./commentsList.js";
+//import multer from 'multer';
 
 const myArticlesList = new ArticlesList();
 const myArticle = new Article();
@@ -42,13 +43,11 @@ const createNewComment = (commentId, author, content, likes, replies) => {
 
 
 const initApp = () => {
-    //Add listeners
-    console.log("Hello world");
+
     const articleForm = document.getElementById("new-article");
     articleForm.addEventListener("submit", (event) => {
         event.preventDefault();
         processSubmission()
-        alert("Article Created Successfully !!");
         clearForm();
         location.reload();
     })
@@ -91,40 +90,73 @@ const clearForm = () => {
 // };
 
 
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, '../uploads/');
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, Date.now() + '-' + file.originalname);
+//     }
+// });
+
+// const upload = multer({ storage: storage });
+
 const processSubmission = () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("content").value;
-    const image = document.getElementById("art-image");
+    const image = document.getElementById("art-image").value;
     let imageUrl = null;
     const imageReader = new FileReader();
 
-    imageReader.addEventListener('load', () => {
+    imageReader.addEventListener('load', async () => {
         imageUrl = imageReader.result;
-
         // Create and add the article after the image is loaded
-        const article = createNewArticle(getLastId(), title, imageUrl, content, commentsList.getCommentsList(), 0);
-        myArticlesList.addArticle(article);
-        updatePersistentData(myArticlesList.getArticlesList());
+        const article = { "title": title, "imageUrl": imageUrl, "content": content, "comments": [], "likes": 0 };
+        //myArticlesList.addArticle(article);
+        // updatePersistentData(myArticlesList.getArticlesList());
+        console.log(imageUrl);
+        await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/newBlog', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(article)
+        }).then(response => {
+            if (response.status == 400 || response.status == 404) {
+                alert("Blog not added: An expected error occurred! ");
+            }
+            if (response.ok) {
+                alert("Blog added Successfully !" + "hello " + content);
+            }
+            else {
+                alert("Blog not created: An expected error occurred! ");
+                throw new Error('Blog creation failed');
+            }
+            console.log(response);
+        })
+            .catch(error => {
+                alert("Blog not created: An expected error occurred! ");
+                console.error('Creating blog error:', error);
+            });
+
+        // Read the image file
+        imageReader.readAsDataURL(image.files[0]);
     });
 
-    // Read the image file
-    imageReader.readAsDataURL(image.files[0]);
+
+    // function addCommentToArticle(articleId, newComment) {
+    //     const article = myArticlesList.articles.find((article) => article.id === articleId);
+    //     if (article) {
+    //         article.addComment(newComment);
+    //     }
 }
-
-
-// function addCommentToArticle(articleId, newComment) {
-//     const article = myArticlesList.articles.find((article) => article.id === articleId);
-//     if (article) {
-//         article.addComment(newComment);
-//     }
-// }
 
 const loadListObject = () => {
     const storedArticles = localStorage.getItem("myArticlesList");
     if (typeof storedArticles !== "string") return;
     const parsedArticles = JSON.parse(storedArticles);
     parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+        const newArticle = createNewArticle(article._id, article._title, article._image, article._content, article._comments, article._likes);
         myArticlesList.addArticle(newArticle);
     });
     //renderList(myArticlesList);
