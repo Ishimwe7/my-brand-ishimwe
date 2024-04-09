@@ -71,15 +71,15 @@
                         <div class="analytics">
                             <div class="box">
                                 <p>Users</p>
-                                <p><span id="total-users"></span></p>
+                                <p><span id="total-users">0</span></p>
                             </div>
                             <div class="box">
                                 <p>Messages</p>
-                                <p><span id="total-messages"></span></p>
+                                <p><span id="total-messages">0</span></p>
                             </div>
                             <div class="box">
                                 <p>Blogs</p>
-                                <p><span id="total-blogs"></span></p>
+                                <p><span id="total-blogs">0</span></p>
                             </div>
                           </div>
                     </div>
@@ -165,10 +165,10 @@
         </main>
     </div>
       <script>
-        const sessionToken = sessionStorage.getItem('sessionToken');
-        if (!sessionToken) {
+        const sessionToken = sessionStorage.getItem('adminToken');
+        if (!adminToken) {
           window.location.href = 'adminLogin.html';
-          console.log("Under testing")
+          //console.log("Under testing")
         }
       </script> 
 </body>

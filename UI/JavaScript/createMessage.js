@@ -33,9 +33,8 @@ const initApp = () => {
         event.preventDefault();
         processMessage();
         clearForm();
-        window.location = "../UI/pages/messageSent.html";
     })
-    loadListObject();
+    // loadListObject();
 }
 
 const clearForm = () => {
@@ -50,16 +49,42 @@ const clearForm = () => {
 }
 
 
-const processMessage = () => {
-    const names = document.getElementById("names").value;
+const processMessage = async () => {
+    const sender = document.getElementById("names").value;
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
-    const query = document.getElementById("query").value;
+    const content = document.getElementById("query").value;
     const date = new Date();
-    const message = createNewMessage(getLastId(), names, email, subject, query, date);
-    messagesList.addMessage(message);
-    updatePersistentData(messagesList.getMessagesList());
-    //console.log(window.location);
+    //const message = createNewMessage(getLastId(), names, email, subject, query, date);
+    // messagesList.addMessage(message);
+    // updatePersistentData(messagesList.getMessagesList());
+    await fetch('http://localhost:8000/messages/newMessage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ subject, content, sender, email, date: Date.now() })
+    }).then(response => {
+        if (response.status == 400 || response.status == 404) {
+            alert("Message not sent: An expected error occurred! ");
+            // const p = document.createElement("p");
+            // p.innerHTML = "Message not sent: An expected error occurred! "
+            // p.className = "error";
+            // document.getElementById('responses').appendChild(p);
+        }
+        if (response.ok) {
+            window.location = "../UI/pages/messageSent.html";
+            //window.location.href = '../../index.html'; // Redirect to login page after successful registration
+        } else {
+            alert("Message not sent: An expected error occurred! ");
+            throw new Error('Message sending failed');
+        }
+    })
+        .catch(error => {
+            alert("Message not sent: An expected error occurred! ");
+            console.error('Registration error:', error);
+            // alert('Registration failed');
+        });
 };
 
 const loadListObject = () => {

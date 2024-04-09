@@ -94,18 +94,65 @@ const clearForm = () => {
     confirm_password.value = '';
 }
 
-const processSubmission = () => {
+const processSubmission = async () => {
+    document.getElementById('responses').innerHTML = '';
     const names = document.getElementById("names").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("confirm-password").value;
     if (password === confirm_password) {
-        const user = registerUser(getLastUserId(), names, email, password);
-        allUsers.addUser(user);
-        updatePersistentData(allUsers.getAllUSersList());
-        alert("Registration Successfully Done !!");
+        // const user = registerUser(getLastUserId(), names, email, password);
+        // allUsers.addUser(user);
+        // updatePersistentData(allUsers.getAllUSersList());
+        // alert("Registration Successfully Done !!");
         //   clearForm();
-        location.reload();
+        const isAdmin = false;
+        await fetch('http://localhost:8000/users/newUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ names, email, password, isAdmin })
+        }).then(response => {
+            // if (response) {
+            //     const res = document.createElement("p");
+            //     res.innerHTML = response.body;
+            //     document.getElementById('responses').appendChild(res);
+            // }
+            if (response.status == 400) {
+                const p = document.createElement("p");
+                p.innerHTML = "All fields are required !"
+                p.className = "error";
+                document.getElementById('responses').appendChild(p);
+            }
+            if (response.status == 409) {
+                const p = document.createElement("p");
+                p.innerHTML = "Email already registered !";
+                p.className = "error";
+                document.getElementById('responses').appendChild(p);
+            }
+            if (response.status == 500) {
+                const p = document.createElement("p");
+                p.innerHTML = "Invalid email or weak password !"
+                p.className = "error";
+                document.getElementById('responses').appendChild(p);
+            }
+            if (response.ok) {
+                // alert('Registration successful');
+                const p = document.createElement("p");
+                p.innerHTML = "Registration successful Done !"
+                p.className = "success";
+                document.getElementById('responses').appendChild(p);
+                // window.location.href = '/UI/pages/userLogin.html'; // Redirect to login page after successful registration
+            } else {
+                throw new Error('Registration failed');
+            }
+        })
+            .catch(error => {
+                console.error('Registration error:', error);
+                // alert('Registration failed');
+            });
+        //location.reload();
     }
     else {
         document.getElementById("password-mismatches").textContent = "Password Mismatches !";
