@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/admin-panel.css">
+    <link rel="stylesheet" href="../CSS/newArticle.css">
+    <script type="module" src="../JavaScript/createArticle.js"> </script>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="admin-panel">
+        <header>
+            <img src="../pictures/My profile.jpg" alt="">
+            <nav>
+                <ul>
+                    <li><a href="#create-article-form">Create Article</a></li>
+                    <li><a href="#update-profile">Update Profile</a></li>
+                    <li><a href="#queries">View Queries</a></li>
+                    <li><a href="#user-profile">User Profile</a></li>
+                </ul>
+            </nav>
+            <div class="nav-toggler" onclick="toggleNav()">
+                <img src="../icons/iconmonstr-line-four-horizontal-lined.svg" alt="Menu">
+            </div>
+        </header>
+        <section id="main-content">
+            <div id="admin-title">
+                <h1>Admin Panel</h1>
+               </div>
+               <div id="article">
+                <div new-artcle-queries>
+                    <div id="create-article-form">
+                            <h1>Create Article</h1>
+                        
+                        <form id="new-article">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title" required>
+    
+                            <label for="art-image">Image</label>
+                            <input id="art-image" type="file" accept="image/*">
+                
+                            <label for="content">Content:</label>
+                            <textarea id="content" name="content" rows="6" required></textarea>
+                
+                            <button type="submit">Create Article</button>
+                        </form>
+                    </div>
+                    <div id="queries">
+                        <h1>User Queries</h1>
+                        <div class="query">
+                            <h2>User Query</h2>
+                            <p><strong>Name:</strong> Ishimwe Pacifique</p>
+                            <p><strong>Email:</strong> ishimweinstein@gmail.com</p>
+                            <p><strong>Query:</strong> How can I contact you?</p>
+                            <p><strong>Date:</strong> February 29, 2024</p>
+                        </div>
+                        <div class="query">
+                            <h2>User Query</h2>
+                            <p><strong>Name:</strong> Nyanja Cyane</p>
+                            <p><strong>Email:</strong> nyanja.cyane@gmail.com</p>
+                            <p><strong>Query:</strong> How can I contact you?</p>
+                            <p><strong>Date:</strong> February 29, 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-section" id="blog-section">
+                    <h2>All Recent Blogs/Articles</h2>
+                    <article class="blog-post">
+                        <img src="../pictures/2887244.jpg" alt="Blog Image">
+                        <h2>My first blog</h2>
+                        <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                        
+                        <div class="actions">
+                            <button class="comment-btn">Update</button>
+                            <button class="comment-btn">Delete</button>
+                        </div>                     
+                    </article>
+                    <article class="blog-post">
+                        <img src="../pictures/website-hosting-concept-with-bright-light.jpg" alt="Blog Image">
+                        <h2>My first blog</h2>
+                        <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                        
+                        <div class="actions">
+                            <button class="comment-btn">Update</button>
+                            <button class="comment-btn">Delete</button>
+                        </div>                     
+                    </article>
+                </div>
+               </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleNav() {
+          const navList = document.querySelector('nav ul');
+          navList.classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>

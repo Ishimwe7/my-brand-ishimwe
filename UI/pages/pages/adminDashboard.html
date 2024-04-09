@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/admin-blogs-styles.css">
+    <script defer src="../JavaScript/adminControl.js"></script>
+    <script type="module" src="../JavaScript/createArticle.js"></script>
+    <script type="module" src="../JavaScript/DashboardArticles.js"></script>
+    <script type="module" src="../JavaScript/displayAllUsers.js"></script>
+    <script type="module" src="../JavaScript/displayMessages.js"></script>
+    <script type="module" src="../JavaScript/adminLogout.js"></script>
+    <script type="module" src="../JavaScript/analytics.js"></script>
+    <script type="module" src="../JavaScript/changeProfile.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../pictures/logo.PNG" alt="my logo">
+                    <h1>Ny@nja</h1>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>    
+                <div class="sidebar">
+                    <a href="#" class="active" onclick="showChangeProfile('change-profile')">
+                        <span class="material-icons-sharp">person</span>
+                        <h3>Profile</h3>
+                    </a>
+                    <a href="#" id="all-users" onclick="showUsers('users')">
+                        <span class="material-icons-sharp">group</span>
+                        <h3>Users</h3>
+                    </a>
+                    <a href="#" id="add-article" onclick="showCreateArticle('create-article-form')">
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Create Article</h3>
+                    </a>
+                    <a href="#" id="all-blogs" onclick="showBlogs('blog-section')">
+                        <span class="material-icons-sharp">toc</span>
+                        <h3>Blogs</h3> 
+                    </a>
+                    <a href="#" id="messages" onclick="showMessages('queries')">
+                        <span class="material-icons-sharp">move_to_inbox</span>
+                        <h3>Messages</h3>
+                        <span class="message-count" id="message-count">2</span>
+                    </a>
+                    <a href="#" onclick="logout()" id="admin-logout">
+                        <span class="material-icons-sharp">logout</span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+        </aside>
+        <main>
+            <h1>Admin's Dashboard</h1>
+            <div id="profile-picture">
+                <img id="prof-pic" src="../pictures/My profile.jpg" alt="my profile picture">
+            </div>
+             <div class="content-container">
+                <div class="welcome content" id="welcome">
+                    <h1>Welcome Back to your Dashboard</h1>
+                    <div>
+                        <div class="analytics">
+                            <div class="box">
+                                <p>Users</p>
+                                <p><span id="total-users">0</span></p>
+                            </div>
+                            <div class="box">
+                                <p>Messages</p>
+                                <p><span id="total-messages">0</span></p>
+                            </div>
+                            <div class="box">
+                                <p>Blogs</p>
+                                <p><span id="total-blogs">0</span></p>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="change-profile content" id="change-profile">
+                    <h1>Change Profile</h1>
+                    <form action="" id="change-profile-form">
+                        <!-- <div class="row">
+                            <label for="intro">Welcome Text</label>
+                            <input type="text" name="intro" id="intro">
+                        </div> -->
+                        <div class="row">
+                            <label for="picture">Profile Picture</label>
+                            <input type="file" id="picture" accept="image/*">
+                        </div>
+                        <button>Update</button>
+                    </form>
+                </div>
+                <div id="create-article-form" class="content">
+                    <h1>Create Article</h1> 
+                <form id="new-article">
+                    <div class="row">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+    
+                    <div class="row">
+                        <label for="art-image">Image:</label>
+                        <input id="art-image" type="file" accept="image/*">
+                    </div>
+        
+                    <div class="row">
+                        <label for="content">Content:</label>
+                        <textarea id="content" name="content" rows="6" required></textarea>
+                    </div>
+        
+                    <button type="submit">Create Article</button>
+                </form>
+            </div>
+            <div class="users content" id="users">
+                <h1>All Site Users List</h1>
+            </div>
+            <div id="queries" class="content">
+                <h1>User Queries</h1>
+                <div class="query">
+                    <p class="user"> <span class="names">Ishimwe Pacifique</span>  <span class="email">ishimweinstein@gmail.com</span> </p>
+                    <p class="message"> How can I contact you? jhhhhhhhhhjhgggggggggggggggggggggggggggggggggghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhgfds</p>
+                    <p class="date"> February 29, 2024</p>
+                </div>
+                <div class="query">
+                    <p> <span class="names">Ishimwe Pacifique</span> <span class="email">ishimweinstein@gmail.com</span> </p>
+                    <p class="message"> How can I contact you?</p>
+                    <p class="date"> February 29, 2024</p>
+                </div>
+                
+            </div>
+            <div class="blog-section content" id="blog-section">
+                <h2>All Recent Blogs/Articles</h2>
+                <div id="blogs">
+                    <article class="blog-post">
+                        <img src="../pictures/2887244.jpg" alt="Blog Image">
+                        <h2>My first blog</h2>
+                        <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                        
+                        <div class="actions">
+                            <button class="update-btn">Update</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>                     
+                    </article>
+                    <article class="blog-post">
+                        <img src="../pictures/website-hosting-concept-with-bright-light.jpg" alt="Blog Image">
+                        <h2>My first blog</h2>
+                        <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                        
+                        <div class="actions">
+                            <button class="update-btn">Update</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>                     
+                    </article>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+      <script>
+        const sessionToken = sessionStorage.getItem('adminToken');
+        if (!adminToken) {
+          window.location.href = 'adminLogin.html';
+          //console.log("Under testing")
+        }
+      </script> 
+</body>
+</html>
