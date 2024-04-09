@@ -343,6 +343,7 @@ form button:hover{
     color: white;
     margin: auto;
     border-collapse: collapse;
+    width: 80%;
 }
 #users table thead td{
     font-size: x-large;
@@ -355,6 +356,7 @@ tr,td{
     border-collapse: collapse;
     color: white;
     font-size: larger;
+    padding: 10px;
 }
 #welcome{
     position: relative;

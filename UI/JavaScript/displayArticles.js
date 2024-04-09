@@ -31,15 +31,15 @@ const createNewComment = (id, author, content, likes, replies) => {
 const buildArticle = (myArticle, id) => {
     const article = document.createElement("article");
     article.className = "blog-post";
-    article.id = myArticle.getId();
+    article.id = myArticle._id;
     const image = document.createElement("img");
     image.alt = "blog image";
-    image.src = myArticle.getImage();
+    image.src = myArticle.imageUrl;
     const title = document.createElement("h2");
-    title.innerText = myArticle.getTitle();
+    title.innerText = myArticle.title;
     title.className = "blog-title";
     const content = document.createElement("p");
-    content.textContent = myArticle.getContent();
+    content.textContent = myArticle.content;
     content.className = "blog-content";
     article.appendChild(image);
     article.appendChild(title);
@@ -48,6 +48,48 @@ const buildArticle = (myArticle, id) => {
     const actions = document.createElement("div");
     actions.className = "actions";
     const likeBtn = document.createElement("img");
+    let liked = false;
+    likeBtn.addEventListener('click', async () => {
+        if (!liked) {
+            await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addLike/${myArticle._id}/like`, {
+                method: 'POST',
+            }).then(response => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        liked = true;
+                        //loadListObject();
+                        location.reload();
+                    })
+                } else {
+                    throw new Error('liking failed');
+                }
+            })
+                .catch(error => {
+                    console.error('Fetching messages error:', error);
+                });
+        }
+        else {
+            await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/unLike/${myArticle._id}/like`, {
+                method: 'POST',
+            }).then(response => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        liked = false;
+                        //loadListObject();
+                        location.reload();
+                    })
+                } else {
+                    throw new Error('liking failed');
+                }
+            })
+                .catch(error => {
+                    console.error('Fetching messages error:', error);
+                });
+        }
+    })
+    const likes = document.createElement("span");
+    likes.style.fontSize = "larger";
+    likes.textContent = myArticle.likes;
     likeBtn.className = "like-btn";
     likeBtn.src = "UI/icons/heart-svgrepo-com.svg";
     likeBtn.alt = "like icon";
@@ -57,6 +99,7 @@ const buildArticle = (myArticle, id) => {
     shareBtn.alt = "share icon";
 
     actions.appendChild(likeBtn);
+    actions.appendChild(likes);
     actions.appendChild(shareBtn);
 
     const commentDiv = document.createElement("div");
@@ -70,6 +113,31 @@ const buildArticle = (myArticle, id) => {
     comment.className = "new-comment";
     commentInput.type = "text";
     commentInput.maxLength = "100";
+    const commentData = {
+        author: 'Nyanja',
+        content: commentInput.value,
+        likes: 0,
+        replies: [],
+        addedDate: new Date().toISOString() // Assuming you want to include the current date/time
+    };
+    commentForm.addEventListener('submit', async () => {
+        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addComment/${myArticle._id}/comments`, {
+            method: 'POST',
+            body: JSON.stringify(commentData)
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    //loadListObject();
+                    location.reload();
+                })
+            } else {
+                throw new Error('commenting failed');
+            }
+        })
+            .catch(error => {
+                console.error('Fetching blogs error:', error);
+            });
+    })
     const addCommentBtn = document.createElement("button");
     addCommentBtn.className = "add-comment-btn"
     addCommentBtn.id = "add-comment-btn" + id;
@@ -83,8 +151,10 @@ const buildArticle = (myArticle, id) => {
     const comments_header = document.createElement("h3");
     comments_header.textContent = "Comments";
     comments_section.appendChild(comments_header);
-    const comments = myArticle.getComments();
-    if (comments != null) {
+    article.appendChild(actions);
+    article.appendChild(commentDiv);
+    const comments = myArticle.comments;
+    if (comments.length > 0) {
         comments.forEach((comment) => {
             const one_comment = document.createElement("div");
             one_comment.className = "comment";
@@ -101,57 +171,73 @@ const buildArticle = (myArticle, id) => {
             comment_actions.appendChild(com_like);
             comment_actions.appendChild(com_reply);
             const com_auth = document.createElement("p");
-            com_auth.textContent = "<strong>" + comments[id].author + "</strong> : " + comments[id].content;
-            one_comment.appendChild(comment_actions);
+            com_auth.textContent = comment.author + ":" + comment.content;
             one_comment.appendChild(com_auth);
+            one_comment.appendChild(comment_actions);
             comments_section.appendChild(one_comment);
         })
+        article.appendChild(comments_section);
     }
     else {
+        article.appendChild(comments_section);
         const no_comments = document.createElement("p");
-        no_comments.className = "no-comments";
+        //no_comments.className = "no-comments";
         no_comments.textContent = "No comments yet !";
         comments_section.appendChild(no_comments);
+        article.appendChild(no_comments);
     }
-    article.appendChild(actions);
-    article.appendChild(commentDiv);
-    article.appendChild(comments_section);
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
 }
 
 
-// const loadListObject = () => {
-//     const storedArticles = localStorage.getItem("myArticlesList");
-//     if (typeof storedArticles !== "string") return;
-//     const parsedArticles = JSON.parse(storedArticles);
-//     parsedArticles.forEach((article) => {
-//         const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
-//         myArticlesList.addArticle(newArticle);
-//     });
-//     renderList(myArticlesList);
-// }
+const loadListObject = async () => {
+    // const storedArticles = localStorage.getItem("myArticlesList");
+    // if (typeof storedArticles !== "string") return;
+    // const parsedArticles = JSON.parse(storedArticles);
+    // parsedArticles.forEach((article) => {
+    //     const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
+    //     article._comments.forEach((comment) => {
+    //         const newComment = createNewComment(comment._id, comment._author, comment._content, comment._likes, comment._replies);
+    //         newArticle.addComment(newComment);
+    //     });
+    //     // newArticle.setComments(commentsList);
+    //     myArticlesList.addArticle(newArticle);
+    // });
 
-const loadListObject = () => {
-    const storedArticles = localStorage.getItem("myArticlesList");
-    if (typeof storedArticles !== "string") return;
-    const parsedArticles = JSON.parse(storedArticles);
-    parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._image, article._content);
-        article._comments.forEach((comment) => {
-            const newComment = createNewComment(comment._id, comment._author, comment._content, comment._likes, comment._replies);
-            newArticle.addComment(newComment);
+    await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/allBlogs', {
+        method: 'GET',
+    }).then(response => {
+
+        if (response.status == 500 || response.status == 400 || response.status == 404) {
+            const p = document.createElement("p");
+            p.innerHTML = "No blogs at the moment! "
+            p.className = "error";
+            document.getElementById('responses').appendChild(p);
+        }
+        if (response.ok) {
+            response.json().then(data => {
+                const allBlogs = data;
+                console.log(allBlogs);
+                document.getElementById("total-blogs").textContent = allBlogs.length;
+                renderList(allBlogs);
+            })
+        } else {
+            const p = document.createElement("p");
+            p.innerHTML = "An expected error occurred ! "
+            p.className = "error";
+            document.getElementById('responses').appendChild(p);
+            throw new Error('Fetching blogs failed');
+        }
+    })
+        .catch(error => {
+            console.error('Fetching blogs error:', error);
         });
-        // newArticle.setComments(commentsList);
-        myArticlesList.addArticle(newArticle);
-    });
-    //location.reload();
-    renderList(myArticlesList);
 }
 
 
-const renderList = (myArticlesList) => {
-    const articles = myArticlesList.getArticlesList();
+const renderList = (articles) => {
+    // const articles = myArticlesList.getArticlesList();
     let id = 1;
     articles.forEach((article) => {
         buildArticle(article, id);
