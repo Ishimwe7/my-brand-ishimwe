@@ -61,6 +61,7 @@ const buildArticle = (myArticle, id) => {
                         location.reload();
                     })
                 } else {
+                    window.location.href = "./UI/pages/userLogin.html";
                     throw new Error('liking failed');
                 }
             })
@@ -79,11 +80,12 @@ const buildArticle = (myArticle, id) => {
                         location.reload();
                     })
                 } else {
+                    window.location.href = "./UI/pages/userLogin.html";
                     throw new Error('liking failed');
                 }
             })
                 .catch(error => {
-                    console.error('Fetching messages error:', error);
+                    console.error('liking error:', error);
                 });
         }
     })
@@ -131,6 +133,7 @@ const buildArticle = (myArticle, id) => {
                     location.reload();
                 })
             } else {
+                window.location.href = "./UI/pages/userLogin.html";
                 throw new Error('commenting failed');
             }
         })
@@ -219,7 +222,7 @@ const loadListObject = async () => {
             response.json().then(data => {
                 const allBlogs = data;
                 console.log(allBlogs);
-                document.getElementById("total-blogs").textContent = allBlogs.length;
+                // document.getElementById("total-blogs").textContent = allBlogs.length;
                 renderList(allBlogs);
             })
         } else {
