@@ -82,7 +82,7 @@ const processMessage = async () => {
     })
         .catch(error => {
             alert("Message not sent: An expected error occurred! ");
-            console.error('Registration error:', error);
+            console.error('MEssaging  error:', error);
             // alert('Registration failed');
         });
 };
