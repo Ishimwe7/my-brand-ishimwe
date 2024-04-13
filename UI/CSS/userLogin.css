@@ -86,7 +86,7 @@ button {
     cursor: pointer;
     font-size: x-large;
     width: 85%;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 /* 
 .row{
@@ -113,7 +113,7 @@ p#invalidLogin{
     color: rgb(212, 55, 55);
     font-size: larger;
     display:none;
-    text-align: left;
+    text-align: center;
 }
 .required{
     display: none;
@@ -127,6 +127,8 @@ p#invalidLogin{
 }
 .error{
     color: red;
+    margin: 0;
+    text-align: center;
 }
 
 @media only screen and (max-width:992px)  {
@@ -182,7 +184,7 @@ button {
     cursor: pointer;
     font-size: x-large;
     width: 85%;
-    margin: 10px auto;
+    margin: 0 auto;
 }
 .row{
     display: grid;
@@ -227,7 +229,7 @@ button {
     button {
         padding: 10px;
         font-size: larger;
-        margin: 10px auto;
+        margin: 0 auto;
         border-radius: 20px;
         width: 85%;
     }
@@ -246,7 +248,7 @@ button {
     .login-container {
         padding: 15px;
         width: 68%;
-        height: 300px;
+        height: 350px;
     }
     
     p{
@@ -276,10 +278,9 @@ button {
     button {
         padding: 5px;
         font-size: large;
-        margin: 5px auto;
+        margin: 0 auto;
         width: 85%;
         border-radius: 20px;
-        margin-bottom: 0;
     }
     
     .row{

@@ -107,7 +107,7 @@ const processSubmission = async () => {
         // alert("Registration Successfully Done !!");
         //   clearForm();
         const isAdmin = false;
-        await fetch('http://localhost:8000/users/newUser', {
+        await fetch('https://my-brand-nyanja-cyane.onrender.com/users/newUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -155,8 +155,8 @@ const processSubmission = async () => {
         //location.reload();
     }
     else {
-        document.getElementById("password-mismatches").textContent = "Password Mismatches !";
-        document.getElementById("password-mismatches").style.display = "block";
+        document.getElementById("error").textContent = "Password Mismatches !";
+        document.getElementById("error").style.display = "block";
         return;
     }
 }
