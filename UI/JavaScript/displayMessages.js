@@ -17,16 +17,26 @@ const addMessage = (id, names, email, subject, message, date) => {
     return newMessage;
 }
 
+
+const getToken = () => {
+    const authToken = sessionStorage.getItem("adminToken");
+    if (typeof authToken !== "string") return;
+    const parsedToken = JSON.parse(authToken);
+    //console.log(parsedToken.token);
+    return parsedToken.token;
+}
 const loadListObject = async () => {
     // const storedMessages = localStorage.getItem("messages");
     // if (typeof storedMessages !== "string") return;
     // const parsedMessages = JSON.parse(storedMessages);
 
+    const token = getToken();
     await fetch('https://my-brand-nyanja-cyane.onrender.com/messages/allMessages/', {
         method: 'GET',
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
         // body: JSON.stringify({ email, password })
     }).then(response => {
 

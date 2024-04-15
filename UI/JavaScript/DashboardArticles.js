@@ -13,6 +13,15 @@ const createNewArticle = (id, title, image, content) => {
     return article;
 }
 
+const getToken = () => {
+    const authToken = sessionStorage.getItem("adminToken");
+    if (typeof authToken !== "string") return;
+    const parsedToken = JSON.parse(authToken);
+    //console.log(parsedToken.token);
+    return parsedToken.token;
+}
+
+
 const buildArticle = (myArticle) => {
     const article = document.createElement("article");
     article.className = "blog-post";
@@ -30,6 +39,7 @@ const buildArticle = (myArticle) => {
     article.appendChild(title);
     article.appendChild(content);
 
+    const editForm = document.getElementById("edit-article-form");
     const actions = document.createElement("div");
     actions.className = "actions";
     const updateBtn = document.createElement("button");
@@ -40,10 +50,17 @@ const buildArticle = (myArticle) => {
     deleteBtn.textContent = "Delete"
     deleteBtn.className = "delete-btn";
     deleteBtn.id = "deleteBtn" + myArticle._id;
-
+    updateBtn.addEventListener('click', () => {
+        editForm.style.display = "grid";
+    })
+    const token = getToken();
     deleteBtn.addEventListener('click', async () => {
         await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/deleteBlog/${myArticle._id}`, {
             method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
         }).then(response => {
 
             if (response.status == 500 || response.status == 400 || response.status == 404) {

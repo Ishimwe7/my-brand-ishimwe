@@ -52,61 +52,21 @@ const getToken = () => {
 
 const initApp = () => {
 
-    const articleForm = document.getElementById("new-article");
+    const articleForm = document.getElementById("edit-article");
     articleForm.addEventListener("submit", (event) => {
         event.preventDefault();
         processSubmission()
-        //location.reload();
     })
-    // const commentForm = document.getElementById("comment-form");
-    // commentForm.addEventListener("submit", (event) => {
-    //     const articleId = event.target.closest("article").id;
-    //     console.log(articleId + "Hello Nyanja");
-    //     event.preventDefault();
-    //     processCommentSubmission(articleId);
-    // })
-    //procedural
-    // loadListObject();
-    // refreshThePage();
 }
 
 const clearForm = () => {
-    const title = document.getElementById("title");
-    const content = document.getElementById("content");
-    const image = document.getElementById("art-image");
+    const title = document.getElementById("edit-title");
+    const content = document.getElementById("edit-content");
+    const image = document.getElementById("edit-art-image");
     title.value = '';
     content.value = '';
     image.value = '';
 }
-
-// const processCommentSubmission = (articleId) => {
-//     console.log("It is not working");
-//     const comment = document.getElementById("new-comment").value;
-//     const author = "Nyanja";
-//     const replies = [];
-//     const newComment = createNewComment(getLastCommentId(), author, comment, 0, replies);
-//     //myArticlesList.addArticle(article);
-//     const article = myArticlesList.getArticlesList.find((article) => article.id === articleId);
-//     if (article) {
-//         article.addComment(newComment);
-//     }
-//     else {
-//         console.log("It is not working");
-//     }
-//     updatePersistentData(myArticlesList.getArticlesList());
-// };
-
-
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//         cb(null, '../uploads/');
-//     },
-//     filename: function (req, file, cb) {
-//         cb(null, Date.now() + '-' + file.originalname);
-//     }
-// });
-
-// const upload = multer({ storage: storage });
 
 const processSubmission = () => {
     const title = document.getElementById("title").value;
@@ -155,32 +115,4 @@ const processSubmission = () => {
     imageReader.readAsDataURL(image.files[0]);
 }
 
-const loadListObject = () => {
-    const storedArticles = localStorage.getItem("myArticlesList");
-    if (typeof storedArticles !== "string") return;
-    const parsedArticles = JSON.parse(storedArticles);
-    parsedArticles.forEach((article) => {
-        const newArticle = createNewArticle(article._id, article._title, article._image, article._content, article._comments, article._likes);
-        myArticlesList.addArticle(newArticle);
-    });
-    //renderList(myArticlesList);
-}
-
-
-const getLastId = () => {
-    let nextArticleId = 1;
-    const list = myArticlesList.getArticlesList();
-    if (list.length > 0) {
-        nextArticleId = list[list.length - 1].getId() + 1;
-    }
-    return nextArticleId;
-}
-// const getLastCommentId = () => {
-//     let nextCommentId = 1;
-//     const commentsList = commentsList.getCommentsList();
-//     if (commentsList.length > 0) {
-//         nextCommentId = commentsList[commentsList.length - 1].getId() + 1;
-//     }
-//     return nextCommentId;
-// }
 

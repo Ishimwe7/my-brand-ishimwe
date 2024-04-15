@@ -52,11 +52,11 @@ const processSubmission = async () => {
             document.getElementById('responses').appendChild(p);
         }
         if (response.ok) {
-            const data = response.json();
-            // Store the token in sessionStorage
-            //sessionStorage.setItem("token", data.token);
-            sessionStorage.setItem("loggedUser", data.token);
-            window.location.href = '../../index.html'; // Redirect to login page after successful registration
+            response.json().then(data => {
+                sessionStorage.setItem("loggedUser", JSON.stringify(data)); // Ensure data is stringified
+                console.log(data);
+                window.location.href = '../../index.html';
+            });
         } else {
             throw new Error('Login failed');
         }

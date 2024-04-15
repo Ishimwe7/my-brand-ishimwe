@@ -162,11 +162,31 @@
                 </div>
             </div>
         </div>
+        <div id="edit-article-form" class="content">
+            <h1>Edit Article</h1> 
+        <form id="edit-article">
+            <div class="row">
+                <label for="title">Title:</label>
+                <input type="text" id="edit-title" name="edit-title" required>
+            </div>
+
+            <div class="row">
+                <label for="art-image">Image:</label>
+                <input id="edit-art-image" type="file" accept="image/*">
+            </div>
+
+            <div class="row">
+                <label for="content">Content:</label>
+                <textarea id="edit-content" name="edit-content" rows="6" required></textarea>
+            </div>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
         </main>
     </div>
       <script>
         const sessionToken = sessionStorage.getItem('adminToken');
-        if (!adminToken) {
+        if (!sessionToken) {
           window.location.href = 'adminLogin.html';
           //console.log("Under testing")
         }

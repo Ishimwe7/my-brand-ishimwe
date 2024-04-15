@@ -1,7 +1,8 @@
 import Article from "./article.js";
 import ArticlesList from "./articlesList.js";
 import Comment from "./comment.js";
-import CommentsList from "./commentsList.js";
+import CommentsList from "./commentsList.js";;
+
 
 const myArticlesList = new ArticlesList();
 const myArticle = new Article();
@@ -27,8 +28,71 @@ const createNewComment = (id, author, content, likes, replies) => {
     comment.setReplies(replies);
     return comment;
 }
+const getToken = () => {
+    const authToken = sessionStorage.getItem("loggedUser");
+    if (typeof authToken !== "string") return;
+    const parsedToken = JSON.parse(authToken);
+    //console.log(parsedToken.token);
+    return parsedToken.token;
+}
+
+const getTokenObj = () => {
+    const authToken = sessionStorage.getItem("loggedUser");
+    if (typeof authToken !== "string") return;
+    const parsedToken = JSON.parse(authToken);
+    //console.log(parsedToken.token);
+    return parsedToken;
+}
+
+let myDecodedToken = null;
+// async function decode() {
+//     const token = getToken();
+//     await fetch(`https://my-brand-nyanja-cyane.onrender.com/users/decodeToken`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ token: token })
+//     }).then(response => {
+//         if (response.ok) {
+//             response.json().then(data => {
+//                 myDecodedToken = data;
+//                 // console.log(myDecodedToken.username);
+//                 return myDecodedToken;
+//             })
+//         }
+//     })
+//         .catch(error => {
+//             console.error('An expected error:', error);
+//         });
+// }
+
+async function decode() {
+    const token = getToken();
+    try {
+        const response = await fetch(`https://my-brand-nyanja-cyane.onrender.com/users/decodeToken`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: token })
+        });
+        if (response.ok) {
+            myDecodedToken = await response.json();
+            console.log(myDecodedToken.username); // Assuming username is a property of the decoded token
+            // If you need to access decodedToken in another function, you can do so directly
+        } else {
+            throw new Error('Failed to decode token');
+        }
+    } catch (error) {
+        console.error('An unexpected error occurred:', error);
+        throw error; // Rethrow the error to be caught by the caller
+    }
+}
+
 
 const buildArticle = (myArticle, id) => {
+    const token = getToken();
     const article = document.createElement("article");
     article.className = "blog-post";
     article.id = myArticle._id;
@@ -48,46 +112,78 @@ const buildArticle = (myArticle, id) => {
     const actions = document.createElement("div");
     actions.className = "actions";
     const likeBtn = document.createElement("img");
-    let liked = false;
+    const unLikeBtn = document.createElement("img");
+    unLikeBtn.style.display = "none";
+
+    const usersLiked = myArticle.usersLiked;
+    //let userId;
+
+    if (token) {
+        const userId = myDecodedToken.id;
+        if (userId !== undefined) {
+            usersLiked.forEach(userlikedId => {
+                if (userlikedId === userId) {
+                    likeBtn.style.display = "none";
+                    unLikeBtn.style.display = "inline";
+                }
+                else {
+                    unLikeBtn.style.display = "none";
+                    likeBtn.style.display = "inline";
+                }
+            })
+        }
+    }
+
     likeBtn.addEventListener('click', async () => {
-        if (!liked) {
-            await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addLike/${myArticle._id}/like`, {
-                method: 'POST',
-            }).then(response => {
-                if (response.ok) {
-                    response.json().then(data => {
-                        liked = true;
-                        //loadListObject();
-                        location.reload();
-                    })
-                } else {
-                    window.location.href = "./UI/pages/userLogin.html";
-                    throw new Error('liking failed');
-                }
-            })
-                .catch(error => {
-                    console.error('Fetching messages error:', error);
-                });
-        }
-        else {
-            await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/unLike/${myArticle._id}/like`, {
-                method: 'POST',
-            }).then(response => {
-                if (response.ok) {
-                    response.json().then(data => {
-                        liked = false;
-                        //loadListObject();
-                        location.reload();
-                    })
-                } else {
-                    window.location.href = "./UI/pages/userLogin.html";
-                    throw new Error('liking failed');
-                }
-            })
-                .catch(error => {
-                    console.error('liking error:', error);
-                });
-        }
+        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addLike/${myArticle._id}/like`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    //loadListObject();
+                    // likeBtn.style.display = "none";
+                    // unLikeBtn.style.display = "inline";
+                    location.reload();
+                })
+            } else {
+                window.location.href = "./UI/pages/userLogin.html";
+                throw new Error('liking failed');
+            }
+        })
+            .catch(error => {
+                console.error('Fetching messages error:', error);
+            });
+    })
+
+    unLikeBtn.addEventListener('click', async () => {
+        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/unLike/${myArticle._id}/like`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    // likeBtn.style.display = "inline";
+                    // unLikeBtn.style.display = "none";
+                    //loadListObject();
+                    location.reload();
+                })
+            } else {
+                console.log("Un liking failed")
+                window.location.href = "./UI/pages/userLogin.html";
+                throw new Error('unLiking failed');
+            }
+        })
+            .catch(error => {
+                console.log("Un liking failed");
+                console.error('Fetching messages error:', error);
+            });
     })
     const likes = document.createElement("span");
     likes.style.fontSize = "larger";
@@ -95,15 +191,19 @@ const buildArticle = (myArticle, id) => {
     likeBtn.className = "like-btn";
     likeBtn.src = "UI/icons/heart-svgrepo-com.svg";
     likeBtn.alt = "like icon";
+    unLikeBtn.src = "UI/icons/red-heart-11121.svg";
+    unLikeBtn.alt = "like icon";
     const shareBtn = document.createElement("img");
     shareBtn.className = "share-btn";
     shareBtn.src = "UI/icons/curved-arrow-right-icon.svg";
     shareBtn.alt = "share icon";
 
     actions.appendChild(likeBtn);
+    actions.appendChild(unLikeBtn);
     actions.appendChild(likes);
     actions.appendChild(shareBtn);
-
+    actions.style.display = "flex";
+    actions.style.alignItems = "center";
     const commentDiv = document.createElement("div");
     commentDiv.className = "add-comment"
     const commentForm = document.createElement("form");
@@ -111,44 +211,24 @@ const buildArticle = (myArticle, id) => {
     commentForm.id = "comment-form" + id;
     const commentInput = document.createElement("input");
     commentInput.className = "create-comment";
-    commentInput.id = "new-comment";
+    commentInput.id = "new-comment" + myArticle._id;
+    commentInput.style.color = "black";
     comment.className = "new-comment";
     commentInput.type = "text";
     commentInput.maxLength = "100";
-    const commentData = {
-        author: 'Nyanja',
-        content: commentInput.value,
-        likes: 0,
-        replies: [],
-        addedDate: new Date().toISOString() // Assuming you want to include the current date/time
-    };
-    commentForm.addEventListener('submit', async () => {
-        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addComment/${myArticle._id}/comments`, {
-            method: 'POST',
-            body: JSON.stringify(commentData)
-        }).then(response => {
-            if (response.ok) {
-                response.json().then(data => {
-                    //loadListObject();
-                    location.reload();
-                })
-            } else {
-                window.location.href = "./UI/pages/userLogin.html";
-                throw new Error('commenting failed');
-            }
-        })
-            .catch(error => {
-                console.error('Fetching blogs error:', error);
-            });
-    })
+
+    console.log(commentForm.id + " " + commentInput.id)
+    // const commentData = {
+
+    // };
     const addCommentBtn = document.createElement("button");
     addCommentBtn.className = "add-comment-btn"
-    addCommentBtn.id = "add-comment-btn" + id;
+    addCommentBtn.id = "add-comment-btn" + myArticle._id;
     //addCommentBtn.className = "add-comment-btn";
     addCommentBtn.textContent = "Comment";
     commentForm.appendChild(commentInput);
     commentForm.appendChild(addCommentBtn);
-    commentDiv.appendChild(commentForm)
+    commentDiv.appendChild(commentForm);
     const comments_section = document.createElement("div");
     comments_section.className = "comments-section";
     const comments_header = document.createElement("h3");
@@ -156,6 +236,8 @@ const buildArticle = (myArticle, id) => {
     comments_section.appendChild(comments_header);
     article.appendChild(actions);
     article.appendChild(commentDiv);
+
+
     const comments = myArticle.comments;
     if (comments.length > 0) {
         comments.forEach((comment) => {
@@ -191,6 +273,34 @@ const buildArticle = (myArticle, id) => {
     }
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
+    const commentContent = document.getElementById(commentInput.id).value;
+    const author = myDecodedToken.username;
+    commentForm.addEventListener('submit', async () => {
+        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addComment/${myArticle._id}/comments`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ commentContent, author }),
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    // loadListObject();
+                    console.log("Comment added");
+                    // location.reload();
+                })
+            } else {
+                window.location.href = "./UI/pages/userLogin.html";
+                console.log('commenting failed');
+                throw new Error('commenting failed');
+            }
+        })
+            .catch(error => {
+                console.log('commenting failed');
+                console.error('Fetching blogs error:', error);
+            });
+    })
 }
 
 
@@ -207,7 +317,6 @@ const loadListObject = async () => {
     //     // newArticle.setComments(commentsList);
     //     myArticlesList.addArticle(newArticle);
     // });
-
     await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/allBlogs', {
         method: 'GET',
     }).then(response => {
@@ -221,8 +330,7 @@ const loadListObject = async () => {
         if (response.ok) {
             response.json().then(data => {
                 const allBlogs = data;
-                console.log(allBlogs);
-                // document.getElementById("total-blogs").textContent = allBlogs.length;
+                // console.log(allBlogs);
                 renderList(allBlogs);
             })
         } else {
@@ -248,7 +356,22 @@ const renderList = (articles) => {
     });
 }
 
-window.onload = loadListObject();
+
+window.onload = (async () => {
+    try {
+        await decode(); // Wait for decoding to complete
+        const token = getToken();
+        if (token && myDecodedToken) { // Check if token and decoded token are available
+            loadListObject(); // Start loading the articles
+        } else {
+            console.error('Token or decoded token is not available.');
+        }
+    } catch (error) {
+        console.error('Error decoding token:', error);
+    }
+})();
+
+//window.onload = loadListObject();
 
 // document.addEventListener("readystatechange", (event) => {
 //     if (event.target.readyState === "complete") {

@@ -290,14 +290,14 @@ form input{
     padding: 10px;
     color: black;
     font-weight: 500;
-    font-size: x-large;
+    font-size: larger;
 }
 form input#art-image{
     color: white;
-    font-size: x-large;
+    font-size: larger;
 }
 .row label{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
 }
 
@@ -306,17 +306,17 @@ form textarea{
     height: 18vh;
     border-radius: 5px;
     padding: 10px;
-    font-size: x-large;
+    font-size: larger;
 }
 form button{
     border-radius: 10px;
     margin: 15px auto;
     height: 10vh;
-    width: 10vw;
+    width: 14vw;
     border-radius: 10px;
     height: 10vh;
     transition: all 200ms ease;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 1rem;
     width: fit-content;
     color: black;
@@ -426,6 +426,16 @@ tr,td{
   img{
     color:white;
   }
+  #edit-article-form{
+    display: none;
+    z-index: 333;
+    position: absolute;
+    top: 50px;
+    right: 120px;
+    background-color: rgb(6, 1, 28);
+    padding: 0;
+    border-radius: 10px;
+}
 
 @media only screen and (max-width: 992px){
     html{

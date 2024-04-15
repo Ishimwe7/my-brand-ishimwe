@@ -16,6 +16,14 @@ const registerUser = (id, names, email, password) => {
     return newUser;
 }
 
+const getToken = () => {
+    const authToken = sessionStorage.getItem("adminToken");
+    if (typeof authToken !== "string") return;
+    const parsedToken = JSON.parse(authToken);
+    //console.log(parsedToken.token);
+    return parsedToken.token;
+}
+
 const loadListObject = async () => {
     // const storedUsers = localStorage.getItem("usersList");
     // if (typeof storedUsers !== "string") return;
@@ -24,11 +32,13 @@ const loadListObject = async () => {
     //     const newUser = registerUser(user._id, user._names, user._email);
     //     allUsers.addUser(newUser);
     // });
+    const token = getToken();
     await fetch('https://my-brand-nyanja-cyane.onrender.com/users/allUsers/', {
         method: 'GET',
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
         // body: JSON.stringify({ email, password })
     }).then(response => {
 

@@ -33,13 +33,16 @@ async function authenticateUser() {
             document.getElementById('responses').appendChild(p);
         }
         if (response.ok) {
-            // sessionStorage.setItem('adminToken')
-            // window.location.href = '/UI/pages/userLogin.html'; // Redirect to login page after successful registration
-            window.location.href = 'UI/pages/adminDashboard.html'; // Redirect to login page after successful registration
+            response.json().then(data => {
+                sessionStorage.setItem("adminToken", JSON.stringify(data));
+                // console.log(data);
+                window.location.href = '../pages/adminDashboard.html';
+            });
         } else {
             const p = document.createElement("p");
-            p.innerHTML = "An expected error occurred ! "
             p.className = "error";
+            document.getElementById('responses').style.margin = 0;
+            document.getElementById('responses').style.display = "block";
             document.getElementById('responses').appendChild(p);
             throw new Error('Login failed');
         }
