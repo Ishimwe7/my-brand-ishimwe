@@ -23,5 +23,12 @@
             <button type="submit">Login</button>
         </form>
     </div>
+    <script>
+        const sessionToken = sessionStorage.getItem('adminToken');
+        if (sessionToken) {
+          window.location.href = './adminDashboard.html';
+          //console.log("Under testing")
+        }
+    </script>
 </body>
 </html>

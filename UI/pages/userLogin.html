@@ -24,5 +24,12 @@
         </form>
         <p>Don't have an account? <a href="userSignUp.html">Sign Up</a></p>
     </div>
+    <script>
+        const sessionToken = sessionStorage.getItem('loggedUser');
+        if (sessionToken) {
+          window.location.href = '../index.html';
+          //console.log("Under testing")
+        }
+    </script>
 </body>
 </html>
