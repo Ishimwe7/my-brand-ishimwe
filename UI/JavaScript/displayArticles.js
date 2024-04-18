@@ -288,7 +288,7 @@ const buildArticle = (myArticle, id) => {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ commentContent, author }),
+                body: JSON.stringify({ content: commentContent, author: author }),
             }).then(response => {
                 if (response.ok) {
                     response.json().then(data => {
