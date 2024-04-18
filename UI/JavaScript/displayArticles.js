@@ -95,6 +95,10 @@ async function decode() {
 const buildArticle = (myArticle, id) => {
     const token = getToken();
     const article = document.createElement("article");
+    const img_desc = document.createElement("div");
+    const title_desc = document.createElement("div");
+    img_desc.className = "img-desc";
+    title_desc.className = "title-desc";
     article.className = "blog-post";
     article.id = myArticle._id;
     const image = document.createElement("img");
@@ -106,9 +110,11 @@ const buildArticle = (myArticle, id) => {
     const content = document.createElement("p");
     content.textContent = myArticle.content;
     content.className = "blog-content";
-    article.appendChild(image);
-    article.appendChild(title);
-    article.appendChild(content);
+    img_desc.appendChild(image);
+    title_desc.appendChild(title);
+    title_desc.appendChild(content);
+    img_desc.appendChild(title_desc);
+    article.appendChild(img_desc)
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -230,15 +236,22 @@ const buildArticle = (myArticle, id) => {
     commentForm.appendChild(addCommentBtn);
     commentDiv.appendChild(commentForm);
     const comments_section = document.createElement("div");
+    const all_comments = document.createElement("div");
+    all_comments.className = "comments";
     comments_section.className = "comments-section";
     const comments_header = document.createElement("h3");
-    comments_header.textContent = "Comments";
+    comments_header.className = "comments-header";
     comments_section.appendChild(comments_header);
     article.appendChild(actions);
     article.appendChild(commentDiv);
-
+    comments_header.addEventListener('click', () => {
+        if (all_comments.style.display = "none") {
+            all_comments.style.display = "block";
+        }
+    })
 
     const comments = myArticle.comments;
+    comments_header.textContent = "Comments(" + comments.length + ")";
     if (comments.length > 0) {
         comments.forEach((comment) => {
             const one_comment = document.createElement("div");
@@ -256,11 +269,19 @@ const buildArticle = (myArticle, id) => {
             comment_actions.appendChild(com_like);
             comment_actions.appendChild(com_reply);
             const com_auth = document.createElement("p");
-            com_auth.textContent = comment.author + ":" + comment.content;
+            com_auth.innerHTML = "<strong>" + comment.author + "</strong>" + " : " + comment.content;
             one_comment.appendChild(com_auth);
             one_comment.appendChild(comment_actions);
-            comments_section.appendChild(one_comment);
+            all_comments.appendChild(one_comment);
         })
+        const hideComments = document.createElement("h2");
+        hideComments.className = "hide-comments";
+        hideComments.textContent = "Hide Comments"
+        hideComments.addEventListener('click', () => {
+            all_comments.style.display = "none";
+        })
+        all_comments.appendChild(hideComments);
+        comments_section.appendChild(all_comments);
         article.appendChild(comments_section);
     }
     else {
@@ -307,7 +328,7 @@ const buildArticle = (myArticle, id) => {
                     console.error('Fetching blogs error:', error);
                 });
         } else {
-            window.location.href = "../pages/userLogin.html"
+            window.location.href = "./UI/pages/userLogin.html"
         }
     })
 }

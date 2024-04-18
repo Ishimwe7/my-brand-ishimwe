@@ -1,6 +1,7 @@
 #blogs{
     background-color: black;
     padding:  30px;
+    width: 100%;
 }
 
 #blogs-header h1{
@@ -12,35 +13,44 @@
 }
 
 .blog-section {
-    display: flex;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 20px;
-    flex-wrap: nowrap;
+     display: grid; 
+    /* overflow-x: auto; */
+    justify-content:center;
+    padding: 20px; 
+    /* flex-wrap: nowrap; */
     background-color: #000;
-    max-width: 100%;
-    overflow-x: scroll;
+    width: 100%;
+    max-width: 100%; 
+    /* overflow-x: scroll; */
 }
 
 .blog-post {
-    flex: 1;
+    /* flex: 1;  */
     background-color: white;
-    /* max-width: calc(25% - 20px); */
-    max-width: 250px;
+    /* max-width: calc(25% - 20px);  */
+    max-width: 70%;
+    width: 100%;
     min-width: 250px;
-    max-height: 300px;
+    /* max-height: 300px; */
     padding: 20px;
-    margin: 10px;
+    margin:30px auto;
     border-radius: 8px;
-    width: 250px;
-    overflow: scroll;
+    /* width: 250px; */
+    /* overflow: scroll;  */
 }
 .blog-post h2{
-    font-size: large;
+    font-size: larger;
+    margin: 20px 0;
 }
 
+.img-desc{
+    display: flex;
+    gap: 30px;
+}
+
+
 .blog-post img {
-    width: 80px;
+    width: 20%;
     height: auto;
     border-radius: 8px;
 }
@@ -78,7 +88,12 @@
     padding: 10px 0;
     position: relative;
 }
-
+.comments{
+    display: none;
+}
+.comments-header:hover{
+    cursor: pointer;
+}
 
 .actions img{
     width: 20px;
@@ -97,8 +112,9 @@
 }
 
 .add-comment form{
-    width: auto;
+    width: 50%;
     border: none;
+    margin-left: 0;
 }
 .add-comment form button{
     font-size: small;

@@ -45,6 +45,7 @@
                             <li><a href="UI/pages/userSignUp.html" target="_blank" id="sign-up">Sign Up</a></li>
                             <li><a href="UI/pages/userLogin.html" target="_blank" id="login">Login</a></li>
                          </div>
+                         <li id="logout"><a href="">Logout</a><span  class="material-icons-sharp">logout</span></li>
                         </div>
                 </ul>
                    </div>
@@ -185,15 +186,54 @@ enthusiasm. Constantly evolving to
 
 
        <div id="blogs">
-        <div id="blogs-header"">
+        <div id="blogs-header">
             <h1>________My Blogs________</h1><br>
         </div>
         <div class="blog-section" id="blog-section">
+         <!-- <article class="blog-post">
+                <img src="UI/pictures/My profile.jpg" alt="Blog Image">
+                <h2>My first blog</h2>
+                <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                
+                <div class="actions">
+                    <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg" alt="like icon">
+                    <img class="share-btn" src="UI/icons/curved-arrow-right-icon.svg" alt="share icon">
+                </div>
+                <div class="add-comment">
+                    <form action="" name="comment-form" id="comment-form">
+                        <input type="text" class="create-comment" maxlength="100">
+                        <button class="add-comment-btn">Comment</button>
+                    </form>
+                </div>
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    <div class="comment">
+                        <p><strong>Ishimwe:</strong> This is a great blog post!</p>
+                       <div class="comment-actions">
+                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
+                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
+                       </div>
+                    </div>
+                    <div class="comment">
+                        <p><strong>Einstein:</strong> Wow this is an awesome blog!</p>
+                       <div class="comment-actions">
+                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
+                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
+                       </div>
+                    </div>
+                    
+                </div>
+            </article>  -->
+           
+           
             <!-- <article class="blog-post">
-                <img src="UI/pictures/My profile.jpg" alt="Blog Image">
-                <h2>My first blog</h2>
-                <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
-                
+                <div class="img-desc">
+                    <img src="UI/pictures/My profile.jpg" alt="Blog Image">
+                <div class="title-desc">
+                    <h2>My first blog</h2>
+                    <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
+                </div>
+                </div>
                 <div class="actions">
                     <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg" alt="like icon">
                     <img class="share-btn" src="UI/icons/curved-arrow-right-icon.svg" alt="share icon">
@@ -205,7 +245,8 @@ enthusiasm. Constantly evolving to
                     </form>
                 </div>
                 <div class="comments-section">
-                    <h3>Comments</h3>
+                    <h3 class="comments-header">Comments<span class="comment-count">(5)</span></h3>
+                   <div class="comments">
                     <div class="comment">
                         <p><strong>Ishimwe:</strong> This is a great blog post!</p>
                        <div class="comment-actions">
@@ -221,45 +262,9 @@ enthusiasm. Constantly evolving to
                        </div>
                     </div>
                     
+                   </div>
                 </div>
-            </article>
-           
-           
-            <article class="blog-post">
-                <img src="UI/pictures/My profile.jpg" alt="Blog Image">
-                <h2>My first blog</h2>
-                <p>This is a brief description of the blog post. It can include details about the content of the blog.</p>
-                
-                <div class="actions">
-                    <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg" alt="like icon">
-                    <img class="share-btn" src="UI/icons/curved-arrow-right-icon.svg" alt="share icon">
-                </div>
-                <div class="add-comment">
-                    <form action="" name="comment-form" id="comment-form">
-                        <input type="text" class="create-comment" maxlength="100">
-                        <button class="add-comment-btn">Comment</button>
-                    </form>
-                </div>
-                <div class="comments-section">
-                    <h3>Comments</h3>
-                    <div class="comment">
-                        <p><strong>Ishimwe:</strong> This is a great blog post!</p>
-                       <div class="comment-actions">
-                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
-                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
-                       </div>
-                    </div>
-                    <div class="comment">
-                        <p><strong>Einstein:</strong> Wow this is an awesome blog!</p>
-                       <div class="comment-actions">
-                        <img class="like-btn" src="UI/icons/heart-svgrepo-com.svg"> 
-                       <img class="reply-btn" src="UI/icons/curved-arrow-left-icon.svg">
-                       </div>
-                    </div>
-                    
-                </div>
-            </article>
-             -->
+            </article> -->
             
         </div>
 
@@ -377,6 +382,17 @@ enthusiasm. Constantly evolving to
         });
       </script> -->
       <script>
+
+       const sessionToken = sessionStorage.getItem('loggedUser');
+        if (sessionToken) {
+          document.getElementById("logout").style.display="flex";
+          document.getElementById("user-control").style.display="none";
+          //console.log("Under testing")
+        }
+        document.getElementById("logout").addEventListener('click',()=>{
+            sessionStorage.removeItem('loggedUser');
+            location.reload();
+        })
         // const menu = document.getElementById("menu-list");
         // const tog= document.getElementById("menu-list-on-toggle");
         // if(menu.style.display!=="none"){
