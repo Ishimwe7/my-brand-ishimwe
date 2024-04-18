@@ -69,24 +69,25 @@ let myDecodedToken = null;
 
 async function decode() {
     const token = getToken();
-    try {
-        const response = await fetch(`https://my-brand-nyanja-cyane.onrender.com/users/decodeToken`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token: token })
-        });
-        if (response.ok) {
-            myDecodedToken = await response.json();
-            console.log(myDecodedToken.username); // Assuming username is a property of the decoded token
-            // If you need to access decodedToken in another function, you can do so directly
-        } else {
-            throw new Error('Failed to decode token');
+    if (token != null) {
+        try {
+            const response = await fetch(`https://my-brand-nyanja-cyane.onrender.com/users/decodeToken`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: token })
+            });
+            if (response.ok) {
+                myDecodedToken = await response.json();
+                console.log(myDecodedToken.username);
+            } else {
+                throw new Error('Failed to decode token');
+            }
+        } catch (error) {
+            console.error('An unexpected error occurred:', error);
+            throw error; // Rethrow the error to be caught by the caller
         }
-    } catch (error) {
-        console.error('An unexpected error occurred:', error);
-        throw error; // Rethrow the error to be caught by the caller
     }
 }
 
@@ -217,9 +218,8 @@ const buildArticle = (myArticle, id) => {
     commentInput.type = "text";
     commentInput.maxLength = "100";
 
-    console.log(commentForm.id + " " + commentInput.id)
+    //console.log(commentForm.id + " " + commentInput.id)
     // const commentData = {
-
     // };
     const addCommentBtn = document.createElement("button");
     addCommentBtn.className = "add-comment-btn"
@@ -273,33 +273,42 @@ const buildArticle = (myArticle, id) => {
     }
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
-    const commentContent = document.getElementById(commentInput.id).value;
-    const author = myDecodedToken.username;
-    commentForm.addEventListener('submit', async () => {
-        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addComment/${myArticle._id}/comments`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ commentContent, author }),
-        }).then(response => {
-            if (response.ok) {
-                response.json().then(data => {
-                    // loadListObject();
-                    console.log("Comment added");
-                    // location.reload();
-                })
-            } else {
-                window.location.href = "./UI/pages/userLogin.html";
-                console.log('commenting failed');
-                throw new Error('commenting failed');
-            }
-        })
-            .catch(error => {
-                console.log('commenting failed');
-                console.error('Fetching blogs error:', error);
-            });
+    let author = null;
+    if (myDecodedToken != null) {
+        author = myDecodedToken.username;
+    }
+
+    commentForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const commentContent = commentInput.value.trim();
+        if (author != null && commentContent !== '') {
+            await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/addComment/${myArticle._id}/comments`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ commentContent, author }),
+            }).then(response => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        //loadListObject();
+                        console.log("Comment added");
+                        location.reload();
+                    })
+                } else {
+                    window.location.href = "./UI/pages/userLogin.html";
+                    console.log('commenting failed');
+                    throw new Error('commenting failed');
+                }
+            })
+                .catch(error => {
+                    console.log('commenting failed');
+                    console.error('Fetching blogs error:', error);
+                });
+        } else {
+            window.location.href = "../pages/userLogin.html"
+        }
     })
 }
 
@@ -358,16 +367,21 @@ const renderList = (articles) => {
 
 
 window.onload = (async () => {
-    try {
-        await decode(); // Wait for decoding to complete
-        const token = getToken();
-        if (token && myDecodedToken) { // Check if token and decoded token are available
-            loadListObject(); // Start loading the articles
-        } else {
-            console.error('Token or decoded token is not available.');
+    const token = getToken();
+    if (token) {
+        try {
+            await decode(); // Wait for decoding to complete
+            if (token && myDecodedToken) { // Check if token and decoded token are available
+                loadListObject(); // Start loading the articles
+            } else {
+                console.error('Token or decoded token is not available.');
+            }
+        } catch (error) {
+            console.error('Error decoding token:', error);
         }
-    } catch (error) {
-        console.error('Error decoding token:', error);
+    }
+    else {
+        loadListObject();
     }
 })();
 
