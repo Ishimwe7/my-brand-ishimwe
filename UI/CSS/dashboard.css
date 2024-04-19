@@ -330,6 +330,7 @@ form button:hover{
 
 #users{
     display: none;
+    width: 100%;
 }
 #users h1{
     font-size: 2.5rem;
@@ -567,7 +568,46 @@ tr,td{
         color: white;
         font-size: medium;
     }
-    
+    #profile-picture{
+        display: none;
+    }
+    #welcome h1{
+        overflow-wrap: break-word;
+    }
+    .analytics {
+        display: flex;
+        gap: 2%;
+        flex-wrap: wrap;
+        margin: 0 auto 10px auto;
+        width: 90%;
+        justify-content: center;
+      }
+      
+      .box {
+        flex: 1; /* Each box takes up equal space */
+        background-color: white;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        height: 25vh;
+        width: 90%;
+        border-radius: 20px;
+        font-size: x-large;
+        color: black;
+      }
+      .box span{
+        margin-top: 20px;
+        font-size: 40px;
+      }
+      #users table{
+        width: 70%;
+    }
+    #users table thead td{
+        padding: 8px;
+    }
+    tr,td{
+        padding: 8px;
+    }
 }
 
 
@@ -594,6 +634,9 @@ tr,td{
     .profile-photo{
         width: 2.2rem;
         height: 2.2rem;
+    }
+    #prof-pic{
+        display: none;
     }
     
     aside{
@@ -644,7 +687,7 @@ tr,td{
     main h1{
         text-align: center;
         font-size: 2.8rem;
-        margin: 1.5rem;
+        margin: 1.2rem;
     }
     
     .content-container{
@@ -661,6 +704,7 @@ tr,td{
         margin: 1rem;
         padding: 1.5rem;
     }
+   
     #new-article .row{
         gap: 1.5rem;
     
@@ -689,16 +733,40 @@ tr,td{
         padding: .8rem;
     }
 
+    #users table{
+        width: 70%;
+    }
     #users table thead td{
-        font-size: medium;
-        padding: 5px;
+        padding: 6px;
     }
     tr,td{
-        border: 1px solid white;
-        border-collapse: collapse;
-        color: white;
-        font-size: small;
+        padding: 6px;
     }
+
+    .analytics {
+        display: grid;
+        gap: 2%;
+        margin: 0 auto 10px auto;
+        width: 90%;
+        justify-content: center;
+      }
+      
+      .box {
+        flex: 1; /* Each box takes up equal space */
+        background-color: white;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        height: 20vh;
+        width: 90%;
+        border-radius: 20px;
+        font-size: xx-large;
+        color: black;
+      }
+      .box span{
+        margin-top: 0px;
+        font-size: 40px;
+      }
     
 }
 
@@ -816,6 +884,17 @@ tr,td{
         height: 8vh;
         font-size: 1.5rem;
         padding: .8rem;
+    }
+    #users table{
+        width: 40%;
+        margin: auto;
+        overflow-x: scroll;
+    }
+    #users table thead td{
+        padding: 6px;
+    }
+    tr,td{
+        padding: 6px;
     }
     
 }

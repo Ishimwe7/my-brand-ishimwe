@@ -9,38 +9,36 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
 .login-container {
-    background-color: white;
+    background-color:white;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 35%;
     height: fit-content;
+    margin: auto;
+    position: relative;
+    padding: 30px 0px;
 }
-.login-container button {
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-.signup-container{
+
+/* .signup-container{
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 40%;
     height: fit-content;
-}
-
-/* .login-form{
-    text-align: center;
-    margin: auto;
 } */
-form{
+
+/* form{
     display: grid;
     justify-content: center;
-    width: 100%;
+    width: 10%;
     padding: 0;
     height: fit-content;
-}
+} */
 p{
     font-size: larger;
     text-align: center;
@@ -74,19 +72,23 @@ input {
     margin-bottom: 20px;
     border: 1px solid #36454F;
     border-radius: 5px;
+    height: 30px;
     box-sizing: border-box;
 }
 
 button {
     background-color: rgb(6, 1, 28);
     color: white;
-    padding: 10px;
+    padding:0px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     font-size: x-large;
-    width: 85%;
+    width: 45%;
+    padding: 5px 20px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 /* 
 .row{
@@ -137,14 +139,12 @@ p#invalidLogin{
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 50%;
+    width: 35%;
     height: fit-content;
+    padding: 20px 0;
 }
 
-/* .login-form{
-    text-align: center;
-    margin: auto;
-} */
+
 form{
     display: grid;
     justify-content: center;
@@ -170,7 +170,7 @@ label {
 }
 
 input {
-    width: 300px;
+    width: 100%;
     padding: 7px;
     margin-bottom: 7px;
 }
@@ -178,12 +178,12 @@ input {
 button {
     background-color: rgb(6, 1, 28);
     color: white;
-    padding: 12px;
+    padding: 3px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     font-size: x-large;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
 }
 .row{
@@ -198,7 +198,9 @@ button {
     
     .login-container {
         padding: 0 10px;
-        width: 60%;
+        width: 38%;
+        height: fit-content;
+        padding: 10px 30px ;
         position: relative;
     }
     
@@ -221,17 +223,17 @@ button {
     }
     
     input {
-        width: 280px;
+        width: 100%;
         padding: 8px;
         margin-bottom: 12px;
     }
     
     button {
-        padding: 10px;
+        padding: 3px 20px;
         font-size: larger;
         margin: 0 auto;
         border-radius: 20px;
-        width: 85%;
+        width: 100%;
     }
     
     .row{
@@ -247,8 +249,8 @@ button {
     
     .login-container {
         padding: 15px;
-        width: 68%;
-        height: 350px;
+        width: 65%;
+        height: fit-content;
     }
     
     p{
@@ -270,7 +272,7 @@ button {
     }
     
     input {
-        width: 250px;
+        width: 100%;
         padding: 6px;
         margin-bottom: 8px;
     }
@@ -279,7 +281,7 @@ button {
         padding: 5px;
         font-size: large;
         margin: 0 auto;
-        width: 85%;
+        width: 100%;
         border-radius: 20px;
     }
     
