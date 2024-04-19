@@ -218,6 +218,7 @@ const buildArticle = (myArticle, id) => {
     commentForm.id = "comment-form" + id;
     const commentInput = document.createElement("input");
     commentInput.className = "create-comment";
+    commentInput.placeholder = "Your comment here"
     commentInput.id = "new-comment" + myArticle._id;
     commentInput.style.color = "black";
     comment.className = "new-comment";
