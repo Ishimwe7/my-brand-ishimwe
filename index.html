@@ -63,7 +63,8 @@
            <li><a href="UI/pages/userSignUp.html" target="_blank" id="signup">Sign Up</a></li>
            <li><a href="UI/pages/userLogin.html" target="_blank" id="signin">Login</a></li>
         </div>
-        </ul>
+       <li id="logout-toggler"><a href="">Logout</a><span  class="material-icons-sharp">logout</span></li>
+  </ul>
     <main>
         <div id="home">
             <div id="home-part1">
@@ -386,10 +387,16 @@ enthusiasm. Constantly evolving to
        const sessionToken = sessionStorage.getItem('loggedUser');
         if (sessionToken) {
           document.getElementById("logout").style.display="flex";
+          document.getElementById("logout-toggler").style.display="flex";
           document.getElementById("user-control").style.display="none";
+          document.getElementById("nav-control").style.display="none";
           //console.log("Under testing")
         }
         document.getElementById("logout").addEventListener('click',()=>{
+            sessionStorage.removeItem('loggedUser');
+            location.reload();
+        })
+        document.getElementById("logout-toggler").addEventListener('click',()=>{
             sessionStorage.removeItem('loggedUser');
             location.reload();
         })

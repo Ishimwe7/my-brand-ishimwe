@@ -229,7 +229,7 @@ body{
     display: block;
     margin:20px 10px;
 }
-#menu-list-on-toggle span{
+#menu-list-on-toggle span#close-menu{
     position: absolute;
     top: 25px;
     right: 0px;
@@ -272,7 +272,6 @@ body{
     background: none;
 }
 #logout{
-    display: flex;
     align-items: center;
     gap: 10px;
     display: none;
@@ -281,11 +280,24 @@ body{
     padding: 10px;
     text-align: center;
 }
+#menu-list-on-toggle #logout-toggler{
+    align-items: center;
+    gap: 10px;
+    display: none;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 35px;
+    text-align: center;
+}
 .hide-comments:hover{
     cursor: pointer;
 }
 #logout:hover{
     opacity: 0.7;
+}
+#logout-toggler span{
+    color: white;
 }
 #logout span{
     color: white;
