@@ -73,7 +73,7 @@ const processMessage = async () => {
             // document.getElementById('responses').appendChild(p);
         }
         if (response.ok) {
-            window.location = "../UI/pages/messageSent.html";
+            window.location = "./UI/pages/messageSent.html";
             //window.location.href = '../../index.html'; // Redirect to login page after successful registration
         } else {
             alert("Message not sent: An expected error occurred! ");
