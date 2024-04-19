@@ -14,29 +14,21 @@
 
 .blog-section {
      display: grid; 
-    /* overflow-x: auto; */
     justify-content:center;
     padding: 20px; 
-    /* flex-wrap: nowrap; */
     background-color: #000;
     width: 100%;
     max-width: 100%; 
-    /* overflow-x: scroll; */
 }
 
 .blog-post {
-    /* flex: 1;  */
     background-color: white;
-    /* max-width: calc(25% - 20px);  */
     max-width: 70%;
     width: 100%;
     min-width: 250px;
-    /* max-height: 300px; */
     padding: 20px;
     margin:30px auto;
     border-radius: 8px;
-    /* width: 250px; */
-    /* overflow: scroll;  */
 }
 .blog-post h2{
     font-size: larger;
@@ -139,6 +131,7 @@
     #blogs{
         background-color: black;
         padding:  26px;
+        width: 100%;
     }
     
     #blogs-header h1{
@@ -149,34 +142,29 @@
     }
     
     .blog-section {
-        display: flex;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 20px;
-        flex-wrap: nowrap;
-        background-color: #000;
-        max-width: 100%;
-        overflow-x: scroll;
-    }
-    
-    .blog-post {
-        flex: 1;
-        /* max-width: calc(25% - 20px); */
-        max-width: 400px;
-        min-width: 300px;
-        max-height: 350px;
-        padding: 15px;
-        margin: 8px;
-        border-radius: 8px;
-        width: 280px;
-        overflow: scroll;
-    }
+       display: grid; 
+       justify-content:center;
+       padding: 20px; 
+       background-color: #000;
+       width: 100%;
+       max-width: 100%; 
+   }
+   
+   .blog-post {
+       background-color: white;
+       max-width: 100%;
+       width: 90%;
+       min-width: 85%;
+       padding: 50px;
+       margin:30px auto;
+       border-radius: 8px;
+   }
     
     .blog-post img {
-        width: 120px;
+        width: 33%;
         height: auto;
         border-radius: 8px;
-    }
+    } 
     
     .actions {
         margin-top: 10px;
@@ -211,6 +199,9 @@
         padding: 10px 0;
         position: relative;
     }
+    .add-comment form{
+        width: 70%;
+       }
     
     
     .actions img{
@@ -243,34 +234,27 @@
     }
     
     .blog-section {
-        display: flex;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 15px;
-        flex-wrap: nowrap;
-        background-color: #000;
-        max-width: 100%;
-        overflow-x: scroll;
-    }
-    
-    .blog-post {
-        flex: 1;
-        /* max-width: calc(25% - 20px); */
-        max-width: 350px;
-        min-width: 250px;
-        max-height: 300px;
-        padding: 15px;
-        margin: 7px;
-        border-radius: 8px;
-        width: 250px;
-        overflow: scroll;
-    }
+        display: grid; 
+       justify-content:center;
+       padding: 50px; 
+       background-color: #000;
+       width: 100%;
+       max-width: 100%; 
+   }
+   
+   .blog-post {
+       background-color: white;
+       max-width: 90%;
+       width: 100%;
+       min-width: 80%;
+       padding: 20px;
+       margin:30px auto;
+       border-radius: 8px;
+   }
     
     .blog-post img {
-        width: 100px;
-        height: auto;
-        border-radius: 8px;
-    }
+        width: 33%;
+    } 
     
     .actions {
         margin-top: 8px;
@@ -306,7 +290,9 @@
         position: relative;
     }
     
-    
+    .add-comment form{
+        width: 90%;
+       }
     .actions img{
         width: 25px;
         height: 25px;
@@ -337,35 +323,38 @@
         font-size: larger;
     }
     
+      
     .blog-section {
-        display: grid;
-        overflow-x: auto;
-        justify-content: center;
-        padding: 15px;
-        flex-wrap: nowrap;
-        background-color: #000;
-        max-width: 100%;
-        overflow-x: scroll;
-    }
-    
-    .blog-post {
-        flex: 1;
-        /* max-width: calc(25% - 20px); */
-        max-width: 350px;
-        min-width: 300px;
-        max-height: 350px;
-        padding: 15px;
-        margin: 8px;
-        border-radius: 8px;
-        width: 300px;
-        overflow: scroll;
-    }
+        display: grid; 
+       justify-content:center;
+       padding: 15px; 
+       background-color: #000;
+       width: 100%;
+       max-width: 100%; 
+   }
+   
+   .blog-post {
+       background-color: white;
+       max-width: 100%;
+       width: 100%;
+       min-width: 80%;
+       padding: 20px;
+       margin:30px auto;
+       border-radius: 8px;
+   }
+   .add-comment form{
+    width: 90%;
+   }
+   .add-comment input{
+    height: 35px;
+   }
+   .add-comment form button{
+    margin:5px 0;
+   }
     
     .blog-post img {
-        width: 100px;
-        height: auto;
-        border-radius: 8px;
-    }
+        width: 33%;
+    } 
     
     .actions {
         margin-top: 8px;

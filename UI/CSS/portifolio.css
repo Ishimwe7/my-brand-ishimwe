@@ -110,8 +110,8 @@
     #projects {
         padding: 20px;
         background-color: black;
-        display: flex;
-        width: 95%;
+        display: grid;
+        width: 80%;
         margin: auto;
         gap: 5%;
         justify-content: center;

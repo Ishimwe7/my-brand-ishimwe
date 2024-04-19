@@ -105,15 +105,16 @@ form textarea{
 
 form button{
     font-size: x-large;
-    background-color: #b7edec;
+    background-color:white;
     color: black;
     font-weight: 700;
-    width: fit-content;
+    width: 40%;
     padding: 8px;
     border-radius: 10px;
-    margin-left:38%;
-    font-size: 25px;
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin:10px auto 0 auto;
+    font-size: larger;
 }
 
 form button:hover{
@@ -227,8 +228,10 @@ form button:hover{
         width: fit-content;
         padding: 12px;
         border-radius: 10px;
-        margin-left:38%;
-        font-size: large;
+        display: flex;
+        justify-content: center;
+        margin:10px auto 0 auto;
+        font-size: larger;
     }
     
 }
@@ -329,10 +332,12 @@ form button:hover{
         background-color: white;
         color: black;
         font-weight: 700;
-        width: fit-content;
+        width: 40%;
         padding: 10px;
         border-radius: 10px;
-        margin-left:38%;
+        display: flex;
+        justify-content: center;
+        margin:10px auto 0 auto;
         font-size: larger;
     }
 }
@@ -424,11 +429,11 @@ form button:hover{
         border-radius: 8px;
     }
     .field{
-        display:grid;
-        align-items: center;
+        display:flex;
+        flex-direction: column;
         margin: 3px;
-        width: 90%;
-        justify-content: center;
+        width: 98%;
+        /* justify-content: center;  */
     }
     
     form button{
@@ -436,13 +441,13 @@ form button:hover{
         background-color: white;
         color: black;
         font-weight: 700;
-        width: fit-content;
+        width: 50%;
         padding: 10px;
         border-radius: 10px;
         display: flex;
         justify-content: center;
-        margin-top: 20px;
         font-size: larger;
+        margin:10px auto 0 auto;
     }
 }
 

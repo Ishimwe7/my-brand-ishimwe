@@ -182,7 +182,7 @@
     .sect{
         width: 100%;
         text-align: center; 
-        margin-left: 10px;
+        margin:auto;
     }
     
     .sect h1{
@@ -194,12 +194,12 @@
     .sect h2{
         color: white;
         font-weight:200;
-        font-size: large;
+        font-size: x-large;
         text-align: center;
         word-wrap: break-word;
     }
     .sect p{
-        font-size: medium;
+        font-size: large;
         color: #A0E7E5;
         text-align: center;
     }
@@ -260,7 +260,7 @@
     .sect{
         width: 100%;
         text-align: center; 
-        margin-left: 10%;
+        margin: auto;
     }
     
     .sect h1{
@@ -273,7 +273,7 @@
         color: white;
         font-weight:200;
         font-size: large;
-        text-align: left;
+        
     }
     .sect p{
         font-size: 32px;
