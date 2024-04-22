@@ -121,7 +121,6 @@ const buildArticle = (myArticle, id) => {
     const likeBtn = document.createElement("img");
     const unLikeBtn = document.createElement("img");
     unLikeBtn.style.display = "none";
-
     const usersLiked = myArticle.usersLiked;
     //let userId;
 
@@ -255,6 +254,22 @@ const buildArticle = (myArticle, id) => {
     comments_header.textContent = "Comments(" + comments.length + ")";
     if (comments.length > 0) {
         comments.forEach((comment) => {
+            const usersLikedComment = myArticle.usersLiked;
+            if (token) {
+                const userId = myDecodedToken.id;
+                if (userId !== undefined) {
+                    usersLikedComment.forEach(userlikedId => {
+                        if (userlikedId === userId) {
+                            com_like.style.display = "none";
+                            unLikeCommentBtn.style.display = "inline";
+                        }
+                        else {
+                            unLikeCommentBtn.style.display = "none";
+                            com_like.style.display = "inline";
+                        }
+                    })
+                }
+            }
             const one_comment = document.createElement("div");
             one_comment.className = "comment";
             const comment_actions = document.createElement("div");
@@ -263,11 +278,38 @@ const buildArticle = (myArticle, id) => {
             com_like.className = "like-btn";
             com_like.id = "com-like" + id;
             com_like.src = "UI/icons/heart-svgrepo-com.svg";
+            const unLikeCommentBtn = document.createElement("img");
+            unLikeCommentBtn.style.display = "none";
+            unLikeCommentBtn.src = "UI/icons/red-heart-11121.svg";
+            unLikeCommentBtn.className = "like-btn";
+            com_like.addEventListener('click', async () => {
+                await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/likeComment/${myArticle._id}/${comment.id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        response.json().then(data => {
+                            location.reload();
+                        })
+                    } else {
+                        window.location.href = "./UI/pages/userLogin.html";
+                        throw new Error('liking failed');
+                    }
+                })
+                    .catch(error => {
+                        console.error('Liking comment error:', error);
+                    });
+            })
+
             const com_reply = document.createElement("img");
             com_reply.className = "reply-btn";
             com_reply.id = "com-reply" + id;
             com_reply.src = "UI/icons/curved-arrow-left-icon.svg";
             comment_actions.appendChild(com_like);
+            comment_actions.appendChild(unLikeCommentBtn);
             comment_actions.appendChild(com_reply);
             const com_auth = document.createElement("p");
             com_auth.innerHTML = "<strong>" + comment.author + "</strong>" + " : " + comment.content;
