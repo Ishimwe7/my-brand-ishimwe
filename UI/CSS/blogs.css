@@ -60,7 +60,7 @@
 
 .blog-post img {
     width: 30%;
-    height: auto;
+    height: 35%;
     border-radius: 8px;
 }
 
@@ -180,7 +180,7 @@
     
     .blog-post img {
         width: 33%;
-        height: auto;
+        height: 35%;
         border-radius: 8px;
     } 
     
