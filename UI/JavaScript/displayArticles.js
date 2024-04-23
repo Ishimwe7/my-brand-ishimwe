@@ -366,13 +366,38 @@ const buildArticle = (myArticle, id) => {
             const comment_replies = comment.replies;
 
             const repliesContainer = document.createElement("div");
-            comment_replies.forEach((com_reply) => {
-                const reply = document.createElement("p");
-                reply.innerHTML = com_reply.author + " ~ " + com_reply.content;
-                repliesContainer.appendChild(reply);
+
+            repliesContainer.className = "replies";
+            repliesContainer.style.display = "none";
+            showReplies.addEventListener('click', () => {
+                if (repliesContainer.style.display = "none") {
+                    repliesContainer.style.display = "block";
+                }
             })
 
-            //  showReplies.textContent = "replies(" + comment_replies.length + ")";
+            comment_replies.forEach((com_reply) => {
+                const reply = document.createElement("p");
+                reply.className = "reply";
+                reply.innerHTML = "<strong>" + com_reply.author + "</strong>" + " ~ " + com_reply.content;
+                repliesContainer.appendChild(reply);
+            })
+            const hide_replies = document.createElement("p");
+            if (comment_replies.length == 0) {
+                const no_replies = document.createElement("p");
+                no_replies.innerHTML = "No replies for this comment yet !";
+                no_replies.style.textAlign = "center";
+                no_replies.className = "no_replies";
+                no_replies.className = "no_replies";
+                repliesContainer.appendChild(no_replies);
+            }
+            hide_replies.textContent = "hide replies";
+            hide_replies.className = "hide-replies";
+            hide_replies.addEventListener('click', () => {
+                if (repliesContainer.style.display = "block") {
+                    repliesContainer.style.display = "none";
+                }
+            })
+            showReplies.textContent = "replies(" + comment_replies.length + ")";
             replyForm.addEventListener('submit', async (event) => {
                 event.preventDefault();
                 const replyContent = replyInput.value.trim();
@@ -405,7 +430,7 @@ const buildArticle = (myArticle, id) => {
                     window.location.href = "./UI/pages/userLogin.html"
                 }
             })
-
+            repliesContainer.appendChild(hide_replies);
             one_comment.appendChild(com_auth);
             one_comment.appendChild(comment_actions);
             one_comment.appendChild(replyForm);
