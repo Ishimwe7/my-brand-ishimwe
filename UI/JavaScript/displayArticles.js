@@ -250,14 +250,33 @@ const buildArticle = (myArticle, id) => {
         }
     })
 
+    let author = null;
+    if (myDecodedToken != null) {
+        author = myDecodedToken.username;
+    }
     const comments = myArticle.comments;
     comments_header.textContent = "Comments(" + comments.length + ")";
     if (comments.length > 0) {
         comments.forEach((comment) => {
-            const usersLikedComment = myArticle.usersLiked;
+            const one_comment = document.createElement("div");
+            const comlikes = document.createElement("span");
+            one_comment.className = "comment";
+            const comment_actions = document.createElement("div");
+            comment_actions.className = "comment-actions";
+            const com_like = document.createElement("img");
+            com_like.className = "like-btn";
+            com_like.id = "com-like" + id;
+            com_like.src = "UI/icons/heart-svgrepo-com.svg";
+            const unLikeCommentBtn = document.createElement("img");
+            unLikeCommentBtn.style.display = "none";
+            unLikeCommentBtn.src = "UI/icons/red-heart-11121.svg";
+            unLikeCommentBtn.className = "like-btn";
+            comlikes.innerHTML = "<strong>" + comment.likes + "</strong>";
+            const usersLikedComment = comment.usersLiked;
             if (token) {
                 const userId = myDecodedToken.id;
-                if (userId !== undefined) {
+                // console.log(usersLikedComment[0])
+                if (userId !== undefined && usersLikedComment !== undefined) {
                     usersLikedComment.forEach(userlikedId => {
                         if (userlikedId === userId) {
                             com_like.style.display = "none";
@@ -270,18 +289,6 @@ const buildArticle = (myArticle, id) => {
                     })
                 }
             }
-            const one_comment = document.createElement("div");
-            one_comment.className = "comment";
-            const comment_actions = document.createElement("div");
-            comment_actions.className = "comment-actions";
-            const com_like = document.createElement("img");
-            com_like.className = "like-btn";
-            com_like.id = "com-like" + id;
-            com_like.src = "UI/icons/heart-svgrepo-com.svg";
-            const unLikeCommentBtn = document.createElement("img");
-            unLikeCommentBtn.style.display = "none";
-            unLikeCommentBtn.src = "UI/icons/red-heart-11121.svg";
-            unLikeCommentBtn.className = "like-btn";
             com_like.addEventListener('click', async () => {
                 await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/likeComment/${myArticle._id}/${comment.id}`, {
                     method: 'POST',
@@ -292,7 +299,8 @@ const buildArticle = (myArticle, id) => {
                 }).then(response => {
                     if (response.ok) {
                         response.json().then(data => {
-                            location.reload();
+                            console.log("Like added")
+                            //location.reload();
                         })
                     } else {
                         window.location.href = "./UI/pages/userLogin.html";
@@ -303,18 +311,106 @@ const buildArticle = (myArticle, id) => {
                         console.error('Liking comment error:', error);
                     });
             })
+            unLikeCommentBtn.addEventListener('click', async () => {
+                await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/unlikeComment/${myArticle._id}/${comment.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        response.json().then(data => {
+                            console.log("Like removed")
+                            location.reload();
+                            console.log("Comment unliked")
+                        })
+                    } else {
+                        window.location.href = "./UI/pages/userLogin.html";
+                        throw new Error('unliking failed');
+                    }
+                })
+                    .catch(error => {
+                        console.error('unLiking comment error:', error);
+                    });
+            })
 
             const com_reply = document.createElement("img");
             com_reply.className = "reply-btn";
             com_reply.id = "com-reply" + id;
             com_reply.src = "UI/icons/curved-arrow-left-icon.svg";
+            com_reply.addEventListener('click', () => {
+                replyForm.style.display = "block";
+            })
             comment_actions.appendChild(com_like);
             comment_actions.appendChild(unLikeCommentBtn);
+            comment_actions.appendChild(comlikes);
             comment_actions.appendChild(com_reply);
             const com_auth = document.createElement("p");
             com_auth.innerHTML = "<strong>" + comment.author + "</strong>" + " : " + comment.content;
+            const replyForm = document.createElement("form");
+            replyForm.className = "reply-form"
+            const replyInput = document.createElement("input");
+            replyInput.type = "text";
+            replyInput.placeholder = "write your reply here ..";
+            const replyBtn = document.createElement("button");
+            replyBtn.type = "submit";
+            replyBtn.textContent = "Add reply";
+            replyBtn.className = "add-reply-btn"
+            replyForm.appendChild(replyInput);
+            replyForm.appendChild(replyBtn);
+            replyInput.className = "reply-input";
+            const showReplies = document.createElement("h6");
+            showReplies.className = "show-replies"
+
+            const comment_replies = comment.replies;
+
+            const repliesContainer = document.createElement("div");
+            comment_replies.forEach((com_reply) => {
+                const reply = document.createElement("p");
+                reply.innerHTML = com_reply.author + " ~ " + com_reply.content;
+                repliesContainer.appendChild(reply);
+            })
+
+            //  showReplies.textContent = "replies(" + comment_replies.length + ")";
+            replyForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const replyContent = replyInput.value.trim();
+                if (author != null && replyContent !== '') {
+                    await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/replyToComment/${myArticle._id}/${comment.id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ content: replyContent, author: author }),
+                    }).then(response => {
+                        if (response.ok) {
+                            response.json().then(data => {
+                                //loadListObject();
+                                console.log("reply added");
+                                location.reload();
+                            })
+                        } else {
+                            window.location.href = "./UI/pages/userLogin.html";
+                            console.log('replying failed');
+                            throw new Error('replying failed');
+                        }
+                    })
+                        .catch(error => {
+                            console.log('replying failed');
+                            console.error('Fetching blogs error:', error);
+                        });
+                } else {
+                    window.location.href = "./UI/pages/userLogin.html"
+                }
+            })
+
             one_comment.appendChild(com_auth);
             one_comment.appendChild(comment_actions);
+            one_comment.appendChild(replyForm);
+            one_comment.appendChild(showReplies);
+            one_comment.appendChild(repliesContainer);
             all_comments.appendChild(one_comment);
         })
         const hideComments = document.createElement("h2");
@@ -337,10 +433,10 @@ const buildArticle = (myArticle, id) => {
     }
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
-    let author = null;
-    if (myDecodedToken != null) {
-        author = myDecodedToken.username;
-    }
+    // let author = null;
+    // if (myDecodedToken != null) {
+    //     author = myDecodedToken.username;
+    // }
 
     commentForm.addEventListener('submit', async (event) => {
         event.preventDefault();

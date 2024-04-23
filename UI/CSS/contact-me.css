@@ -63,7 +63,7 @@
     color: #A0E7E5
 }
 
-form{
+#contact-me form{
     color: white;
     width: 100%;
     border: 1px solid #A0E7E5;
@@ -73,10 +73,10 @@ form{
     margin: 20px auto;
     justify-content: center;
 }
-form label{
+#contact-me form label{
     font-size: larger;
 }
-form input{
+#contact-me form input{
     font-size: x-large;
     color: white;
     background-color: black;
@@ -120,6 +120,25 @@ form button{
 form button:hover{
     cursor: pointer;
     opacity: 0.7;
+}
+
+.reply-form{
+    border: none;
+    margin: 0;
+    display: none;
+}
+.reply-input{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.add-reply-btn{
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+.show-replies:hover{
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 992px){
