@@ -22,7 +22,7 @@
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
-    width: 400px;
+    width: 430px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -111,7 +111,7 @@
         padding: 20px;
         background-color: black;
         display: grid;
-        width: 80%;
+        width: 100%;
         margin: auto;
         gap: 5%;
         justify-content: center;
@@ -122,8 +122,9 @@
         background-color: #fff;
         padding: 18px;
         margin-bottom: 18px;
-        width: 100%;
+        width: 80%;
         height: auto;
+        margin: auto;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         font-size: x-large;

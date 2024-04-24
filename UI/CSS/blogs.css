@@ -15,18 +15,25 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
-    padding: 20px;
+    padding: 0px;
     background-color: #000;
+    gap: 50px;
 }
 
 .blog-post {
     background-color: white;
-    width: calc(50% - 60px); 
+    /* width: calc(50% - 60px);  */
+    width: 430px;
     /* max-width: 600px;  */
+    height: 500px;
     padding: 20px;
-    margin: 20px; 
+    /* margin: 20px;  */
     border-radius: 8px;
     box-sizing: border-box; 
+    overflow-y: auto;
+}
+.blog-post::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 
 /* .blog-section {
@@ -49,18 +56,19 @@
 } */
 .blog-post h2{
     font-size: larger;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .img-desc{
     display: flex;
-    gap: 30px;
+    gap:0;
+    flex-wrap: wrap;
 }
 
 
 .blog-post img {
-    width: 30%;
-    height: 35%;
+    width: 50%;
+    height: 45%;
     border-radius: 8px;
 }
 
@@ -145,6 +153,45 @@
     width: 100%;
 }
 
+
+.reply-form{
+    border: none;
+    margin: 0;
+    display: none;
+}
+.reply-input{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.add-reply-btn{
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    margin-top: 3px;
+    font-size: smaller;
+    width: 30%;
+}
+.show-replies{
+    font-size: medium;
+    margin-left: 15px;
+}
+.show-replies:hover{
+    cursor: pointer;
+}
+.reply{
+    font-size: small;
+    margin-left: 30px;
+}
+.hide-replies{
+    text-align: center;
+}
+.hide-replies:hover{
+    cursor: pointer;
+}
+.no_replies{
+    font-style: italic;
+}
+
 @media only screen and (max-width: 992px){
     #blogs{
         background-color: black;
@@ -159,27 +206,30 @@
         font-size: xx-large;
     }
     
-    /* .blog-section {
-       display: grid; 
-       justify-content:center;
-       padding: 20px; 
-       background-color: #000;
-       width: 100%;
-       max-width: 100%; 
-   }
-   
-   .blog-post {
-       background-color: white;
-       max-width: 100%;
-       width: 90%;
-       min-width: 85%;
-       padding: 50px;
-       margin:30px auto;
-       border-radius: 8px;
-   } */
+     .blog-section {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        padding: 0px;
+        background-color: #000;
+        width: 95%;
+        gap: 30px;
+    } 
     
-    .blog-post img {
-        width: 33%;
+    .blog-post {
+        background-color: white;
+        width: 47%; 
+        /* width: 0%; */
+        height: 450px;
+        padding: 20px;
+        margin: 0px; 
+        border-radius: 8px;
+        box-sizing: border-box; 
+        overflow-y: auto;
+    }
+    
+     .blog-post img {
+        width: 50%;
         height: 35%;
         border-radius: 8px;
     } 
@@ -188,7 +238,7 @@
         margin-top: 10px;
         display: flex;
         gap: 15px;
-    }
+    } 
     
      .blog-post .comment-btn{
         background-color: #000;
@@ -251,12 +301,12 @@
         font-size: x-large;
     }
     
-    .blog-section {
+     .blog-section {
         display: grid; 
        justify-content:center;
        padding: 50px; 
        background-color: #000;
-       width: 90%;
+       width: 100%;
        max-width: 100%; 
    }
    
@@ -265,13 +315,14 @@
        width: 100%;
        min-width: 80%;
        padding: 20px;
+       height: 420px;
        margin:30px auto;
        border-radius: 8px;
-   }
+   } 
     
-    .blog-post img {
-        width: 33%;
-    } 
+     .blog-post img {
+        width: 60%;
+    }  
     
     .actions {
         margin-top: 8px;
@@ -340,9 +391,9 @@
         font-size: larger;
     }
     
-      
+       
     .blog-section {
-        display: grid; 
+       display: grid; 
        justify-content:center;
        padding: 15px; 
        background-color: #000;
@@ -352,13 +403,11 @@
    
    .blog-post {
        background-color: white;
-       max-width: 100%;
        width: 100%;
-       min-width: 80%;
        padding: 20px;
        margin:30px auto;
        border-radius: 8px;
-   }
+   } 
    .add-comment form{
     width: 90%;
    }
@@ -370,7 +419,8 @@
    }
     
     .blog-post img {
-        width: 33%;
+        width: 100%;
+        height: 40%;
     } 
     
     .actions {
@@ -422,6 +472,24 @@
     .comment-actions img{
         width: 12px;
         height: 12px;
+    }
+    .reply-input{
+        border: none;
+        border-bottom: 1px solid black;
+        height: 30px;
+        font-size: smaller;
+    }
+    .add-reply-btn{
+        font-size: smaller;
+        width: 50%;
+    }
+    .show-replies{
+        font-size: small;
+        margin-left: 10px;
+    }
+    .reply{
+        font-size: smaller;
+        margin-left: 25px;
     }
 }
 

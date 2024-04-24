@@ -103,7 +103,7 @@ form textarea{
     margin: 8px;
 }
 
-form button{
+#contact-me form button{
     font-size: x-large;
     background-color:white;
     color: black;
@@ -122,41 +122,6 @@ form button:hover{
     opacity: 0.7;
 }
 
-.reply-form{
-    border: none;
-    margin: 0;
-    display: none;
-}
-.reply-input{
-    border: none;
-    border-bottom: 1px solid black;
-}
-.add-reply-btn{
-    margin: 0;
-    padding: 0;
-    border-radius: 5px;
-    margin-top: 3px;
-}
-.show-replies{
-    font-size: medium;
-    margin-left: 15px;
-}
-.show-replies:hover{
-    cursor: pointer;
-}
-.reply{
-    font-size: small;
-    margin-left: 30px;
-}
-.hide-replies{
-    text-align: center;
-}
-.hide-replies:hover{
-    cursor: pointer;
-}
-.no_replies{
-    font-style: italic;
-}
 
 @media only screen and (max-width: 992px){
     #contact-me{
@@ -219,12 +184,12 @@ form button:hover{
     #query-form h1{
         text-align: center;
         margin: 15px;
-        font-size: x-large;
+        font-size: xx-large;
     }
     
-    form{
+    #contact-me form{
         color: white;
-        width: 70%;
+        width: 100%;
         border: 1px solid #A0E7E5;
         height: 85%;
         border-radius: 20px;
@@ -232,36 +197,32 @@ form button:hover{
         margin: 20px auto;
         justify-content: center;
     }
-    form label{
-        font-size: 35px;
+    #contact-me form label{
+        font-size: 30px;
     }
-    form input{
-        font-size: larger;
-        font-weight: 400;
-        width: 70%;
-        height: 30%;
-        padding: 10px;
+    #contact-me form input{
+        height: 60px;
+        padding: 20px;
     }
-    form textarea{
-        font-size: larger;
-        font-weight: 400;
-        width: 70%;
+    #contact-me form textarea{
         height: 150px;
-        padding: 10px;
     }
     .field{
         display:flex;
         align-items: center;
         justify-content: space-between;
-        margin: 3px;
+        width: 100%;
+        font-size: larger;
+        padding: 10px;
+        font-weight: 400;
     }
     
-    form button{
+    #contact-me form button{
         font-size: x-large;
         background-color: white;
         color: black;
         font-weight: 700;
-        width: fit-content;
+        width: 40%;
         padding: 12px;
         border-radius: 10px;
         display: flex;
@@ -329,7 +290,7 @@ form button:hover{
         font-size: x-large;
     }
     
-    form{
+    #contact-me form{
         color: white;
         width: 100%;
         border: 1px solid #A0E7E5;
@@ -339,17 +300,17 @@ form button:hover{
         margin: 15px auto;
         justify-content: center;
     }
-    form label{
+    #contact-me form label{
         font-size: x-large;
     }
-    form input{
+    #contact-me form input{
         font-size: large;
         font-weight: 400;
         width: 75%;
         height: 40px;
         padding: 8px;
     }
-    form textarea{
+    #contact-me form textarea{
         font-size: large;
         font-weight: 400;
         width: 75%;
@@ -363,7 +324,7 @@ form button:hover{
         margin: 3px;
     }
     
-    form button{
+    #contact-me form button{
         font-size: larger;
         background-color: white;
         color: black;
@@ -435,7 +396,7 @@ form button:hover{
         font-size: larger;
     }
     
-    form{
+    #contact-me form{
         color: white;
         width: 100%;
         border: 1px solid #A0E7E5;
@@ -444,19 +405,19 @@ form button:hover{
         padding: 8px;
         margin: 8px auto;
     }
-    form label{
-        font-size: large;
+    #contact-me form label{
+        font-size: larger;
+        text-align: left;
     }
-    form input{
+    #contact-me form input{
         font-size: larger;
         font-weight: 400;
         width: 100%;
         height: 50px;
         padding: 8px;
-        margin: 5px;
         border-radius: 8px;
     }
-    form textarea{
+     #contact-me form textarea{
         font-size: larger;
         font-weight: 400;
         width: 100%;
@@ -465,14 +426,14 @@ form button:hover{
         border-radius: 8px;
     }
     .field{
-        display:flex;
+        display:block;
         flex-direction: column;
         margin: 3px;
         width: 98%;
         /* justify-content: center;  */
     }
     
-    form button{
+    #contact-me form button{
         font-size: larger;
         background-color: white;
         color: black;

@@ -45,27 +45,6 @@ const getTokenObj = () => {
 }
 
 let myDecodedToken = null;
-// async function decode() {
-//     const token = getToken();
-//     await fetch(`https://my-brand-nyanja-cyane.onrender.com/users/decodeToken`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ token: token })
-//     }).then(response => {
-//         if (response.ok) {
-//             response.json().then(data => {
-//                 myDecodedToken = data;
-//                 // console.log(myDecodedToken.username);
-//                 return myDecodedToken;
-//             })
-//         }
-//     })
-//         .catch(error => {
-//             console.error('An expected error:', error);
-//         });
-// }
 
 async function decode() {
     const token = getToken();
@@ -255,7 +234,7 @@ const buildArticle = (myArticle, id) => {
         author = myDecodedToken.username;
     }
     const comments = myArticle.comments;
-    comments_header.textContent = "Comments(" + comments.length + ")";
+    comments_header.textContent = "Comments (" + comments.length + ")";
     if (comments.length > 0) {
         comments.forEach((comment) => {
             const one_comment = document.createElement("div");
@@ -397,7 +376,7 @@ const buildArticle = (myArticle, id) => {
                     repliesContainer.style.display = "none";
                 }
             })
-            showReplies.textContent = "replies(" + comment_replies.length + ")";
+            showReplies.textContent = "replies (" + comment_replies.length + ")";
             replyForm.addEventListener('submit', async (event) => {
                 event.preventDefault();
                 const replyContent = replyInput.value.trim();

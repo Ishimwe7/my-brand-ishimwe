@@ -149,7 +149,7 @@ a{
 }
 @media only screen and (max-width: 484px){
     footer #copyrights{
-        font-size: medium;
+        font-size: small;
         text-align: center;
         padding-bottom: 10px;
      }
