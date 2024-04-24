@@ -162,6 +162,7 @@
 .reply-input{
     border: none;
     border-bottom: 1px solid black;
+    display: block;
 }
 .add-reply-btn{
     margin: 0;

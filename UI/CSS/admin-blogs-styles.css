@@ -27,7 +27,12 @@
     margin: 10px;
     border-radius: 8px;
     width: 250px;
+    overflow-y: auto;
 }
+.blog-post::-webkit-scrollbar {
+    display: none; 
+}
+
 .blog-post h2{
     font-size: large;
     color: black;
