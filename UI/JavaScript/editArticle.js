@@ -68,24 +68,29 @@ const clearForm = () => {
     image.value = '';
 }
 
+const hideForm = () => {
+    document.getElementById('edit-article-form').style.display = "none";
+}
+
 const processSubmission = () => {
-    const title = document.getElementById("title").value;
-    const content = document.getElementById("content").value;
-    const image = document.getElementById("art-image");
+    const blogId = document.getElementById("edit-articleId").value;
+    const title = document.getElementById("edit-title").value;
+    const content = document.getElementById("edit-content").value;
+    const image = document.getElementById("edit-art-image");
     let imageUrl = null;
     const imageReader = new FileReader();
     imageReader.addEventListener('load', async () => {
         console.log("inside process");
         imageUrl = imageReader.result;
         // Create and add the article after the image is loaded
-        const article = { "title": title, "imageUrl": imageUrl, "content": content, "comments": [], "likes": 0 };
+        const article = { "title": title, "imageUrl": imageUrl, "content": content };
         //myArticlesList.addArticle(article);
         // updatePersistentData(myArticlesList.getArticlesList());
-        console.log(imageUrl);
-        console.log(title);
+        const success = document.getElementById('create-success');
+        const errorPara = document.getElementById('create-error')
         const token = getToken();
-        await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/newBlog', {
-            method: 'POST',
+        await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/editBlog/${blogId}`, {
+            method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
@@ -93,20 +98,24 @@ const processSubmission = () => {
             body: JSON.stringify(article)
         }).then(response => {
             if (response.status == 400 || response.status == 404) {
-                alert("Blog not added: An expected error occurred! ");
+                alert("Blog not updated: An expected error occurred! ");
             }
             if (response.ok) {
-                alert("Blog added Successfully !");
+                success.textContent = "Blog edited Successfully";
+                success.style.display = "block";
+                setTimeout(hideForm, 5000);
                 clearForm();
             }
             else {
-                alert("Blog not created: An expected error occurred! ");
-                throw new Error('Blog creation failed');
+                errorPara.textContent = "Editing Blog Failed ";
+                errorPara.style.display = "block";
+                throw new Error('Blog editing failed');
             }
             // console.log(response);
         })
             .catch(error => {
-                alert("Blog not created: An expected error occurred! ");
+                errorPara.textContent = "Editing Blog Failed ";
+                errorPara.style.display = "block";
                 console.error('Creating blog error:', error);
             });
 

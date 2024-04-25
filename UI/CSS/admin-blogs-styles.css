@@ -76,7 +76,87 @@
 .delete-btn{
     background-color: rgb(191, 95, 95);
 }
+#edit-article-form{
+    background: white;
+    padding: 10px;
+    width: 450px;
+    position: absolute;
+    top: 100px;
+    right: 300px;
+}
 
+#edit-article-form button{
+    background-color: black;
+    color: white;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin: 0;
+}
+#edit-article-form .row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#edit-article-form input{
+    width: 320px;
+    color: black;
+    background-color: white;
+}
+#edit-article-form textarea{
+    width: 320px;
+    margin-right: 0;
+}
+#edit-article-form .row label{
+    font-size: x-large;
+    text-align: left;
+    display: block;
+    color: black;
+}
+#edit-article-form .actions span{
+    color: black;
+    border: 1px solid gray;
+    background: gray;
+    width: 150px;
+    height: 40px;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+#success, #create-success{
+    display: none;
+    color: green;
+    text-align: center;
+    font-size: larger;
+    margin: 5px;
+}
+#error, #create-error{
+    display: none;
+    color: red;
+    text-align: center;
+    font-size: larger;
+    margin: 5px;
+}
+
+#edit-article-form .actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto;
+}
+#edit-article-form .actions span:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+#edit-article-form h1{
+    color: rgb(6, 1, 28);
+    margin: 0;
+}
 @media only screen and (max-width:992px){
     .blog-section h2{
         font-size: x-large;

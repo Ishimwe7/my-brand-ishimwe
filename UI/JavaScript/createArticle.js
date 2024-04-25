@@ -121,8 +121,8 @@ const processSubmission = () => {
         const article = { "title": title, "imageUrl": imageUrl, "content": content, "comments": [], "likes": 0 };
         //myArticlesList.addArticle(article);
         // updatePersistentData(myArticlesList.getArticlesList());
-        console.log(imageUrl);
-        console.log(title);
+        const success = document.getElementById('success');
+        const errorPara = document.getElementById('error');
         const token = getToken();
         await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/newBlog', {
             method: 'POST',
@@ -136,17 +136,20 @@ const processSubmission = () => {
                 alert("Blog not added: An expected error occurred! ");
             }
             if (response.ok) {
-                alert("Blog added Successfully !");
+                success.textContent = "Blog Created Successfully";
+                success.style.display = "block";
                 clearForm();
             }
             else {
-                alert("Blog not created: An expected error occurred! ");
+                errorPara.textContent = "Blog Creation Failed ";
+                errorPara.style.display = "block";
                 throw new Error('Blog creation failed');
             }
             // console.log(response);
         })
             .catch(error => {
-                alert("Blog not created: An expected error occurred! ");
+                errorPara.textContent = "An expected error occurred !";
+                errorPara.style.display = "block";
                 console.error('Creating blog error:', error);
             });
 

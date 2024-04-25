@@ -51,11 +51,17 @@ const buildArticle = (myArticle) => {
     deleteBtn.className = "delete-btn";
     deleteBtn.id = "deleteBtn" + myArticle._id;
     const edit_title = document.getElementById("edit-title");
-    const edit_desc = document.getElementById("edit-description");
+    const edit_desc = document.getElementById("edit-content");
+    const editId = document.getElementById("edit-articleId");
+    const success = document.getElementById('create-success');
+    const cerror = document.getElementById('create-error');
     updateBtn.addEventListener('click', () => {
         editForm.style.display = "grid";
         edit_title.value = myArticle.title;
         edit_desc.value = myArticle.content;
+        editId.value = myArticle._id;
+        success.textContent = '';
+        cerror.textContent = '';
     })
     const token = getToken();
     deleteBtn.addEventListener('click', async () => {
