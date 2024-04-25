@@ -17,7 +17,7 @@ body {
     width: 35%;
     height: fit-content;
     position: relative;
-    margin: auto;
+    margin: 100px auto;
 }
 
 /* .login-form{

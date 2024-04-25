@@ -25,9 +25,9 @@
     </div>
     <script>
         const sessionToken = sessionStorage.getItem('adminToken');
-        if (sessionToken) {
-          window.location.href = './adminDashboard.html';
-          //console.log("Under testing")
+        if (sessionToken!=null || sessionToken!=undefined) {
+         // window.location.href = './adminDashboard.html';
+          window.location.href = 'adminDashboard.html';
         }
     </script>
 </body>

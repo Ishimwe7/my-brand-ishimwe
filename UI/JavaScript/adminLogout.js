@@ -1,4 +1,4 @@
 document.getElementById("admin-logout").onclick = () => {
-    sessionStorage.removeItem("sessionToken");
+    sessionStorage.removeItem("adminToken");
     window.location = '../pages/adminLogin.html';
 }
