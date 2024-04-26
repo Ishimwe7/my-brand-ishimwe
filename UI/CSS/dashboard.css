@@ -215,12 +215,12 @@ main h1{
     justify-content: center;
 }
 #queries h1{
-    font-size:2.5rem;
+    font-size:2.3rem;
     color: #41f1b6;
 }
 .query{
     background-color: white;
-    width: 70%;
+    width: 55%;
     max-width: 90%;
     height: fit-content;
     border: 1px solid white;
@@ -233,7 +233,7 @@ main h1{
 .query p{
     color: black;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .query .names{
     font-weight: 900;
@@ -242,7 +242,7 @@ main h1{
 }
 .query .email{
     opacity: 0.7;
-    font-size: large;
+    font-size: medium;
 }
 .query .message{
     margin: 10px 100px;
@@ -307,6 +307,8 @@ form textarea{
     border-radius: 5px;
     padding: 10px;
     font-size: larger;
+    background: black;
+    color: white;
 }
 form button{
     border-radius: 10px;
@@ -531,31 +533,33 @@ tr,td{
         padding: 1.8rem;
     }
     #new-article .row{
-        gap: 2.7rem;
+        margin-bottom: 0;
     
     }
-    form input{
+    form#new-article input{
         width: 32vw;
-        height: 7vh;
+        height: 5vh;
         padding: 8px;
 
     }
-    .row label{
-        font-size: 1.8rem;
+    form#new-article .row label{
+        font-size: 2rem;
     }
     
-    form textarea{
+    form#new-article textarea{
         width: 32vw;
-        height: 15vh;
+        height: 10vh;
         padding: 8px;
     }
-    form button{
+    form#new-article button{
         margin: 12px auto;
-        height: 10vh;
-        width: 10vw;
-        height: 10vh;
+        height: 6vh;
+        width: 30vw;
         font-size: 1.8rem;
         padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #users table thead td{
@@ -607,6 +611,48 @@ tr,td{
     }
     tr,td{
         padding: 8px;
+    }
+    #queries{
+        display: none;
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        justify-content: center;
+    }
+    #queries h1{
+        font-size:2.3rem;
+        color: #41f1b6;
+    }
+    .query{
+        background-color: white;
+        width: 75%;
+        height: fit-content;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 10px auto;
+        padding: 10px;
+        color: black;
+        position: relative;
+    }
+    .query p{
+        color: black;
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+    .query .names{
+        font-weight: 900;
+        margin-right: 10px;
+        display: block;
+    }
+    .query .email{
+        opacity: 0.7;
+        font-size: small;
+    }
+    .query .message{
+        margin: 10px 10px;
+        position: relative;
+        white-space: normal;
+        word-wrap: break-word; 
     }
 }
 
@@ -691,7 +737,7 @@ tr,td{
     }
     
     .content-container{
-        width: 100vw;
+        width: 80vw;
     }
     
     #create-article-form h1{
@@ -767,6 +813,48 @@ tr,td{
         margin-top: 0px;
         font-size: 40px;
       }
+      #queries{
+        display: none;
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        justify-content: center;
+    }
+    #queries h1{
+        font-size:2rem;
+        color: #41f1b6;
+    }
+    .query{
+        background-color: white;
+        width: 55%;
+        height: fit-content;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 10px auto;
+        padding: 10px;
+        color: black;
+        position: relative;
+    }
+    .query p{
+        color: black;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .query .names{
+        font-weight: 900;
+        margin-right: 10px;
+        display: block;
+    }
+    .query .email{
+        opacity: 0.7;
+        font-size: smaller;
+    }
+    .query .message{
+        margin: 10px 10px;
+        position: relative;
+        white-space: normal;
+        word-wrap: break-word; 
+    }
     
 }
 
@@ -895,6 +983,50 @@ tr,td{
     }
     tr,td{
         padding: 6px;
+    }
+
+    #queries{
+        display: none;
+        width: 200px;
+        max-width: 100%;
+        margin: auto;
+        justify-content: center;
+    }
+    #queries h1{
+        font-size:2.5rem;
+        color: #41f1b6;
+    }
+    .query{
+        background-color: white;
+        width: 10%;
+        max-width: 20%;
+        height: fit-content;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 10px auto;
+        padding: 10px;
+        color: black;
+        position: relative;
+    }
+    .query p{
+        color: black;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .query .names{
+        font-weight: 900;
+        margin-right: 10px;
+        display: block;
+    }
+    .query .email{
+        opacity: 0.7;
+        font-size: small;
+    }
+    .query .message{
+        margin: 10px 10px;
+        position: relative;
+        white-space: normal;
+        word-wrap: break-word; 
     }
     
 }

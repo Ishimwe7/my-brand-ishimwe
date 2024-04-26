@@ -131,14 +131,14 @@
     display: none;
     color: green;
     text-align: center;
-    font-size: larger;
+    font-size: x-large;
     margin: 5px;
 }
 #error, #create-error{
     display: none;
     color: red;
     text-align: center;
-    font-size: larger;
+    font-size: x-large;
     margin: 5px;
 }
 
@@ -193,6 +193,7 @@
         padding: 5px 7px;
         margin-right: 8px;
     }
+
     
 }
 
@@ -234,6 +235,15 @@
         padding: 4px 6px;
         margin-right: 7px;
     }
+
+    #success, #create-success{
+        font-size: x-large;
+        margin-top: 3px;
+    }
+    #error, #create-error{
+        font-size: x-large;
+        margin-top: 3px;
+    }
     
 }
 
@@ -274,6 +284,14 @@
      .blog-post button{
         padding: 3px 5px;
         margin-right: 5px;
+    }
+    #success, #create-success{
+        font-size: larger;
+        margin-top: 3px;
+    }
+    #error, #create-error{
+        font-size: larger;
+        margin-top: 3px;
     }
     
 }

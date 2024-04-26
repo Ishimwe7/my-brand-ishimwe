@@ -48,7 +48,21 @@ const getToken = () => {
     //console.log(parsedToken.token);
     return parsedToken.token;
 }
+function removeContent() {
+    // Hide all content sections
+    var contentSections = document.querySelectorAll('.content');
+    contentSections.forEach(function (section) {
+        section.style.display = 'none';
+    });
 
+}
+const showBlogs = (contentId) => {
+    removeContent();
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'grid';
+    }
+}
 
 const initApp = () => {
 
@@ -87,7 +101,9 @@ const processSubmission = () => {
         //myArticlesList.addArticle(article);
         // updatePersistentData(myArticlesList.getArticlesList());
         const success = document.getElementById('create-success');
-        const errorPara = document.getElementById('create-error')
+        const errorPara = document.getElementById('create-error');
+        success.textContent = '';
+        errorPara.textContent = ''
         const token = getToken();
         await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/editBlog/${blogId}`, {
             method: 'PUT',
@@ -105,6 +121,8 @@ const processSubmission = () => {
                 success.style.display = "block";
                 setTimeout(hideForm, 5000);
                 clearForm();
+                // removeContent();
+                // showBlogs('blog-section');
             }
             else {
                 errorPara.textContent = "Editing Blog Failed ";
@@ -118,8 +136,6 @@ const processSubmission = () => {
                 errorPara.style.display = "block";
                 console.error('Creating blog error:', error);
             });
-
-        // Read the image file
     });
     imageReader.readAsDataURL(image.files[0]);
 }

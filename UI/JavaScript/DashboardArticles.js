@@ -20,7 +20,21 @@ const getToken = () => {
     //console.log(parsedToken.token);
     return parsedToken.token;
 }
+function removeContent() {
+    // Hide all content sections
+    var contentSections = document.querySelectorAll('.content');
+    contentSections.forEach(function (section) {
+        section.style.display = 'none';
+    });
 
+}
+const showBlogs = (contentId) => {
+    removeContent();
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'grid';
+    }
+}
 
 const buildArticle = (myArticle) => {
     const article = document.createElement("article");
@@ -65,6 +79,18 @@ const buildArticle = (myArticle) => {
     })
     const token = getToken();
     deleteBtn.addEventListener('click', async () => {
+        const del_response = document.createElement('p');
+        del_response.className = "del-res";
+        del_response.style.width = '200px';
+        del_response.style.height = '100px';
+        del_response.style.justifyContent = 'center';
+        del_response.style.alignItems = 'center';
+        del_response.style.position = 'absolute';
+        del_response.style.top = '300px';
+        del_response.style.left = '500px';
+        const showRes = () => {
+            del_response.style.display = "flex";
+        }
         await fetch(`https://my-brand-nyanja-cyane.onrender.com/blogs/deleteBlog/${myArticle._id}`, {
             method: 'DELETE',
             headers: {
@@ -72,30 +98,33 @@ const buildArticle = (myArticle) => {
                 'Content-Type': 'application/json'
             },
         }).then(response => {
-
             if (response.status == 500 || response.status == 400 || response.status == 404) {
-                const p = document.createElement("p");
-                p.innerHTML = "No blog found! "
-                p.className = "error";
+                del_response.textContent = "Blog Not found !";
+                del_response.style.color = 'red';
                 document.getElementById('responses').appendChild(p);
             }
             if (response.ok) {
                 response.json().then(data => {
                     const message = data;
-                    alert(message.message);
-                    location.reload();
+                    // alert(message.message);
+                    del_response.textContent = message.message;
+                    setTimeout(showRes, 3000);
                 })
             } else {
-                const p = document.createElement("p");
-                p.innerHTML = "An expected error occurred ! "
-                p.className = "error";
-                document.getElementById('responses').appendChild(p);
+                del_response.textContent = "Blog Not Deleted!";
+                del_response.style.color = 'red';
+                setTimeout(showRes, 3000);
                 throw new Error('Deleting blog failed');
             }
         })
             .catch(error => {
+                del_response.textContent = "Blog Not deleted. An expected error occurred!";
+                del_response.style.color = 'red';
+                setTimeout(showRes, 3000);
                 console.error('Fetching Blog filed:', error);
             });
+        removeContent();
+        showBlogs('blog-section')
     })
     actions.appendChild(updateBtn);
     actions.appendChild(deleteBtn);
