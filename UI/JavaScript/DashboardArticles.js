@@ -70,6 +70,7 @@ const buildArticle = (myArticle) => {
     const success = document.getElementById('create-success');
     const cerror = document.getElementById('create-error');
     updateBtn.addEventListener('click', () => {
+        removeContent();
         editForm.style.display = "grid";
         edit_title.value = myArticle.title;
         edit_desc.value = myArticle.content;
@@ -123,8 +124,8 @@ const buildArticle = (myArticle) => {
                 setTimeout(showRes, 3000);
                 console.error('Fetching Blog filed:', error);
             });
-        removeContent();
-        showBlogs('blog-section')
+        // removeContent();
+        // showBlogs('blog-section')
     })
     actions.appendChild(updateBtn);
     actions.appendChild(deleteBtn);

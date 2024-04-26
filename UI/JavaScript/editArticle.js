@@ -63,7 +63,10 @@ const showBlogs = (contentId) => {
         selectedContent.style.display = 'grid';
     }
 }
-
+document.getElementById('cancel-edit').addEventListener('click', () => {
+    document.getElementById('edit-article-form').style.display = "none";
+    showBlogs('blog-section');
+})
 const initApp = () => {
 
     const articleForm = document.getElementById("edit-article");
@@ -83,7 +86,10 @@ const clearForm = () => {
 }
 
 const hideForm = () => {
+    // removeContent();
+    // showBlogs();
     document.getElementById('edit-article-form').style.display = "none";
+    location.reload();
 }
 
 const processSubmission = () => {
@@ -127,6 +133,7 @@ const processSubmission = () => {
             else {
                 errorPara.textContent = "Editing Blog Failed ";
                 errorPara.style.display = "block";
+                setTimeout(hideForm, 5000);
                 throw new Error('Blog editing failed');
             }
             // console.log(response);
@@ -134,6 +141,7 @@ const processSubmission = () => {
             .catch(error => {
                 errorPara.textContent = "Editing Blog Failed ";
                 errorPara.style.display = "block";
+                setTimeout(hideForm, 5000);
                 console.error('Creating blog error:', error);
             });
     });
