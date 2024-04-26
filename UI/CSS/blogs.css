@@ -122,7 +122,10 @@
     margin-left: 70px;
     align-items: center;
 }
-
+.comment-actions img.reply-btn{
+    width: 15px;
+    height: 14px;
+}
 .comment-actions img{
     width: 15px;
     height: 15px;

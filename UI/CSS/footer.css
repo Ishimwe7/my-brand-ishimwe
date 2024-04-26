@@ -149,9 +149,9 @@ a{
 }
 @media only screen and (max-width: 484px){
     footer #copyrights{
-        font-size: small;
+        font-size: smaller;
         text-align: center;
-        padding-bottom: 10px;
+        padding-bottom: 8px;
      }
      
      #footer{
@@ -165,7 +165,10 @@ a{
      #footer h1{
          color: black;
          text-align: center;
-         font-size: small;
+         font-size: smaller;
+     }
+     .part {
+        font-size: x-small;
      }
      
      #address {

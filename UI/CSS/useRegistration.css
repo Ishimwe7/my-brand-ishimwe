@@ -184,7 +184,7 @@ button {
         width: 60%;
         height: fit-content;
         padding:0 25px;
-        margin-top: 60px;
+        margin-top: 100px;
     }
     
     
@@ -234,13 +234,13 @@ button {
         background-color: white;
         border-radius: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        width: 80%;
-        height: fit-content;
+        width: 82%;
+        /* height: fit-content; */
         padding: 0 20px; .login-container {
         padding: 15px;
-        width: 80%;
-        height: 400px;
+        height: 450px;
         position: relative;
+        margin-top: 100px;
     }
 
     input {
