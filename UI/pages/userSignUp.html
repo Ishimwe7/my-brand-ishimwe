@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../CSS/useRegistration.css">
     <script type="module" src="../JavaScript/registerUser.js"></script>
     <title>User sign up</title>
+    <script>
+        const sessionToken = sessionStorage.getItem('loggedUser');
+        if (sessionToken!=null) {
+          window.location.href = '../../index.html';
+          //console.log("Under testing")
+        }
+    </script>
 </head>
 <body>
     <div class="signup-container">
