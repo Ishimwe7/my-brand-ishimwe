@@ -104,9 +104,9 @@ const renderList = (messages) => {
         const date = document.createElement("p");
         date.className = "date";
         date.textContent = message.date;
+        messageDiv.appendChild(date);
         messageDiv.appendChild(p);
         messageDiv.appendChild(messagePara);
-        messageDiv.appendChild(date);
         queries.appendChild(messageDiv);
     });
 
