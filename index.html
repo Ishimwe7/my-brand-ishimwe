@@ -35,12 +35,14 @@
                  <div>
 
                      <ul id="menu-list">
-                         <li><a href="#home">Home</a></li>
-                         <li><a href="#about">About me</a></li>
-                         <li><a href="#skills">Skills</a></li>
-                         <li><a href="#portifolio">Portifolio</a></li>
-                         <li><a href="#blogs">Blogs</a></li>
-                         <li><a href="#contact-me">Contact me</a></li>
+                         <div id="other-links">
+                             <li><a href="#home">Home</a></li>
+                             <li><a href="#about">About me</a></li>
+                             <li><a href="#skills">Skills</a></li>
+                             <li><a href="#portifolio">Portifolio</a></li>
+                             <li><a href="#blogs">Blogs</a></li>
+                             <li><a href="#contact-me">Contact me</a></li>
+                         </div>
                          <div id="user-control">
                             <li><a href="UI/pages/userSignUp.html" target="_blank" id="sign-up">Sign Up</a></li>
                             <li><a href="UI/pages/userLogin.html" target="_blank" id="login">Login</a></li>
@@ -85,8 +87,10 @@
      a passion for leveraging technology to solve complex problems and drive business success.
                     </p>
                     <div id="home-btns">
-                        <button>Download CV</button>
-                        <button><a href="https://github.com/Ishimwe7" target="_blank">My GitHub</a></button>
+                         <a href="./Ishimwe Pacifique_CV.pdf" download="Ishimwe Pacifique_CV.pdf">
+                           <button>Download CV</button>
+                         </a>
+                        <button><a id="github" href="https://github.com/Ishimwe7" target="_blank">My GitHub</a></button>
                     </div>
                    </div>
                 </div>
@@ -159,7 +163,9 @@ enthusiasm. Constantly evolving to
                    <p class="category"> <span>Experience</span></p> <br><br>
                     <h2>&#10004 Served as an IT support at N@tcom Services Ltd from November 2022 to May 2023</h2>
                     <h2>&#10004 Served as a database Instructor at N@tcom Services Ltd from November 2022 to May 2023</h2>
-                    <h2>&#10004 Currently persuing Front-end development program at Andela</h2>
+                    <h2>&#10004 Worked on an e-commerce project using ReactJS with Redux, NodeJS,PostgreSQl and Typescript</h2>
+                     <h2>&#10004 Worked a project that provides market place using Spring boot and MySQL on back-end and ReactJS with Redux and Typescript on front-end</h2>
+                    <h2>&#10004 Currently persuing Software engineering program at Andela</h2>
                  </div> 
             </div>
         </div>
@@ -169,17 +175,19 @@ enthusiasm. Constantly evolving to
             <h2>______Recent Projects______</h2>
           <div id="projects">
             <div class="project">
-                <img src="UI/pictures/2887244.jpg" alt="Project 1">
-                <h3>Front-end development</h3>
-                <p>This project involved implementing cutting-edge Front-end technologies to enhance user experience.</p>
-                <a href="#" class="project-link">View Project</a>
+                <img src="UI/pictures/ecommerce.png" alt="Project 1">
+                <h3>Online Shopping project(NodeJS and ReactJS)</h3>
+                <p>A full-stack e-commerce app using React with Redux, Node.js,
+                     and TypeScript for dynamic shopping and state management.</p>
+                <a href="https://e-commerce-lydia-32-fn-staging.onrender.com/" target="_blank" class="project-link">View Project</a>
             </div>
     
             <div class="project">
-                <img src="UI/pictures/website-hosting-concept-with-bright-light.jpg" alt="Project 2">
-                <h3>Web technology & Internet</h3>
-                <p>A web technology project aimed at providing a secure online platforms for users.</p>
-                <a href="#" class="project-link">View Project</a>
+                <img src="UI/pictures/nyanja-shopping-mall.png" alt="Project 2">
+                <h3>Spring boot and React E-commerce Project</h3>
+                <p>An e-commerce platform built with Spring Boot and React for seamless shopping, 
+                    user authentication, and order management.</p>
+                <a href="https://nyanja-shopping-mall.netlify.app/" target="_blank" class="project-link">View Project</a>
             </div>
           </div>
     
@@ -189,6 +197,10 @@ enthusiasm. Constantly evolving to
        <div id="blogs">
         <div id="blogs-header">
             <h1>________My Blogs________</h1><br>
+        </div>
+        <div id="loader" class="loader-container">
+           <div class="loader"></div>
+           <div class="loader-text">Loading Blogs...</div>
         </div>
         <div class="blog-section" id="blog-section">
          <!-- <article class="blog-post">
@@ -300,23 +312,28 @@ enthusiasm. Constantly evolving to
         
                    <div id="query-form">
                     <h1>Send me your query now !</h1>
-                    <form action="#" id="contact-form">
+                    <form  id="contact-form">
                         <div class="field">
                             <label for="names">Names: </label>
                             <input type="text" name="names" id="names">
                         </div>
+                        <p id="names-error" class="message-error"></p>
                         <div class="field">
                             <label for="email">Email:</label>
                             <input type="email" name="email" id="email">
                         </div>
+                         <p id="email-error"  class="message-error"></p>
                         <div class="field">
                             <label for="subject">Subject:</label>
                             <input type="text" name="subject" id="subject">
                         </div>
+                         <p id="subject-error"  class="message-error"></p>
                         <div class="field">
                           <label for="query">Query: </label>
                           <textarea name="query" id="query" cols="30" rows="10"></textarea>
                        </div>
+                        <p id="query-error"  class="message-error"></p>
+                        <p id="request-error"  class="message-error"></p>
                        <button type="submit" name="send-query" id="send-query">Submit</button>
                     </form>
                    </div>
@@ -365,23 +382,6 @@ enthusiasm. Constantly evolving to
         </div>
         <p id="copyrights">All rights reserved &copy;Ishimwe~2024</p>
     </footer>
-    <!-- <script>
-        function toggleNav() {
-          const navList = document.querySelector('#nav-bar ul');
-          navList.classList.toggle('show');
-        }
-    </script> -->
-     <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          // Toggle navigation links on click of the toggler icon
-          document.querySelector('.nav-toggler').addEventListener('click', function () {
-            const navLinks = document.querySelectorAll('ul li');
-            navLinks.forEach(link => {
-              link.style.display = (link.style.display === 'none' || link.style.display === '') ? 'block' : 'none';
-            });
-          });
-        });
-      </script> -->
       <script>
 
        const sessionToken = sessionStorage.getItem('loggedUser');
@@ -400,11 +400,6 @@ enthusiasm. Constantly evolving to
             sessionStorage.removeItem('loggedUser');
             location.reload();
         })
-        // const menu = document.getElementById("menu-list");
-        // const tog= document.getElementById("menu-list-on-toggle");
-        // if(menu.style.display!=="none"){
-        //     tog.style.display="none";
-        // }
         document.getElementById("nav-toggler").addEventListener('click',()=>{
             const navBar = document.getElementById("menu-list-on-toggle");
             document.getElementById("nav-toggler").style.display="none";
@@ -414,19 +409,6 @@ enthusiasm. Constantly evolving to
             document.getElementById("menu-list-on-toggle").style.display="none";
             document.getElementById("nav-toggler").style.display="block";
         })
-            // var navBar = document.getElementById("nav-bar");
-            // var menuList = document.getElementById("menu-list");
-            // // var nav_toggler=document.getElementById("nav-toggler");
-           
-            // if (menuList.style.display === "block") {
-            //     menuList.style.display = "none";
-            // } else {
-            //     // nav_toggler.style.display="none";
-            //     navBar.style.gap="20%";
-            //     menuList.style.display = "block";
-            // }
-        
-        //}
     </script>
 </body>
 </html>

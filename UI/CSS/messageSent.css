@@ -3,36 +3,43 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+     background: #1A1A1A;
+}
 #message-sent{
     width: 40vw;
     height: fit-content;
-    border: 1px solid blue;
+    border: 1px solid  white;
    margin: 150px auto;
    display: grid;
    justify-content: center;
-   border-radius: 20px;
+   border-radius: 10px;
    padding: 10px;
-   background-color: white;
+   background-color: #282828;;
 }
 #message-sent h2{
     text-align: center;
     margin: 20px;
     padding: 20px;
     font-size: xx-large;
+    color: #E0E0E0;
 }
 #message-sent p{
+    color: #E0E0E0;
     font-size: x-large;
     text-align: center;
 }
 button{
-    width: 200px;
+    width: 80%;
     height: 50px;
     margin: 20px auto;
     padding: 10px ;
-    border-radius: 10px;
-    background-color: rgb(171, 171, 243);
+    border-radius: 20px;
+    background-color:black; 
+    border: none; 
 }
 button a{
+    color: white; 
     text-decoration: none;
     font-size: x-large;
 }
@@ -45,7 +52,7 @@ button:hover{
 @media only screen and (max-width: 992px) {
  
     #message-sent{
-        width: 50vw;
+       width: 50vw;
        margin: 140px auto;
        padding: 20px;
     }
@@ -55,16 +62,6 @@ button:hover{
         font-size: xx-large;
     }
     #message-sent p{
-        font-size: x-large;
-    }
-    button{
-        width: 180px;
-        height: 40px;
-        margin: 20px auto;
-        padding: 10px ;
-    }
-    button a{
-        text-decoration: none;
         font-size: x-large;
     }
 }
@@ -84,22 +81,13 @@ button:hover{
     #message-sent p{
         font-size: larger;
     }
-    button{
-        width: 150px;
-        height: 35px;
-        margin: 18px auto;
-        padding: 8px ;
-    }
-    button a{
-        text-decoration: none;
-        font-size: larger;
-    }
+
 }
 
 @media only screen and (max-width: 484px) {
  
     #message-sent{
-        width: 60vw;
+       width: 70vw;
        margin: 100px auto;
        padding: 10px;
     }
@@ -112,13 +100,10 @@ button:hover{
         font-size: large;
     }
     button{
-        width: 120px;
-        height: 30px;
-        margin: 15px auto;
-        padding: 6px ;
+        width: 100%;
+        height: 35px;
     }
     button a{
-        text-decoration: none;
-        font-size: large;
+        font-size: medium;
     }
 }

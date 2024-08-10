@@ -1,17 +1,15 @@
 footer{
-    background-color: #36454F;
     height: fit-content;
     color: white;
 }
 
 footer #copyrights{
-   font-size: x-large;
+   font-size: large;
    text-align: center;
    padding-bottom: 30px;
 }
 
 #footer{
-    background-color: #36454F;
     width: 100%;
     height: fit-content;
     display: flex;
@@ -19,13 +17,12 @@ footer #copyrights{
     gap: 120px;
 }
 #footer h1{
-    color: black;
+    color: #A0E7E5;
     text-align: center;
     font-size: larger;
 }
 
 #footer .part{
-    /* width: 200px; */
     padding: 10px;
 }
 
@@ -76,7 +73,6 @@ a{
     }
     
     #footer{
-        background-color: #36454F;
         width: 100%;
         height: fit-content;
         display: flex;
@@ -84,7 +80,6 @@ a{
         gap: 120px;
     }
     #footer h1{
-        color: black;
         text-align: center;
         font-size: larger;
     }
@@ -120,7 +115,6 @@ a{
      }
      
      #footer{
-         background-color: #36454F;
          width: 100%;
          height: fit-content;
          display: flex;
@@ -128,7 +122,6 @@ a{
          gap: 18px;
      }
      #footer h1{
-         color: black;
          text-align: center;
          font-size: large;
      }
@@ -155,7 +148,6 @@ a{
      }
      
      #footer{
-         background-color: #36454F;
          width: 100%;
          height: fit-content;
          display: flex;
@@ -163,7 +155,6 @@ a{
          gap: 0;
      }
      #footer h1{
-         color: black;
          text-align: center;
          font-size: smaller;
      }

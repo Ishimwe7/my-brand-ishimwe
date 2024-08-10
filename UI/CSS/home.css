@@ -1,58 +1,50 @@
-*{
+
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
-    /* font-weight: <weight>; */
     font-style: normal;
     box-sizing: border-box;
 }
 
-body{
-    background-color:black;
+body {
+    background-color: #1A1A1A; 
     margin: auto;
     width: 100%;
-    /* margin: auto; */
-    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    color: #E0E0E0; 
 }
 
-#home{
+#home {
     margin: 0;
-    padding:0;
+    padding: 0;
     padding-top: 40px;
-    /* min-height: 100vh; */
-    /* display: grid; */
-    /* justify-content: center; */
     display: grid;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     align-content: flex-start;
     position: relative;
 }
 
-#nav-bar{
+#nav-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* gap: 40%; */
     width: 100%;
-    /* height: 100px; */
-    /* margin: 0; */
-    padding: 15px ;
-    background-color: #36454F;
-    /* box-shadow: 1px 1px 2px rgba(1, 10, 35, 0.365); */
+    padding: 5px 15px;
+    background-color: #333333; 
     position: fixed;
     z-index: 222;
-    top: 0; 
+    top: 0;
 }
 
-#logo h1{
+#logo h1 {
     font-size: xx-large;
-    color: #A0E7E5;
+    color: #66FCF1; 
     font-style: italic;
 }
 
-#logo img{
+#logo img {
     width: 80px;
     height: 55px;
     border-radius: 10px;
@@ -60,59 +52,66 @@ body{
 
 #menu-list {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     gap: 2rem;
-    /* flex-wrap: wrap; */
     list-style-type: none;
-    /* float: right; */
-    /* margin: 8px; */
 }
-#nav-bar ul li a{
-    /* position: relative; */
+#other-links{
+    display: flex;
+    gap: 2rem;
+    align-items: baseline;
+    padding-top: 20px;
+}
+
+#nav-bar ul li a {
     font-size: 1.5vw;
-    color: white;
-    /* padding: 10px/; */
+    color: #E0E0E0;
     text-decoration: none;
 }
-#nav-bar ul li a:hover{
+
+#nav-bar ul li a:hover {
     text-decoration: underline;
     opacity: 0.7;
 }
 
-#nav-bar ul li a:active{
-    color: #A0E7E5;
+#nav-bar ul li a:active {
+    color: #66FCF1; 
 }
 
-#user-control{
+#user-control {
     display: flex;
     gap: 10px;
-    padding: 8px;
-    border: 2px solid black;
+    padding: 8px 15px;
+    border: 2px solid #333333;
     border-radius: 20px;
-    background-color: rgba(6, 8, 115, 0.263);
-    box-shadow: 1px 2px 1px  rgb(83, 118, 231);
+    background-color: #1A1A1A; 
+    box-shadow: 1px 2px 1px #66FCF1;
+    width: 200px;
+    height: 45px;
 }
-#user-control #sign-up{
-    border-right: 3px solid black;
+
+#user-control #sign-up {
+    border-right: 3px solid #333333;
     border-radius: 20px;
-    background-color: black;
+    background-color: #1A1A1A; 
     padding: 5px;
 }
-#user-control a#login:hover{
+
+#user-control a#login:hover {
     text-decoration: none;
-    border-right: 3px solid black;
+    border-right: 3px solid #333333;
     border-radius: 20px;
-    background-color: black;
+    background-color: #1A1A1A;
     padding: 2px 7px;
 }
-#user-control a#sign-up:hover{
+
+#user-control a#sign-up:hover {
     text-decoration: none;
     border: none;
     background: none;
 }
 
-
-#home-part1{
+#home-part1 {
     display: flex;
     justify-content: space-evenly;
     gap: 3%;
@@ -120,106 +119,109 @@ body{
     margin-top: 80px;
 }
 
- #my-intro h1{
+#my-intro h1 {
     font-size: 70px;
-    color: #A0E7E5;
+    color: #66FCF1; 
 }
 
-#text-cv{
+#text-cv {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     gap: 25px;
 }
-/* #text-cv #home-btns{
-    margin-top: 75px;
-    margin-right: 20px;
-} */
+
 #home-btns {
-    display:flex;
+    display: flex;
 }
-#text-cv #home-btns button{
+
+#text-cv #home-btns button {
     width: 200px;
     height: 50px;
     font-size: larger;
     padding: 0;
-    background-color: rgba(6, 8, 115, 0.263);
-    color: white;
-    border: 1px solid #A0E7E5;
+    background-color: #282828; 
+    color: #E0E0E0;
+    border: 1px solid #66FCF1;
     border-radius: 10px;
     margin: 5px;
-    /* display: block; */
-}
-#text-cv #home-btns button:hover{
-    cursor: pointer;
-    color: #36454F;
-    background-color: white;
-}
-#text-cv #home-btns button a:hover{
-    cursor: pointer;
-    color: #36454F;
-    background-color: white;
 }
 
-#text-cv #home-btns a{
+#text-cv #home-btns button:hover {
+    cursor: pointer;
     color: white;
+    background-color:black; 
+}
+#text-cv #home-btns #github:hover {
+    cursor: pointer;
+    color: white;
+    background: none;
+}
+
+#text-cv #home-btns button a:hover {
+    cursor: pointer;
+    color: #282828;
+    background-color: #66FCF1;
+}
+
+#text-cv #home-btns a {
+    color: #E0E0E0; 
     text-decoration: none;
 }
 
-#intro h1{
+#intro h1 {
     font-size: 25px;
-    color: #A0E7E5;
+    color: #66FCF1; 
 }
 
-.my-text{
+.my-text {
     font-size: larger;
-    color: white;
+    color: #E0E0E0;
     line-height: 25px;
-    width:75%;
-    padding: 1.85rem 0 0 0 ;
+    width: 75%;
+    padding: 1.85rem 0 0 0;
 }
-#logo img{
+
+#logo img {
     height: 70px;
     width: 70px;
     border-radius: 100%;
 }
 
-#profile-picture img{
+#profile-picture img {
     width: 200px;
     height: 250px;
     border-radius: 10px;
-    object-fit:cover;
+    object-fit: cover;
 }
-#profile-picture{
+
+#profile-picture {
     width: 20%;
 }
 
-
-#home-part2{
+#home-part2 {
     display: flex;
     justify-content: center;
     gap: 20%;
     margin: 45px auto;
     width: 75%;
-    /* height: 100px; */
-}
-#home-part2 .home2-text {
-    width: 90%;
-    /* height: fit-content; */
-    padding: 15px;
-    background-color: rgba(6, 8, 115, 0.263);
-    font-size: larger;
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 1px 2px 1px  rgb(83, 118, 231);
 }
 
-.nav-toggler{
+#home-part2 .home2-text {
+    width: 90%;
+    padding: 15px;
+    background-color: #282828;
+    font-size: larger;
+    color: #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 1px 2px 1px #66FCF1;
+}
+
+.nav-toggler {
     display: none;
 }
 
-/* ======================================= */
-#menu-list-on-toggle{
-    background: #36454F;
+#menu-list-on-toggle {
+    background: #333333; 
     width: 200px;
     z-index: 333;
     border-radius: 10px;
@@ -229,12 +231,14 @@ body{
     padding: 10px;
     display: none;
 }
-#menu-list-on-toggle li{
+
+#menu-list-on-toggle li {
     list-style: none;
     display: block;
-    margin:20px 10px;
+    margin: 20px 10px;
 }
-#menu-list-on-toggle span#close-menu{
+
+#menu-list-on-toggle span#close-menu {
     position: absolute;
     top: 25px;
     right: 0px;
@@ -242,78 +246,87 @@ body{
     width: 50px;
     height: 100px;
 }
-#menu-list-on-toggle span:hover{
+
+#menu-list-on-toggle span:hover {
     cursor: pointer;
 }
 
-#nav-control{
+#nav-control {
     display: flex;
     gap: 3px;
     padding: 2px;
-    border: 2px solid black;
+    border: 2px solid #333333;
     border-radius: 20px;
-    background-color: rgba(6, 8, 115, 0.263);
-    box-shadow: 1px 2px 1px  rgb(83, 118, 231);
+    background-color: #282828;
+    box-shadow: 1px 2px 1px #66FCF1;
 }
-#nav-control li{
+
+#nav-control li {
     margin: 5px;
 }
-#nav-control #signup{
-    border-right: 3px solid black;
+
+#nav-control #signup {
+    border-right: 3px solid #333333;
     border-radius: 20px;
-    background-color: black;
+    background-color: #1A1A1A;
     padding: 5px;
 }
-#nav-control a#signin:hover{
+
+#nav-control a#signin:hover {
     text-decoration: none;
-    border-right: 3px solid black;
+    border-right: 3px solid #333333;
     border-radius: 20px;
-    background-color: black;
+    background-color: #1A1A1A;
     padding: 5px 15px;
 }
-#user-control a#signup:hover{
+
+#user-control a#signup:hover {
     text-decoration: none;
     border: none;
     background: none;
 }
-#logout{
+
+#logout {
     align-items: center;
     gap: 10px;
     display: none;
-    background-color: black;
+    background-color: #1A1A1A;
     border-radius: 20px;
     padding: 10px;
     text-align: center;
 }
-#menu-list-on-toggle #logout-toggler{
+
+#menu-list-on-toggle #logout-toggler {
     align-items: center;
     gap: 10px;
     display: none;
-    background-color: black;
+    background-color: #1A1A1A;
     border-radius: 20px;
     padding: 10px;
     padding-left: 35px;
     text-align: center;
 }
-.hide-comments:hover{
+
+.hide-comments:hover {
     cursor: pointer;
 }
-#logout:hover{
+
+#logout:hover {
     opacity: 0.7;
 }
-#logout-toggler span{
-    color: white;
+
+#logout-toggler span {
+    color: #E0E0E0;
 }
-#logout span{
-    color: white;
+
+#logout span {
+    color: #E0E0E0;
 }
-#logout a:hover{
+
+#logout a:hover {
     text-decoration: none;
 }
 
-/* #home{
-    max-width: fit-content;
-} */
 @media only screen and (max-width: 992px) {
     #home{
         margin: auto;
@@ -337,12 +350,8 @@ body{
         height: 50px;
         font-size: x-large;
         padding: 0;
-        background-color: #A0E7E5;
-        color: white;
-        border: 1px solid #A0E7E5;
         border-radius: 10px;
         margin: 5px;
-        /* display: block; */
     }
     #profile-picture{
         margin: 20px auto;
@@ -350,12 +359,6 @@ body{
         display: flex;
         justify-content: center;
     }
-    /* #profile-picture img{
-        width: 300px;
-        height: 400px;
-        border-radius: 10px;
-        object-fit:cover;
-    } */
     #profile-picture img{
         width: 200px;
         height: 250px;
@@ -375,7 +378,6 @@ body{
     }
     .my-text{
         font-size: larger;
-        color: white;
         line-height: 22px;
         width:100%;
         justify-content: center;
@@ -406,11 +408,11 @@ body{
         display: flex;
         justify-content: flex-end;
         align-items:center;
-        width: 85px;
-        height: 85px;
+        width: 70px;
+        height: 70px;
         position: absolute;
         top: 1px;
-        right: 2px;
+        right: 5px;
         
     } 
     .nav-toggler:hover{
@@ -448,8 +450,6 @@ body{
     }
    
     #home-part1{
-        /* display: grid;
-        justify-content: center; */
         margin: auto;
         gap: 2%;
         margin-top: 120px;
@@ -459,7 +459,6 @@ body{
     }
     .my-text{
         font-size: large;
-        color: white;
         line-height: 25px;
         width:100%;
         justify-content: center;
@@ -471,14 +470,6 @@ body{
         font-size: larger;
         padding: 0;
     }
-
-    /* #profile-picture img{
-        width: 350px;
-        height: 380px;
-        border-radius: 10px;
-        margin:20px auto;
-        object-fit:cover;
-    } */
     #profile-picture img{
         width: 180px;
         height: 200px;
@@ -520,28 +511,20 @@ body{
       
     }
     #logo img{
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         margin: 0;
     }
     .nav-toggler {
         display: flex;
         justify-content: flex-end;
         align-items:center;
-        width: 85px;
-        height: 85px; 
+        width: 70px;
+        height: 70px; 
         position: absolute;
         top: 1px;
-        right: 2px;
+        right: 10px;
     }  
-     /* #menu-list {
-        position: relative;
-        width: 200px;
-        height:100px;
-        padding: 10px;
-        background: none;
-        z-index:1000;
-    }  */
     #my-intro {
         font-size:1rem;
     }
@@ -553,25 +536,17 @@ body{
     }
     .my-text{
         font-size: large;
-        color: white;
         line-height: 24px;
         width:80%;
         justify-content: center;
         padding: 1.2rem 0 0 0 ;
     }
-/*  
-    #profile-picture img{
-        width: 250px;
-        height: 300px;
-        border-radius: 10px;
-        margin-bottom: 40px;
-        object-fit:cover;
-    } */
     #profile-picture img{
         width: 150px;
         height: 180px;
         border-radius: 10px;
         object-fit:cover;
+        margin-bottom: 20px;
     }
     
     #home-part2{
@@ -594,9 +569,6 @@ body{
         height: 50px;
         font-size: larger;
         padding: 0;
-        background-color: rgba(6, 8, 115, 0.263);
-        color: white;
-        border: 1px solid #A0E7E5;
         border-radius: 10px;
         margin: 5px;
     }
@@ -607,4 +579,4 @@ body{
         width: 95%;
     }
 }
-
+ 

@@ -129,9 +129,6 @@ const buildArticle = (myArticle, id) => {
         }).then(response => {
             if (response.ok) {
                 response.json().then(data => {
-                    //loadListObject();
-                    // likeBtn.style.display = "none";
-                    // unLikeBtn.style.display = "inline";
                     location.reload();
                 })
             } else {
@@ -154,9 +151,6 @@ const buildArticle = (myArticle, id) => {
         }).then(response => {
             if (response.ok) {
                 response.json().then(data => {
-                    // likeBtn.style.display = "inline";
-                    // unLikeBtn.style.display = "none";
-                    //loadListObject();
                     location.reload();
                 })
             } else {
@@ -202,14 +196,9 @@ const buildArticle = (myArticle, id) => {
     comment.className = "new-comment";
     commentInput.type = "text";
     commentInput.maxLength = "100";
-
-    //console.log(commentForm.id + " " + commentInput.id)
-    // const commentData = {
-    // };
     const addCommentBtn = document.createElement("button");
     addCommentBtn.className = "add-comment-btn"
     addCommentBtn.id = "add-comment-btn" + myArticle._id;
-    //addCommentBtn.className = "add-comment-btn";
     addCommentBtn.textContent = "Comment";
     commentForm.appendChild(commentInput);
     commentForm.appendChild(addCommentBtn);
@@ -254,7 +243,6 @@ const buildArticle = (myArticle, id) => {
             const usersLikedComment = comment.usersLiked;
             if (token) {
                 const userId = myDecodedToken.id;
-                // console.log(usersLikedComment[0])
                 if (userId !== undefined && usersLikedComment !== undefined) {
                     usersLikedComment.forEach(userlikedId => {
                         if (userlikedId === userId) {
@@ -278,8 +266,6 @@ const buildArticle = (myArticle, id) => {
                 }).then(response => {
                     if (response.ok) {
                         response.json().then(data => {
-                            console.log("Like added")
-                            //location.reload();
                         })
                     } else {
                         window.location.href = "./UI/pages/userLogin.html";
@@ -430,17 +416,12 @@ const buildArticle = (myArticle, id) => {
     else {
         article.appendChild(comments_section);
         const no_comments = document.createElement("p");
-        //no_comments.className = "no-comments";
         no_comments.textContent = "No comments yet !";
         comments_section.appendChild(no_comments);
         article.appendChild(no_comments);
     }
     const allArticles = document.getElementById("blog-section");
     allArticles.appendChild(article);
-    // let author = null;
-    // if (myDecodedToken != null) {
-    //     author = myDecodedToken.username;
-    // }
 
     commentForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -476,6 +457,19 @@ const buildArticle = (myArticle, id) => {
     })
 }
 
+const loader = document.getElementById('loader');
+const blogSection = document.getElementById('blog-section');
+
+const showLoader = () => {
+  loader.style.display = 'block';
+  blogSection.style.display = 'none';
+};
+
+const hideLoader = () => {
+  loader.style.display = 'none';
+  blogSection.style.display = 'flex';
+};
+
 
 const loadListObject = async () => {
     // const storedArticles = localStorage.getItem("myArticlesList");
@@ -490,33 +484,32 @@ const loadListObject = async () => {
     //     // newArticle.setComments(commentsList);
     //     myArticlesList.addArticle(newArticle);
     // });
-    await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/allBlogs', {
-        method: 'GET',
-    }).then(response => {
+   showLoader();
+   try {
+        const response = await fetch('https://my-brand-nyanja-cyane.onrender.com/blogs/allBlogs', {
+            method: 'GET',
+        });
 
-        if (response.status == 500 || response.status == 400 || response.status == 404) {
+        if (!response.ok) {
+            const errorMessage = response.status === 500 || response.status === 400 || response.status === 404
+                ? "No blogs at the moment!"
+                : "An unexpected error occurred!";
             const p = document.createElement("p");
-            p.innerHTML = "No blogs at the moment! "
+            p.innerHTML = errorMessage;
             p.className = "error";
             document.getElementById('responses').appendChild(p);
-        }
-        if (response.ok) {
-            response.json().then(data => {
-                const allBlogs = data;
-                // console.log(allBlogs);
-                renderList(allBlogs);
-            })
-        } else {
-            const p = document.createElement("p");
-            p.innerHTML = "An expected error occurred ! "
-            p.className = "error";
-            document.getElementById('responses').appendChild(p);
+
             throw new Error('Fetching blogs failed');
         }
-    })
-        .catch(error => {
-            console.error('Fetching blogs error:', error);
-        });
+
+        const data = await response.json();
+        renderList(data);
+
+    } catch (error) {
+        console.error('Fetching blogs error:', error);
+    } finally {
+        hideLoader();
+    }
 }
 
 
@@ -534,9 +527,9 @@ window.onload = (async () => {
     const token = getToken();
     if (token) {
         try {
-            await decode(); // Wait for decoding to complete
-            if (token && myDecodedToken) { // Check if token and decoded token are available
-                loadListObject(); // Start loading the articles
+            await decode(); 
+            if (token && myDecodedToken) { 
+                loadListObject(); 
             } else {
                 console.error('Token or decoded token is not available.');
             }
@@ -548,11 +541,3 @@ window.onload = (async () => {
         loadListObject();
     }
 })();
-
-//window.onload = loadListObject();
-
-// document.addEventListener("readystatechange", (event) => {
-//     if (event.target.readyState === "complete") {
-//         renderList();
-//     }
-// });
